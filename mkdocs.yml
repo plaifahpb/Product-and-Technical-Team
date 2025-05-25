@@ -1,0 +1,45 @@
+
+site_name: Product and Technical Supports
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.integrate
+    - content.code.copy
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Equipment Setup:
+      - ภาพรวม: support/equipment/index.md
+      - วิธีติดตั้งกล้อง: support/equipment/camera.md
+      - การเชื่อมต่ออุปกรณ์: support/equipment/network.md
+  - Training & Guidance:
+      - ภาพรวม: support/training/index.md
+      - คู่มือการใช้งานเบื้องต้น: support/training/basic.md
+      - การฝึกอบรมเชิงลึก: support/training/advanced.md
+  - Software Support:
+      - ภาพรวม: support/software/index.md
+      - การติดตั้งโปรแกรม: support/software/install.md
+      - การอัปเดตเวอร์ชัน: support/software/update.md
+  - Hardware Support:
+      - ภาพรวม: support/hardware/index.md
+      - ตรวจสอบปัญหาเบื้องต้น: support/hardware/check.md
+      - Odometer Calibration:
+          - Certificate of Odometer Calibration: support/hardware/odometer/certificate.md
+          - Odometer Calibration: support/hardware/odometer/calibration.md
+          - Adding Vehicles in Romdas: support/hardware/odometer/adding-vehicles.md
+          - Set or Change the Default Vehicle: support/hardware/odometer/set-default.md
+          - Updating the Setting to Romdas Controller: support/hardware/odometer/update-setting.md
+
+  - Technical Solutions:
+      - ภาพรวม: support/technical/index.md
+      - ปัญหาที่พบบ่อย: support/technical/faq.md
+  - Manual:
+      - ภาพรวม: support/manual/index.md
+      - ดาวน์โหลดเอกสาร: support/manual/downloads.md
+      
+
