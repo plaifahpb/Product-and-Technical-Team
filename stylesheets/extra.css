@@ -26,5 +26,29 @@ h1, h2, h3 {
 .md-content {
   max-width: none;
 }
+/* ใช้กับ Dark mode เท่านั้น */
+[data-md-color-scheme="slate"] {
+  /* เปลี่ยนสีตัวหนังสือทั่วไปใน dark mode */
+  --md-default-fg-color: #f0f0f0;
+  --md-default-fg-color--light: #cccccc;
+  --md-typeset-color: #f0f0f0;
+
+  /* เปลี่ยนสีลิงก์ใน sidebar ที่เลือกอยู่ */
+  --md-accent-fg-color: #4FC3F7; /* สีฟ้าอ่อน */
+  --md-accent-bg-color: #1c1f26; /* สีพื้นหลังเวลาลิงก์ active */
+
+  /* เปลี่ยนสี background sidebar ให้ดูคลีน */
+  --md-sidebar-bg-color: #111111;
+
+  /* ตัวอักษรใน sidebar */
+  --md-primary-fg-color: #ffffff;
+}
+
+/* ปรับ active link ใน nav ให้เด่น */
+.md-nav__link--active {
+  font-weight: bold;
+  background-color: var(--md-accent-bg-color);
+  color: var(--md-accent-fg-color) !important;
+}
 
 
