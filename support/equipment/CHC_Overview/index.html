@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#chcnav-product-portfolio" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -344,6 +349,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -356,6 +376,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#precision-solutions-engineered-with-innovative-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Precision Solutions Engineered with Innovative Technologies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handheld-laser-scanners" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handheld Laser Scanners
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mobile-mapping-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mobile Mapping Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#surveying-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Surveying &amp; Engineering
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1209,59 +1293,76 @@
 
 
 
-  <h1>Overview</h1>
+<h1 id="chcnav-product-portfolio">CHCNAV Product Portfolio</h1>
+<h2 id="precision-solutions-engineered-with-innovative-technologies">Precision Solutions Engineered with Innovative Technologies</h2>
+<!-- Tabs -->
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+  <a href="#handheld" style="flex: 1 1 200px; text-align: center; background-color: #f47b20; color: white; padding: 0.75rem 1rem; border-radius: 8px; font-weight: bold; text-decoration: none;">Handheld Laser Scanners</a>
+  <a href="#mms" style="flex: 1 1 200px; text-align: center; background-color: #eee; color: #333; padding: 0.75rem 1rem; border-radius: 8px; font-weight: bold; text-decoration: none;">Mobile Mapping Systems</a>
+  <a href="#software" style="flex: 1 1 200px; text-align: center; background-color: #eee; color: #333; padding: 0.75rem 1rem; border-radius: 8px; font-weight: bold; text-decoration: none;">Software</a>
+  <a href="#surveying" style="flex: 1 1 200px; text-align: center; background-color: #eee; color: #333; padding: 0.75rem 1rem; border-radius: 8px; font-weight: bold; text-decoration: none;">Surveying & Engineering</a>
+</div>
 
-<h2 style="text-align: center;">CHCNAV Product Portfolio</h2>
-
-<div class="tab-container">
-  <div class="tab-header">
-    <button class="tab-btn active" onclick="openTab(event, 'tab1')">Handheld Laser Scanners</button>
-    <button class="tab-btn" onclick="openTab(event, 'tab2')">Mobile Mapping Systems</button>
-    <button class="tab-btn" onclick="openTab(event, 'tab3')">Software</button>
-    <button class="tab-btn" onclick="openTab(event, 'tab4')">Surveying & Engineering</button>
-  </div>
-
-  <div class="tab-content" id="tab1">
-    <img src="equipment/RS10/cover.png" alt="RS10" class="product-img">
+<hr />
+<h2 id="handheld-laser-scanners"><div id="handheld">Handheld Laser Scanners</div></h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+  <img src="../equipment/RS10/cover.png" alt="RS10" style="max-width: 250px;">
+  <div style="max-width: 500px;">
     <h3>CHCNAV RS10</h3>
     <p>Handheld SLAM 3D Laser Scanner + GNSS RTK</p>
-    <a href="equipment/3d_mobile_mapping/handheld/RS10.md" class="learn-more">Learn More →</a>
-  </div>
-
-  <div class="tab-content" id="tab2" style="display:none;">
-    <img src="equipment/AU20/cover.png" alt="AlphaUni 20" class="product-img">
-    <h3>CHCNAV AlphaUni 20</h3>
-    <p>Multi-platform Premium LiDAR</p>
-    <a href="equipment/3d_mobile_mapping/mms/AlphaUni20.md" class="learn-more">Learn More →</a>
-  </div>
-
-  <div class="tab-content" id="tab3" style="display:none;">
-    <img src="equipment/software/cover.png" alt="Software" class="product-img">
-    <h3>CHC Software</h3>
-    <p>Powerful mapping and data management tools.</p>
-    <a href="equipment/3d_mobile_mapping/software/index.md" class="learn-more">Learn More →</a>
-  </div>
-
-  <div class="tab-content" id="tab4" style="display:none;">
-    <img src="equipment/GNSS_P5E/cover.png" alt="P5E" class="product-img">
-    <h3>CHCNAV P5E</h3>
-    <p>GNSS Base Station + Surveying Tools</p>
-    <a href="equipment/surveying_engineering/index.md" class="learn-more">Learn More →</a>
+    <a href="../equipment/3d_mobile_mapping/handheld/RS10.md" style="background: #f47b20; color: white; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none;">Learn More →</a>
   </div>
 </div>
 
-<script>
-function openTab(evt, tabId) {
-  var contents = document.getElementsByClassName("tab-content");
-  var buttons = document.getElementsByClassName("tab-btn");
+<hr />
+<h2 id="mobile-mapping-systems"><div id="mms">Mobile Mapping Systems</div></h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+  <img src="../equipment/AU20/cover.png" alt="AU20" style="max-width: 250px;">
+  <div style="max-width: 500px;">
+    <h3>CHCNAV AlphaUni 20</h3>
+    <p>Premium Multi-Platform LiDAR System for drone, vehicle, and backpack mapping.</p>
+    <a href="../equipment/3d_mobile_mapping/mms/AlphaUni20.md" style="background: #f47b20; color: white; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none;">Learn More →</a>
+  </div>
+</div>
 
-  for (let content of contents) content.style.display = "none";
-  for (let btn of buttons) btn.classList.remove("active");
+<hr />
+<h2 id="software"><div id="software">Software</div></h2>
+<div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+  <!-- CoPre -->
+  <div style="width: 250px; text-align: center;">
+    <img src="../equipment/software/CoPre.png" alt="CoPre" style="width: 100%;">
+    <h4>CHCNAV CoPre</h4>
+    <p>LiDAR Processing Software</p>
+  </div>
+  <!-- CoProcess -->
+  <div style="width: 250px; text-align: center;">
+    <img src="../equipment/software/CoProcess.png" alt="CoProcess" style="width: 100%;">
+    <h4>CHCNAV CoProcess</h4>
+    <p>Advanced LiDAR Data Processing Software</p>
+  </div>
+</div>
 
-  document.getElementById(tabId).style.display = "block";
-  evt.currentTarget.classList.add("active");
-}
-</script>
+<hr />
+<h2 id="surveying-engineering"><div id="surveying">Surveying &amp; Engineering</div></h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+  <img src="../equipment/i73/cover.png" alt="i73+" style="max-width: 250px;">
+  <div style="max-width: 500px;">
+    <h3>CHCNAV i73+</h3>
+    <p>Compact GNSS Receiver for high-accuracy surveying and positioning in the field.</p>
+    <a href="../equipment/i73/index.md" style="background: #f47b20; color: white; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none;">Learn More →</a>
+  </div>
+</div>
+
+<div style="height: 2rem;"></div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+  <img src="../equipment/GNSS_P5E/cover.png" alt="P5E" style="max-width: 250px;">
+  <div style="max-width: 500px;">
+    <h3>CHCNAV P5E</h3>
+    <p>High-performance GNSS base station for RTK network or long-range surveying.</p>
+    <a href="../equipment/GNSS_P5E/index.md" style="background: #f47b20; color: white; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none;">Learn More →</a>
+  </div>
+</div>
 
 
 
