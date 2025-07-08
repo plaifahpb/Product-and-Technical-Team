@@ -1,15 +1,27 @@
-/* ===== ฟอนต์ Kanit ===== */
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
 
+/* ฟอนต์ Kanit */
 html, body, .md-typeset, .md-content, .md-main__inner {
   font-family: 'Kanit', sans-serif !important;
 }
-
 h1, h2, h3 {
   font-weight: 600;
 }
 
-/* ===== ขนาด Layout ===== */
+/* ปรับความกว้างของ sidebar ให้เหมือน Graffity */
+.md-sidebar {
+  width: 280px !important;
+  font-size: 15px;
+}
+.md-nav {
+  width: 280px !important;
+}
+.md-nav__title, .md-nav__link {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+
+/* ขยาย padding ซ้าย-ขวา เนื้อหา */
 .md-main__inner {
   max-width: none;
   margin: 0 auto;
@@ -19,64 +31,35 @@ h1, h2, h3 {
   max-width: none;
 }
 
-/* ===== Sidebar Light mode ===== */
+/* Navigation active */
+.md-nav__link--active {
+  color: #f47b20 !important;
+  font-weight: 600;
+  background-color: var(--md-accent-bg-color);
+}
+
+/* สีพื้น sidebar ใน light mode */
 .md-sidebar {
   background-color: #f7f7f7;
 }
 
-/* ===== Navigation Link ที่ Active ===== */
-.md-nav__link--active {
-  font-weight: 600;
-  color: #f47b20 !important;
-  background-color: var(--md-accent-bg-color);
-}
-
-/* ===== ปรับ sidebar ให้กว้างขึ้น ===== */
-.md-sidebar__inner {
-  max-width: 280px;
-}
-
-/* ===== ปักชื่อ Project ซ้ายบน ===== */
-.md-header__title {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  padding-left: 1rem;
-  font-weight: 600;
-}
-
-/* ===== ย้าย search box ไปด้านซ้าย ===== */
-.md-search {
-  position: absolute;
-  left: 280px; /* ชิดหลัง sidebar */
-  top: 0.5rem;
-  width: 300px;
-  z-index: 10000;
-}
-.md-search__inner {
-  width: 100%;
-}
-@media (max-width: 768px) {
-  .md-search {
-    position: static;
-    width: auto;
-    left: auto;
-  }
-}
-
-/* ===== DARK MODE ===== */
+/* ---- DARK MODE ---- */
 [data-md-color-scheme="slate"] {
   --md-default-fg-color: #ffffff;
   --md-default-fg-color--light: #cccccc;
   --md-typeset-color: #ffffff;
+
   --md-accent-fg-color: #4FC3F7;
   --md-accent-bg-color: #1c1f26;
+
   --md-sidebar-bg-color: #111111;
   --md-primary-fg-color: #ffffff;
+
+  /* header background สีดำแบบ Graffity */
+  --md-header-bg-color: #111111;
 }
 
-/* ตัวอักษรทั้งหมดให้ขาว */
+/* กำหนดให้ข้อความใน dark mode เป็นสีขาว */
 [data-md-color-scheme="slate"] .md-typeset,
 [data-md-color-scheme="slate"] .md-content,
 [data-md-color-scheme="slate"] p,
@@ -90,7 +73,7 @@ h1, h2, h3 {
   color: #ffffff !important;
 }
 
-/* เน้นสี inline style */
+/* แก้สีข้อความ inline ที่ใช้ style เดิม (color:...) */
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#ff0000"] {
   color: #ff6666 !important;
 }
@@ -99,11 +82,4 @@ h1, h2, h3 {
 }
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#7030a0"] {
   color: #d28fff !important;
-}
-
-/* Header สีเข้มขึ้น */
-[data-md-color-scheme="slate"] .md-header {
-  background-color: #1f1f1f !important;
-  box-shadow: none;
-  border-bottom: 1px solid #2a2a2a;
 }
