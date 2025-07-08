@@ -1,25 +1,18 @@
-function waitAndClickMenu(retries = 20) {
+function clickDrawerButton(attempts = 20) {
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
-  const allMenuButtons = document.querySelectorAll('button, .md-header__button, .md-icon--menu');
+  const menuBtn = document.querySelector('button[data-md-toggle="drawer"]');
 
-  for (const btn of allMenuButtons) {
-    const isMenuIcon = btn?.ariaLabel?.toLowerCase().includes('menu') || btn?.className?.includes('menu');
-    const isVisible = btn && btn.offsetParent !== null;
-    if (isMobile && isMenuIcon && isVisible) {
-      console.log("✅ Clicked menu via fallback method");
-      btn.click();
-      return;
-    }
-  }
-
-  if (retries > 0) {
-    console.log("⏳ Retrying to find menu button...");
-    setTimeout(() => waitAndClickMenu(retries - 1), 300);
+  if (isMobile && menuBtn && menuBtn.offsetParent !== null) {
+    console.log("✅ Found drawer button → clicking...");
+    menuBtn.click();
+  } else if (attempts > 0) {
+    console.log("⏳ Retrying to find drawer button...");
+    setTimeout(() => clickDrawerButton(attempts - 1), 300);
   } else {
-    console.warn("❌ Menu button not found.");
+    console.warn("❌ Drawer button not found after multiple retries.");
   }
 }
 
-window.addEventListener("load", () => {
-  waitAndClickMenu();
+window.addEventListener('load', () => {
+  clickDrawerButton();
 });
