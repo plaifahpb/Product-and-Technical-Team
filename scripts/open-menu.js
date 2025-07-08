@@ -7,7 +7,7 @@ function clickDrawerButton(attempts = 20) {
     menuBtn.click();
   } else if (attempts > 0) {
     console.log("⏳ Retrying to find drawer button...");
-    setTimeout(() => clickDrawerButton(attempts - 1), 300);
+    setTimeout(() => clickDrawerButton(attempts - 1), 300);  // ✅ ใช้ arrow function แทน string
   } else {
     console.warn("❌ Drawer button not found after multiple retries.");
   }
