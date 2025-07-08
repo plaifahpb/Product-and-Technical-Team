@@ -194,11 +194,6 @@ h1, h2, h3 {
   }
 }
 
-/* ปรับสีข้อความใน dark mode ให้เป็นสีขาว */
-[data-md-color-scheme="slate"] .product-card {
-  color: white !important;
-}
-
 
 
 
