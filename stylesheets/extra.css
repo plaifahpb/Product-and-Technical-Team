@@ -193,3 +193,48 @@ h1, h2, h3 {
     width: 100%;
   }
 }
+
+/* ✅ ป้องกัน text หายใน dark mode */
+[data-md-color-scheme="slate"] {
+  --md-typeset-color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .product-card,
+[data-md-color-scheme="slate"] .product-card * {
+  color: var(--md-typeset-color) !important;
+}
+
+/* ✅ ปรับ layout ของการ์ดให้สวยและ responsive */
+.product-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--md-default-bg-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.product-card img {
+  max-width: 250px;
+  height: auto;
+}
+
+.product-card .product-text {
+  max-width: 500px;
+}
+
+/* ✅ มือถือ: เรียงลงล่าง */
+@media (max-width: 768px) {
+  .product-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-card .product-text {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+}
