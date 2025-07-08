@@ -1,6 +1,4 @@
-/* ================================================
-   FONT: ใช้ฟอนต์ Kanit จาก Google Fonts
-================================================ */
+/* ===== ฟอนต์ Kanit ===== */
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
 
 html, body, .md-typeset, .md-content, .md-main__inner {
@@ -11,47 +9,74 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
-/* ================================================
-   LAYOUT ทั่วไป
-================================================ */
+/* ===== ขนาด Layout ===== */
 .md-main__inner {
   max-width: none;
   margin: 0 auto;
   padding: 0 2rem;
 }
-
 .md-content {
   max-width: none;
 }
 
-/* Sidebar - Light mode */
+/* ===== Sidebar Light mode ===== */
 .md-sidebar {
   background-color: #f7f7f7;
 }
 
-/* ลิงก์ที่เลือกอยู่ในเมนู (active) */
+/* ===== Navigation Link ที่ Active ===== */
 .md-nav__link--active {
   font-weight: 600;
   color: #f47b20 !important;
   background-color: var(--md-accent-bg-color);
 }
 
-/* ================================================
-   DARK MODE: Custom Slate Theme
-================================================ */
+/* ===== ปรับ sidebar ให้กว้างขึ้น ===== */
+.md-sidebar__inner {
+  max-width: 280px;
+}
+
+/* ===== ปักชื่อ Project ซ้ายบน ===== */
+.md-header__title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  padding-left: 1rem;
+  font-weight: 600;
+}
+
+/* ===== ย้าย search box ไปด้านซ้าย ===== */
+.md-search {
+  position: absolute;
+  left: 280px; /* ชิดหลัง sidebar */
+  top: 0.5rem;
+  width: 300px;
+  z-index: 10000;
+}
+.md-search__inner {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .md-search {
+    position: static;
+    width: auto;
+    left: auto;
+  }
+}
+
+/* ===== DARK MODE ===== */
 [data-md-color-scheme="slate"] {
-  /* พื้นหลัง + ตัวอักษร */
   --md-default-fg-color: #ffffff;
   --md-default-fg-color--light: #cccccc;
   --md-typeset-color: #ffffff;
-
   --md-accent-fg-color: #4FC3F7;
   --md-accent-bg-color: #1c1f26;
   --md-sidebar-bg-color: #111111;
   --md-primary-fg-color: #ffffff;
 }
 
-/* เนื้อหาทั้งหมดใน Dark mode เป็นสีขาว */
+/* ตัวอักษรทั้งหมดให้ขาว */
 [data-md-color-scheme="slate"] .md-typeset,
 [data-md-color-scheme="slate"] .md-content,
 [data-md-color-scheme="slate"] p,
@@ -65,7 +90,7 @@ h1, h2, h3 {
   color: #ffffff !important;
 }
 
-/* สีเน้นข้อความ inline (สีเดิมใน markdown) */
+/* เน้นสี inline style */
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#ff0000"] {
   color: #ff6666 !important;
 }
@@ -76,44 +101,9 @@ h1, h2, h3 {
   color: #d28fff !important;
 }
 
-/* ================================================
-   HEADER ด้านบน (Top App Bar)
-================================================ */
+/* Header สีเข้มขึ้น */
 [data-md-color-scheme="slate"] .md-header {
   background-color: #1f1f1f !important;
   box-shadow: none;
   border-bottom: 1px solid #2a2a2a;
-}
-
-/* ชื่อ Project บน Header */
-[data-md-color-scheme="slate"] .md-header__title {
-  color: #ffffff !important;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-/* ================================================
-   SIDEBAR
-================================================ */
-[data-md-color-scheme="slate"] .md-sidebar {
-  background-color: #1c1c1c !important;
-  border-right: 1px solid #2a2a2a;
-  padding-top: 1rem;
-}
-
-/* ปรับความกว้างของ sidebar */
-.md-sidebar__inner {
-  max-width: 280px;
-}
-
-/* ================================================
-   FIXED TOP LEFT TITLE: ปักชื่อ Project ซ้ายบน
-================================================ */
-.md-header__title {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  padding: 1rem;
-  background-color: #1f1f1f;
 }
