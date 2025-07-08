@@ -1,7 +1,8 @@
-/* ✅ โหลดฟอนต์ Kanit */
+/* ================================================
+   FONT: ใช้ฟอนต์ Kanit จาก Google Fonts
+================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
 
-/* ✅ ใช้ฟอนต์ Kanit */
 html, body, .md-typeset, .md-content, .md-main__inner {
   font-family: 'Kanit', sans-serif !important;
 }
@@ -10,50 +11,47 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
-/* ✅ ลิงก์ในเมนู sidebar ที่ active */
-.md-nav__link--active {
-  color: #f47b20 !important;
-  font-weight: 600;
-  background-color: var(--md-accent-bg-color);
-}
-
-/* ✅ Layout ปรับความกว้าง */
+/* ================================================
+   LAYOUT ทั่วไป
+================================================ */
 .md-main__inner {
   max-width: none;
   margin: 0 auto;
   padding: 0 2rem;
 }
+
 .md-content {
   max-width: none;
 }
 
-/* ✅ Sidebar (Light mode) */
+/* Sidebar - Light mode */
 .md-sidebar {
   background-color: #f7f7f7;
-  width: 300px;        /* กำหนดความกว้างใหม่ */
-  min-width: 280px;
-}
-.md-sidebar__scrollwrap {
-  width: 100%;
 }
 
-/* ✅ เนื้อหาหลักปรับให้รู้ว่า sidebar กว้างขึ้น */
-.md-main__inner {
-  margin-left: 300px !important;
+/* ลิงก์ที่เลือกอยู่ในเมนู (active) */
+.md-nav__link--active {
+  font-weight: 600;
+  color: #f47b20 !important;
+  background-color: var(--md-accent-bg-color);
 }
 
-/* ✅ Dark Mode ปรับสี */
+/* ================================================
+   DARK MODE: Custom Slate Theme
+================================================ */
 [data-md-color-scheme="slate"] {
+  /* พื้นหลัง + ตัวอักษร */
   --md-default-fg-color: #ffffff;
   --md-default-fg-color--light: #cccccc;
   --md-typeset-color: #ffffff;
+
   --md-accent-fg-color: #4FC3F7;
   --md-accent-bg-color: #1c1f26;
   --md-sidebar-bg-color: #111111;
   --md-primary-fg-color: #ffffff;
 }
 
-/* ✅ สีตัวอักษรทั้งหมดใน dark mode */
+/* เนื้อหาทั้งหมดใน Dark mode เป็นสีขาว */
 [data-md-color-scheme="slate"] .md-typeset,
 [data-md-color-scheme="slate"] .md-content,
 [data-md-color-scheme="slate"] p,
@@ -67,7 +65,7 @@ h1, h2, h3 {
   color: #ffffff !important;
 }
 
-/* ✅ เน้นข้อความที่มี inline style ใน dark mode */
+/* สีเน้นข้อความ inline (สีเดิมใน markdown) */
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#ff0000"] {
   color: #ff6666 !important;
 }
@@ -78,15 +76,44 @@ h1, h2, h3 {
   color: #d28fff !important;
 }
 
-/* ✅ Fix หัว "Product and Technical Supports" ให้ติดบนซ้าย */
-.md-nav__title {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: var(--md-sidebar-bg-color);
-  padding: 1rem;
-  font-weight: bold;
+/* ================================================
+   HEADER ด้านบน (Top App Bar)
+================================================ */
+[data-md-color-scheme="slate"] .md-header {
+  background-color: #1f1f1f !important;
+  box-shadow: none;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* ชื่อ Project บน Header */
+[data-md-color-scheme="slate"] .md-header__title {
+  color: #ffffff !important;
+  font-weight: 600;
   font-size: 1rem;
-  color: var(--md-primary-fg-color);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ================================================
+   SIDEBAR
+================================================ */
+[data-md-color-scheme="slate"] .md-sidebar {
+  background-color: #1c1c1c !important;
+  border-right: 1px solid #2a2a2a;
+  padding-top: 1rem;
+}
+
+/* ปรับความกว้างของ sidebar */
+.md-sidebar__inner {
+  max-width: 280px;
+}
+
+/* ================================================
+   FIXED TOP LEFT TITLE: ปักชื่อ Project ซ้ายบน
+================================================ */
+.md-header__title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  padding: 1rem;
+  background-color: #1f1f1f;
 }
