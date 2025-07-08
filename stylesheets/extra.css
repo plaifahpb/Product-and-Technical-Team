@@ -56,7 +56,7 @@ h1, h2, h3 {
   --md-primary-fg-color: #ffffff;
 
   /* header background สีดำแบบ Graffity */
-  --md-header-bg-color: #111111;
+  --md-header-bg-color: #000000;
 }
 
 /* กำหนดให้ข้อความใน dark mode เป็นสีขาว */
