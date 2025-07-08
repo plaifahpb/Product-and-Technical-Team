@@ -59,3 +59,42 @@ h1, h2, h3 {
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#7030a0"] {
   color: #d28fff !important;
 }
+
+/* === DARK MODE: ปรับ header, sidebar, tab ให้เหมือน Graffity === */
+
+/* Header bar */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-header__inner {
+  background-color: #1b1e23 !important;
+  color: #ffffff !important;
+}
+
+/* Sidebar background */
+[data-md-color-scheme="slate"] .md-sidebar {
+  background-color: #111111 !important;
+}
+
+/* Navigation link active */
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  background-color: var(--md-accent-bg-color) !important;
+  color: var(--md-accent-fg-color) !important;
+  font-weight: bold;
+  border-left: 3px solid var(--md-accent-fg-color);
+}
+
+/* Navigation hover effect */
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  background-color: #2c3038;
+  color: var(--md-accent-fg-color) !important;
+}
+
+/* Breadcrumb text */
+[data-md-color-scheme="slate"] .md-typeset__breadcrumb {
+  color: #aaaaaa !important;
+}
+
+/* Optional: highlight current section TOC */
+[data-md-color-scheme="slate"] .md-nav__item--active > .md-nav__link {
+  background-color: #2f3540 !important;
+  border-left: 2px solid #4FC3F7;
+}
