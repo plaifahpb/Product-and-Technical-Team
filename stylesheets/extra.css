@@ -98,3 +98,12 @@ h1, h2, h3 {
   color: #ffffff !important;
   border: none;
 }
+
+/* คืนค่าขนาด search bar เป็นค่าเริ่มต้นปกติใน dark mode */
+[data-md-color-scheme="slate"] .md-search__form {
+  max-width: 300px !important;
+  margin-left: auto;
+  margin-right: 0;
+  background-color: #1e1e1e !important;
+  border-radius: 4px;
+}
