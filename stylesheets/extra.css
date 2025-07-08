@@ -1,24 +1,20 @@
-/* โหลดฟอนต์ Kanit */
+
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
 
-/* ฟอนต์เริ่มต้น */
 html, body, .md-typeset, .md-content, .md-main__inner {
   font-family: 'Kanit', sans-serif !important;
 }
 
-/* ขนาดตัวหนาให้หัวข้อ */
 h1, h2, h3 {
   font-weight: 600;
 }
 
-/* ลิงก์ที่ active ใน navbar */
 .md-nav__link--active {
   color: #f47b20 !important;
   font-weight: 600;
   background-color: var(--md-accent-bg-color);
 }
 
-/* Layout */
 .md-main__inner {
   max-width: none;
   margin: 0 auto;
@@ -28,26 +24,20 @@ h1, h2, h3 {
   max-width: none;
 }
 
-/* Light mode sidebar */
 .md-sidebar {
   background-color: #f7f7f7;
 }
 
-/* ---- DARK MODE ---- */
 [data-md-color-scheme="slate"] {
-  /* ฟอนต์ทั่วไป */
   --md-default-fg-color: #ffffff;
   --md-default-fg-color--light: #cccccc;
   --md-typeset-color: #ffffff;
-
-  /* ลิงก์ + สี sidebar */
   --md-accent-fg-color: #4FC3F7;
   --md-accent-bg-color: #1c1f26;
   --md-sidebar-bg-color: #111111;
   --md-primary-fg-color: #ffffff;
 }
 
-/* ให้ข้อความใน dark mode เป็นสีขาวทั้งหมด */
 [data-md-color-scheme="slate"] .md-typeset,
 [data-md-color-scheme="slate"] .md-typeset *,
 [data-md-color-scheme="slate"] .md-content,
@@ -62,13 +52,12 @@ h1, h2, h3 {
   color: #ffffff !important;
 }
 
-/* ✅ Inline color fix (dark mode) */
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#ff0000"] {
-  color: #ff6666 !important; /* สีแดงอ่อน */
+  color: #ff6666 !important;
 }
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#00b050"] {
-  color: #00ff66 !important; /* สีเขียวอ่อน */
+  color: #00ff66 !important;
 }
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#7030a0"] {
-  color: #d28fff !important; /* สีม่วงอ่อน */
+  color: #d28fff !important;
 }
