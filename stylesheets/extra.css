@@ -108,3 +108,91 @@ h1, h2, h3 {
   border-radius: 4px;
 }
 
+/* ==== RESPONSIVE สำหรับมือถือ ==== */
+@media (max-width: 768px) {
+  .md-typeset .product-section {
+    display: flex;
+    flex-direction: column !important;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .md-typeset .product-section img {
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 1rem;
+  }
+
+  .md-typeset .product-section .text-content {
+    margin-left: 0 !important;
+  }
+}
+
+.tab-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tab-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.tab-btn {
+  background: #f0f0f0;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  margin: 0.3rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.tab-btn.active {
+  background-color: #f47b20;
+  color: white;
+}
+
+.tab-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.product-img {
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+
+.learn-more {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #f47b20;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .product-img {
+    width: 100%;
+  }
+
+  .tab-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tab-btn {
+    width: 100%;
+  }
+}
+
+
+

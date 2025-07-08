@@ -73,11 +73,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#chcnav-product-portfolio" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -348,8 +343,6 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
-      
-        
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
@@ -1216,64 +1209,57 @@
 
 
 
-<h1 id="chcnav-product-portfolio">CHCNAV Product Portfolio</h1>
-<!-- เรียกใช้ CSS (แนะนำให้เพิ่มลงใน extra.css ถาวร) -->
-<style>
-.tab-container {
-  display: flex;
-  margin-bottom: 1rem;
-}
-.tab {
-  padding: 0.6rem 1.2rem;
-  background: #eee;
-  margin-right: 0.5rem;
-  cursor: pointer;
-  border-radius: 6px 6px 0 0;
-  font-weight: 600;
-}
-.tab.active {
-  background: #f47b20;
-  color: white;
-}
-.tab-content {
-  display: none;
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  border-radius: 0 6px 6px 6px;
-}
-.tab-content.active {
-  display: block;
-}
-</style>
+  <h1>Overview</h1>
 
-<!-- ปุ่มแท็บ -->
+<h2 style="text-align: center;">CHCNAV Product Portfolio</h2>
+
 <div class="tab-container">
-  <div class="tab active" onclick="showTab('tab1')">3D Mobile Mapping</div>
-  <div class="tab" onclick="showTab('tab2')">Surveying & Engineering</div>
-</div>
+  <div class="tab-header">
+    <button class="tab-btn active" onclick="openTab(event, 'tab1')">Handheld Laser Scanners</button>
+    <button class="tab-btn" onclick="openTab(event, 'tab2')">Mobile Mapping Systems</button>
+    <button class="tab-btn" onclick="openTab(event, 'tab3')">Software</button>
+    <button class="tab-btn" onclick="openTab(event, 'tab4')">Surveying & Engineering</button>
+  </div>
 
-<!-- เนื้อหาแท็บ -->
-<div id="tab1" class="tab-content active">
-  - [CHCNAV RS10](../equipment/3d_mobile_mapping/handheld/RS10.md)  
-  - [CHCNAV AlphaUni 20](../equipment/3d_mobile_mapping/mms/AlphaUni20.md)  
-  - [CHC Software](../equipment/3d_mobile_mapping/software/index.md)
-</div>
+  <div class="tab-content" id="tab1">
+    <img src="equipment/RS10/cover.png" alt="RS10" class="product-img">
+    <h3>CHCNAV RS10</h3>
+    <p>Handheld SLAM 3D Laser Scanner + GNSS RTK</p>
+    <a href="equipment/3d_mobile_mapping/handheld/RS10.md" class="learn-more">Learn More →</a>
+  </div>
 
-<div id="tab2" class="tab-content">
-  - [GNSS Smart Antennas](../equipment/surveying_engineering/gnss_smart_antennas.md)  
-  - [Controllers & Tablets](../equipment/surveying_engineering/controllers_tablets.md)  
-  - [Surveying & Mapping Software](../equipment/surveying_engineering/survey_mapping_software.md)  
-  - [GNSS Sensors](../equipment/surveying_engineering/gnss_sensors.md)  
-  - [GNSS Antennas](../equipment/surveying_engineering/gnss_antennas.md)
+  <div class="tab-content" id="tab2" style="display:none;">
+    <img src="equipment/AU20/cover.png" alt="AlphaUni 20" class="product-img">
+    <h3>CHCNAV AlphaUni 20</h3>
+    <p>Multi-platform Premium LiDAR</p>
+    <a href="equipment/3d_mobile_mapping/mms/AlphaUni20.md" class="learn-more">Learn More →</a>
+  </div>
+
+  <div class="tab-content" id="tab3" style="display:none;">
+    <img src="equipment/software/cover.png" alt="Software" class="product-img">
+    <h3>CHC Software</h3>
+    <p>Powerful mapping and data management tools.</p>
+    <a href="equipment/3d_mobile_mapping/software/index.md" class="learn-more">Learn More →</a>
+  </div>
+
+  <div class="tab-content" id="tab4" style="display:none;">
+    <img src="equipment/GNSS_P5E/cover.png" alt="P5E" class="product-img">
+    <h3>CHCNAV P5E</h3>
+    <p>GNSS Base Station + Surveying Tools</p>
+    <a href="equipment/surveying_engineering/index.md" class="learn-more">Learn More →</a>
+  </div>
 </div>
 
 <script>
-function showTab(tabId) {
-  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
-  document.getElementById(tabId).classList.add('active');
-  event.target.classList.add('active');
+function openTab(evt, tabId) {
+  var contents = document.getElementsByClassName("tab-content");
+  var buttons = document.getElementsByClassName("tab-btn");
+
+  for (let content of contents) content.style.display = "none";
+  for (let btn of buttons) btn.classList.remove("active");
+
+  document.getElementById(tabId).style.display = "block";
+  evt.currentTarget.classList.add("active");
 }
 </script>
 
