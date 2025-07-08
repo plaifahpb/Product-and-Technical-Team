@@ -1,5 +1,7 @@
+/* ✅ โหลดฟอนต์ Kanit */
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
 
+/* ✅ ใช้ฟอนต์ Kanit */
 html, body, .md-typeset, .md-content, .md-main__inner {
   font-family: 'Kanit', sans-serif !important;
 }
@@ -8,12 +10,14 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
+/* ✅ ลิงก์ในเมนู sidebar ที่ active */
 .md-nav__link--active {
   color: #f47b20 !important;
   font-weight: 600;
   background-color: var(--md-accent-bg-color);
 }
 
+/* ✅ Layout ปรับความกว้าง */
 .md-main__inner {
   max-width: none;
   margin: 0 auto;
@@ -23,10 +27,22 @@ h1, h2, h3 {
   max-width: none;
 }
 
+/* ✅ Sidebar (Light mode) */
 .md-sidebar {
   background-color: #f7f7f7;
+  width: 300px;        /* กำหนดความกว้างใหม่ */
+  min-width: 280px;
+}
+.md-sidebar__scrollwrap {
+  width: 100%;
 }
 
+/* ✅ เนื้อหาหลักปรับให้รู้ว่า sidebar กว้างขึ้น */
+.md-main__inner {
+  margin-left: 300px !important;
+}
+
+/* ✅ Dark Mode ปรับสี */
 [data-md-color-scheme="slate"] {
   --md-default-fg-color: #ffffff;
   --md-default-fg-color--light: #cccccc;
@@ -37,6 +53,7 @@ h1, h2, h3 {
   --md-primary-fg-color: #ffffff;
 }
 
+/* ✅ สีตัวอักษรทั้งหมดใน dark mode */
 [data-md-color-scheme="slate"] .md-typeset,
 [data-md-color-scheme="slate"] .md-content,
 [data-md-color-scheme="slate"] p,
@@ -50,6 +67,7 @@ h1, h2, h3 {
   color: #ffffff !important;
 }
 
+/* ✅ เน้นข้อความที่มี inline style ใน dark mode */
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#ff0000"] {
   color: #ff6666 !important;
 }
@@ -60,41 +78,15 @@ h1, h2, h3 {
   color: #d28fff !important;
 }
 
-/* === DARK MODE: ปรับ header, sidebar, tab ให้เหมือน Graffity === */
-
-/* Header bar */
-[data-md-color-scheme="slate"] .md-header,
-[data-md-color-scheme="slate"] .md-header__inner {
-  background-color: #1b1e23 !important;
-  color: #ffffff !important;
-}
-
-/* Sidebar background */
-[data-md-color-scheme="slate"] .md-sidebar {
-  background-color: #111111 !important;
-}
-
-/* Navigation link active */
-[data-md-color-scheme="slate"] .md-nav__link--active {
-  background-color: var(--md-accent-bg-color) !important;
-  color: var(--md-accent-fg-color) !important;
+/* ✅ Fix หัว "Product and Technical Supports" ให้ติดบนซ้าย */
+.md-nav__title {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--md-sidebar-bg-color);
+  padding: 1rem;
   font-weight: bold;
-  border-left: 3px solid var(--md-accent-fg-color);
-}
-
-/* Navigation hover effect */
-[data-md-color-scheme="slate"] .md-nav__link:hover {
-  background-color: #2c3038;
-  color: var(--md-accent-fg-color) !important;
-}
-
-/* Breadcrumb text */
-[data-md-color-scheme="slate"] .md-typeset__breadcrumb {
-  color: #aaaaaa !important;
-}
-
-/* Optional: highlight current section TOC */
-[data-md-color-scheme="slate"] .md-nav__item--active > .md-nav__link {
-  background-color: #2f3540 !important;
-  border-left: 2px solid #4FC3F7;
+  font-size: 1rem;
+  color: var(--md-primary-fg-color);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
