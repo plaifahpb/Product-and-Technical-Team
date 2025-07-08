@@ -1,18 +1,18 @@
-function clickMenuManually(attempts = 20) {
+function openSidebar(attempts = 20) {
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
-  const menuBtn = document.querySelector('.md-header__button.md-icon--menu');
+  const menuBtn = document.querySelector('[title="Toggle navigation"]');
 
   if (isMobile && menuBtn && menuBtn.offsetParent !== null) {
-    console.log("✅ Clicked real menu button");
+    console.log("✅ Sidebar menu found and clicked.");
     menuBtn.click();
   } else if (attempts > 0) {
-    console.log("⏳ Still waiting for menu button...");
-    setTimeout(() => clickMenuManually(attempts - 1), 300);
+    console.log("⏳ Waiting for sidebar menu button...");
+    setTimeout(() => openSidebar(attempts - 1), 300);
   } else {
-    console.warn("❌ Could not find menu button.");
+    console.warn("❌ Sidebar menu not found.");
   }
 }
 
-window.addEventListener('load', () => {
-  clickMenuManually();
+window.addEventListener("load", () => {
+  openSidebar();
 });
