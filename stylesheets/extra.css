@@ -29,9 +29,9 @@ h1, h2, h3 {
 /* ใช้กับ Dark mode เท่านั้น */
 [data-md-color-scheme="slate"] {
   /* เปลี่ยนสีตัวหนังสือทั่วไปใน dark mode */
-  --md-default-fg-color: #f0f0f0;
+  --md-default-fg-color: #FFFFFF;
   --md-default-fg-color--light: #cccccc;
-  --md-typeset-color: #f0f0f0;
+  --md-typeset-color: #FFFFFF;
 
   /* เปลี่ยนสีลิงก์ใน sidebar ที่เลือกอยู่ */
   --md-accent-fg-color: #4FC3F7; /* สีฟ้าอ่อน */
@@ -49,6 +49,21 @@ h1, h2, h3 {
   font-weight: bold;
   background-color: var(--md-accent-bg-color);
   color: var(--md-accent-fg-color) !important;
+}
+
+/* กำหนดให้ทุกข้อความในเนื้อหา Dark Mode เป็นสีขาว */
+[data-md-color-scheme="slate"] .md-typeset,
+[data-md-color-scheme="slate"] .md-typeset *,
+[data-md-color-scheme="slate"] .md-content,
+[data-md-color-scheme="slate"] p,
+[data-md-color-scheme="slate"] div,
+[data-md-color-scheme="slate"] h1,
+[data-md-color-scheme="slate"] h2,
+[data-md-color-scheme="slate"] h3,
+[data-md-color-scheme="slate"] h4,
+[data-md-color-scheme="slate"] th,
+[data-md-color-scheme="slate"] td {
+  color: #ffffff !important;
 }
 
 
