@@ -5,7 +5,7 @@ html, body, .md-typeset, .md-content, .md-main__inner {
   font-family: 'Kanit', sans-serif !important;
 }
 h1, h2, h3 {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* ปรับความกว้างของ sidebar */
@@ -95,26 +95,25 @@ h1, h2, h3 {
 .tab-header {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  padding: 1rem 0 0.5rem;
+  gap: 2rem;
+  padding: 1rem 0 0.25rem;
   margin-bottom: 1rem;
-  font-size: 0.9rem; /* ✅ ลดขนาดฟอนต์ */
-  font-weight: 500;
-  border-bottom: 1px solid #e0e0e0;
-  flex-wrap: wrap; /* ✅ ตัด scrollbar ออก */
-  overflow-x: visible;
+  font-size: 0.92rem;
+  font-weight: 400; /* ✅ ไม่ใช้ bold */
+  border-bottom: 1px solid #ddd;
+  flex-wrap: wrap;
+  white-space: nowrap;
 }
 
 .tab-btn {
-  all: unset; /* ✅ ลบ style ลิงก์ */
+  all: unset;
   cursor: pointer;
-  font-family: inherit;
+  font-family: 'Segoe UI', 'Roboto', sans-serif; /* ✅ ไม่ใช้ Kanit */
   font-size: inherit;
-  color: #333; /* ✅ สีเทาเข้มปกติ */
-  padding: 0.4rem 0;
+  color: #333; /* ✅ เทาเข้ม */
+  padding: 0.25rem 0;
   position: relative;
   transition: all 0.2s ease;
-  white-space: nowrap;
 }
 
 .tab-btn:hover {
@@ -131,8 +130,8 @@ h1, h2, h3 {
   bottom: -4px;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: #f47b20;
+  height: 2px; /* ✅ ขีดบาง */
+  background-color: #f47b20;
   border-radius: 1px;
 }
 
