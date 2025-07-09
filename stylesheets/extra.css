@@ -196,3 +196,91 @@ h1, h2, h3 {
     max-width: 250px;
   }
 }
+
+/* Modern Tab Section */
+.modern-tab-wrapper {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.modern-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.modern-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.modern-tab {
+  background: #f0f0f0;
+  color: #333;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+.modern-tab:hover,
+.modern-tab.active {
+  background: #f47b20;
+  color: white;
+}
+
+/* Modern Card */
+.modern-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  padding: 2rem;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto 3rem auto;
+}
+.modern-image {
+  max-width: 250px;
+  height: auto;
+}
+.modern-text {
+  max-width: 500px;
+  text-align: left;
+}
+.modern-text h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.modern-text p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+.modern-button {
+  display: inline-block;
+  background: #f47b20;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.modern-button:hover {
+  background: #d56313;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modern-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .modern-text {
+    text-align: center;
+  }
+}
