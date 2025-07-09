@@ -91,36 +91,34 @@ h1, h2, h3 {
   border-radius: 4px;
 }
 
-/* Tabs อยู่แถวเดียว */
+/* --- แท็บแนวนอนแบบใหม่ (เหมือนภาพด้านขวา) --- */
 .tab-header {
   display: flex;
-  flex-wrap: nowrap !important;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  gap: 0.5rem;
   justify-content: center;
-  padding: 1rem;
-  max-width: 100%;
-  box-sizing: border-box;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 1rem;
+  gap: 2rem;
+  padding-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
 .tab-btn {
-  flex: 1 0 22%;               /* ✅ แบ่งเท่า ๆ กัน (4 ปุ่ม = ~25% - margin) */
-  max-width: 240px;            /* ✅ จำกัดไม่ให้ใหญ่เกิน */
-  white-space: nowrap;
-  text-align: center;
-  background: #f0f0f0;
+  background: none;
   border: none;
-  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  padding: 0.5rem 0;
   cursor: pointer;
-  margin: 0.3rem;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: 0.3s ease;
+  color: #333;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
 }
-
+.tab-btn:hover {
+  color: #f47b20;
+}
 .tab-btn.active {
-  background-color: #f47b20;
-  color: white;
+  color: #f47b20;
+  font-weight: 600;
+  border-bottom: 3px solid #f47b20;
 }
 
 /* Tab Container */
