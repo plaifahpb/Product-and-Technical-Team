@@ -97,10 +97,10 @@ h1, h2, h3 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 1.5rem;
-  border-bottom: 2px solid #eee;
-  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e0e0e0;
   padding-bottom: 0.5rem;
-  font-size: 0.95rem; /* ✅ ลดขนาด */
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
@@ -111,11 +111,11 @@ h1, h2, h3 {
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
-  font-weight: 500;
-  color: #333;
-  border-bottom: 3px solid transparent;
-  transition: all 0.2s ease-in-out;
+  color: #333; /* ✅ สีดำปกติ */
   text-decoration: none;
+  border-bottom: 3px solid transparent;
+  padding: 0.3rem 0;
+  transition: all 0.2s ease-in-out;
 }
 
 .tab-btn:hover {
@@ -123,9 +123,9 @@ h1, h2, h3 {
 }
 
 .tab-btn.active {
-  color: #f47b20;
+  color: #f47b20;                /* ✅ สีส้มเมื่อเลือก */
+  border-bottom: 3px solid #f47b20; /* ✅ เส้นใต้ */
   font-weight: 600;
-  border-bottom: 3px solid #f47b20;
 }
 
 

@@ -1297,9 +1297,9 @@
 <h2 id="3d-reality-capture-solutions">3D Reality Capture Solutions</h2>
 <div class="tab-header">
   <a href="#handheld" class="tab-btn active">Handheld Laser Scanners</a>
-  <a href="#mobile" class="tab-btn active">Mobile Mapping Systems</a>
-  <a href="#software" class="tab-btn active">Software</a>
-  <a href="#survey" class="tab-btn active">Surveying & Engineering</a>
+  <a href="#mobile" class="tab-btn">Mobile Mapping Systems</a>
+  <a href="#software" class="tab-btn">Software</a>
+  <a href="#survey" class="tab-btn">Surveying & Engineering</a>
 </div>
 
 <hr />
@@ -1373,6 +1373,17 @@
     <a href="../equipment/GNSS_P5E/index.md" style="background: #f47b20; color: white; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none;">Learn More →</a>
   </div>
 </div>
+
+<hr />
+<script>
+  const tabLinks = document.querySelectorAll('.tab-btn');
+  tabLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      tabLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+</script>
 
 
 
