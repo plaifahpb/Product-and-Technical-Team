@@ -95,24 +95,26 @@ h1, h2, h3 {
 .tab-header {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 1rem 0 0.5rem;
-  border-bottom: 1px solid #e0e0e0;
-  margin-bottom: 1.5rem;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem; /* ✅ ลดขนาดฟอนต์ */
   font-weight: 500;
-  white-space: nowrap;
+  border-bottom: 1px solid #e0e0e0;
+  flex-wrap: wrap; /* ✅ ตัด scrollbar ออก */
+  overflow-x: visible;
 }
 
 .tab-btn {
-  all: unset;
+  all: unset; /* ✅ ลบ style ลิงก์ */
   cursor: pointer;
-  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  color: #333; /* ✅ สีเทาเข้มปกติ */
+  padding: 0.4rem 0;
   position: relative;
-  padding: 0.5rem 0;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .tab-btn:hover {
@@ -126,13 +128,14 @@ h1, h2, h3 {
 .tab-btn.active::after {
   content: "";
   position: absolute;
+  bottom: -4px;
   left: 0;
-  bottom: 0;
-  height: 3px;
   width: 100%;
-  background-color: #f47b20;
-  border-radius: 2px;
+  height: 3px;
+  background: #f47b20;
+  border-radius: 1px;
 }
+
 
 /* Tab Container */
 .tab-container {
