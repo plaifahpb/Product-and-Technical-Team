@@ -38,21 +38,29 @@ h1, h2, h3 {
   background-color: var(--md-accent-bg-color);
 }
 
-/* ====== Tab Header Style ====== */
-.tab-header {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 0 0.25rem;
-  margin-bottom: 1rem;
-  font-size: 0.92rem;
-  font-weight: 400;
-  border-bottom: 1px solid #ddd;
-  flex-wrap: wrap;
-  white-space: nowrap;
+/* ปรับสไตล์ลิงก์แท็บทั้งหมด */
+.tab-header a {
+  color: #333333; /* สีเทาเข้ม */
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  transition: color 0.3s;
 }
 
-.tab-header a {
+/* ถ้า hover ให้ขยับสีเล็กน้อย */
+.tab-header a:hover {
+  color: #f47b20;
+}
+
+/* Active tab: สีส้มและเส้นใต้ */
+.tab-header a.active {
+  color: #f47b20;
+  border-bottom: 3px solid #f47b20;
+}
+
+
+.tab-btn {
   all: unset;
   cursor: pointer;
   font-family: 'Segoe UI', 'Roboto', sans-serif;
@@ -62,13 +70,16 @@ h1, h2, h3 {
   position: relative;
   transition: all 0.2s ease;
 }
-.tab-header a:hover {
+
+.tab-btn:hover {
   color: #f47b20;
 }
-.tab-header a.active {
+
+.tab-btn.active {
   color: #f47b20;
 }
-.tab-header a.active::after {
+
+.tab-btn.active::after {
   content: "";
   position: absolute;
   bottom: -4px;
@@ -141,7 +152,7 @@ h1, h2, h3 {
   background: #d56313;
 }
 
-/* ====== Fixed Section ====== */
+/* ====== Fixed Section (สำหรับเนื้อหาอื่น) ====== */
 .fixed-section {
   width: 800px;
   max-width: 100%;
@@ -161,7 +172,7 @@ h1, h2, h3 {
   color: var(--md-typeset-color);
 }
 
-/* ====== DARK MODE ====== */
+/* ====== DARK MODE CUSTOM ====== */
 [data-md-color-scheme="slate"] {
   --md-default-fg-color: #ffffff;
   --md-default-fg-color--light: #cccccc;
@@ -172,6 +183,8 @@ h1, h2, h3 {
   --md-primary-fg-color: #ffffff;
   --md-header-bg-color: #000000;
 }
+
+/* Dark text */
 [data-md-color-scheme="slate"] .md-typeset,
 [data-md-color-scheme="slate"] .md-content,
 [data-md-color-scheme="slate"] p,
@@ -184,9 +197,13 @@ h1, h2, h3 {
 [data-md-color-scheme="slate"] td {
   color: #ffffff !important;
 }
+
+/* inline override */
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#ff0000"] { color: #ff6666 !important; }
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#00b050"] { color: #00ff66 !important; }
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#7030a0"] { color: #d28fff !important; }
+
+/* Header และ Search */
 [data-md-color-scheme="slate"] .md-header,
 [data-md-color-scheme="slate"] .md-header__inner {
   background-color: #1c1f26 !important;
@@ -223,25 +240,5 @@ h1, h2, h3 {
   .fixed-section img {
     width: 100%;
     max-width: 250px;
-  }
-
-  /* ✅ Horizontal Scroll Tabs on Mobile */
-  .tab-header {
-    overflow-x: auto;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    padding: 0.5rem 1rem;
-    gap: 1.5rem;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .tab-header::-webkit-scrollbar {
-    display: none; /* ซ่อน scrollbar */
-  }
-
-  .tab-header a {
-    flex: 0 0 auto;
-    min-width: max-content;
   }
 }
