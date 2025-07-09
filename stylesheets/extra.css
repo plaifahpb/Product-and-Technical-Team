@@ -8,13 +8,10 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
-/* ปรับความกว้างของ sidebar ให้เหมือน Graffity */
-.md-sidebar {
+/* ปรับความกว้างของ sidebar */
+.md-sidebar, .md-nav {
   width: 280px !important;
   font-size: 15px;
-}
-.md-nav {
-  width: 280px !important;
 }
 .md-nav__title, .md-nav__link {
   padding-left: 1.2rem;
@@ -48,14 +45,10 @@ h1, h2, h3 {
   --md-default-fg-color: #ffffff;
   --md-default-fg-color--light: #cccccc;
   --md-typeset-color: #ffffff;
-
   --md-accent-fg-color: #4FC3F7;
   --md-accent-bg-color: #1c1f26;
-
   --md-sidebar-bg-color: #111111;
   --md-primary-fg-color: #ffffff;
-
-  /* header background สีดำแบบ Graffity */
   --md-header-bg-color: #000000;
 }
 
@@ -73,7 +66,7 @@ h1, h2, h3 {
   color: #ffffff !important;
 }
 
-/* แก้สีข้อความ inline ที่ใช้ style เดิม (color:...) */
+/* Inline color overrides */
 [data-md-color-scheme="slate"] .md-typeset span[style*="color:#ff0000"] {
   color: #ff6666 !important;
 }
@@ -84,14 +77,13 @@ h1, h2, h3 {
   color: #d28fff !important;
 }
 
-/* Header ดำเฉพาะในโหมด Dark */
+/* Header และ Search */
 [data-md-color-scheme="slate"] .md-header,
 [data-md-color-scheme="slate"] .md-header__inner {
-  background-color: #1c1f26 !important;  /* เท่ากับ bg */
+  background-color: #1c1f26 !important;
   color: #ffffff !important;
 }
 
-/* ปรับสีของช่อง Search เฉพาะ dark */
 [data-md-color-scheme="slate"] .md-search__input,
 [data-md-color-scheme="slate"] .md-search__icon {
   background-color: transparent !important;
@@ -99,7 +91,6 @@ h1, h2, h3 {
   border: none;
 }
 
-/* คืนค่าขนาด search bar เป็นค่าเริ่มต้นปกติใน dark mode */
 [data-md-color-scheme="slate"] .md-search__form {
   max-width: 300px !important;
   margin-left: auto;
@@ -108,7 +99,7 @@ h1, h2, h3 {
   border-radius: 4px;
 }
 
-/* ==== RESPONSIVE สำหรับมือถือ ==== */
+/* ==== RESPONSIVE PRODUCT SECTION ==== */
 @media (max-width: 768px) {
   .md-typeset .product-section {
     display: flex;
@@ -126,8 +117,32 @@ h1, h2, h3 {
   .md-typeset .product-section .text-content {
     margin-left: 0 !important;
   }
+
+  .product-img {
+    width: 100%;
+  }
+
+  .tab-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tab-btn {
+    width: 100%;
+  }
+
+  .product-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-card .product-text {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
 }
 
+/* Tab styles */
 .tab-container {
   max-width: 900px;
   margin: 0 auto;
@@ -150,7 +165,6 @@ h1, h2, h3 {
   font-weight: bold;
   transition: 0.3s ease;
 }
-
 .tab-btn.active {
   background-color: #f47b20;
   color: white;
@@ -164,47 +178,7 @@ h1, h2, h3 {
   text-align: center;
 }
 
-.product-img {
-  max-width: 200px;
-  margin-bottom: 1rem;
-}
-
-.learn-more {
-  display: inline-block;
-  margin-top: 1rem;
-  background: #f47b20;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-@media (max-width: 768px) {
-  .product-img {
-    width: 100%;
-  }
-
-  .tab-header {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .tab-btn {
-    width: 100%;
-  }
-}
-
-/* ✅ ป้องกัน text หายใน dark mode */
-[data-md-color-scheme="slate"] {
-  --md-typeset-color: #ffffff;
-}
-
-[data-md-color-scheme="slate"] .product-card,
-[data-md-color-scheme="slate"] .product-card * {
-  color: var(--md-typeset-color) !important;
-}
-
-/* ✅ ปรับ layout ของการ์ดให้สวยและ responsive */
+/* Product Card (responsive + fixed) */
 .product-card {
   display: flex;
   flex-wrap: wrap;
@@ -216,25 +190,50 @@ h1, h2, h3 {
   padding: 2rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-
 .product-card img {
   max-width: 250px;
   height: auto;
 }
-
 .product-card .product-text {
   max-width: 500px;
 }
 
-/* ✅ มือถือ: เรียงลงล่าง */
+/* Fixed layout for scale-safe content */
+.fixed-section {
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transform-origin: top center;
+}
+.fixed-section img {
+  width: 250px;
+  height: auto;
+}
+.fixed-section h3,
+.fixed-section p {
+  font-size: 16px;
+  color: var(--md-typeset-color);
+}
 @media (max-width: 768px) {
-  .product-card {
-    flex-direction: column;
-    text-align: center;
+  .fixed-section {
+    width: 100%;
+    font-size: 15px;
+    padding: 16px;
   }
 
-  .product-card .product-text {
-    margin-left: 0;
-    margin-top: 1rem;
+  .fixed-section img {
+    width: 100%;
+    max-width: 250px;
   }
 }
+"""
+
+# Save the file again
+final_path = "/mnt/data/extra.css"
+with open(final_path, "w", encoding="utf-8") as f:
+    f.write(combined_css)
+
+final_path
