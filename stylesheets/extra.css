@@ -20,12 +20,13 @@ h1, h2, h3 {
 
 /* ขยาย padding ซ้าย-ขวา เนื้อหา */
 .md-main__inner {
-  max-width: none;
+  max-width: 1200px !important;   /* จาก none เป็นค่า fix */
   margin: 0 auto;
   padding: 0 2rem;
 }
+
 .md-content {
-  max-width: none;
+  max-width: 100% !important;     /* เดิมเป็น none */
 }
 
 /* Navigation active */
