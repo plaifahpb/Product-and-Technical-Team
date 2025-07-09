@@ -105,17 +105,16 @@ h1, h2, h3 {
 }
 
 .tab-btn {
-  background: none;
-  border: none;
-  outline: none;
+  all: unset; /* ✅ เคลียร์ style พื้นฐานของ <a> เช่น สีฟ้า, underline */
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
-  color: #333; /* ✅ สีดำปกติ */
-  text-decoration: none;
-  border-bottom: 3px solid transparent;
+  font-weight: 500;
+  color: #222; /* ✅ ดำปกติ */
   padding: 0.3rem 0;
+  border-bottom: 3px solid transparent;
   transition: all 0.2s ease-in-out;
+  position: relative;
 }
 
 .tab-btn:hover {
@@ -123,11 +122,10 @@ h1, h2, h3 {
 }
 
 .tab-btn.active {
-  color: #f47b20;                /* ✅ สีส้มเมื่อเลือก */
-  border-bottom: 3px solid #f47b20; /* ✅ เส้นใต้ */
+  color: #f47b20;
   font-weight: 600;
+  border-bottom: 3px solid #f47b20;
 }
-
 
 /* Tab Container */
 .tab-container {
