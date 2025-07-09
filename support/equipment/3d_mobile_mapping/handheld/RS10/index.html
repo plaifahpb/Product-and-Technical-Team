@@ -1221,7 +1221,20 @@
 
 <h1 id="rs10-product-overview">RS10 PRODUCT OVERVIEW</h1>
 <h4 id="deeply-integrated-of-precision-rtk-and-slam">Deeply integrated of precision RTK and SLAM</h4>
-<p><img alt="RS10 Overview" src="/Product-and-Technical-Team/assets/img/rs10_overview.png" /></p>
+<style>
+  .rs10-light { display: block; }
+  .rs10-dark { display: none; }
+
+  @media (prefers-color-scheme: dark) {
+    .rs10-light { display: none; }
+    .rs10-dark { display: block; }
+  }
+</style>
+
+<!-- Image for Light Mode -->
+<p><img class="rs10-light" src="/Product-and-Technical-Team/assets/img/rs10_overview.png" alt="RS10 Overview Light" style="width: 100%; max-width: 800px;"></p>
+<!-- Image for Dark Mode -->
+<p><img class="rs10-dark" src="/Product-and-Technical-Team/assets/img/rs10_overview_dark.png" alt="RS10 Overview Dark" style="width: 100%; max-width: 800px;"></p>
 <hr />
 <h2 id="product-overview">ภาพรวมผลิตภัณฑ์ (Product Overview)</h2>
 <p><strong>RTK ความแม่นยำสูง (High-precision RTK)</strong><br />
@@ -1235,12 +1248,20 @@
 <p><strong>ที่จับ RS10 (RS10 holder)</strong><br />
 - ถอดได้เมื่อใช้โหมด RTK rover  </p>
 <p><strong>แหล่งจ่ายไฟ (Power supply)</strong><br />
-- ใช้งานได้ 1 ชั่วโมงต่อแบตเตอรี่ รองรับการเปลี่ยนระหว่างใช้งาน และชาร์จผ่าน Powerbank ได้  </p>
+- ใช้งานได้ 1 ชั่วโมงต่อแบตเตอรี่<br />
+- รองรับการเปลี่ยนระหว่างใช้งาน และชาร์จผ่าน Powerbank ได้  </p>
 <p><strong>หน่วยความจำภายใน (Internal Memory)</strong><br />
 - ความจุ 512 GB รองรับการถ่ายโอนข้อมูลผ่าน USB-C  </p>
 <p><strong>การป้องกันระดับ IP64 (IP64 protection)</strong><br />
 - ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C  </p>
 <hr />
+<div style="margin-top: 2rem;">
+  <a href="../../../../support/equipment/CHC_Overview.md"
+     style="background: #f47b20; color: white; padding: 0.6rem 1.5rem; border-radius: 6px;
+            text-decoration: none; font-weight: bold; display: inline-block;">
+    ← กลับไปหน้า CHCNAV Overview
+  </a>
+</div>
 
 
 
