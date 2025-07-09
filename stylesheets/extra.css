@@ -124,17 +124,17 @@ h1, h2, h3 {
   }
 
 .tab-header {
-  flex-wrap: nowrap !important;         /* ❗ ป้องกันขึ้นบรรทัดใหม่ */
-  overflow-x: auto;                     /* ✅ เลื่อนซ้าย-ขวาได้ถ้าจอแคบ */
-  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
   gap: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+.tab-btn {
+  white-space: nowrap;
+  min-width: max-content;
 }
 
-.tab-btn {
-  flex: 1 1 auto;                       /* ✅ ทำให้ขนาดปุ่มสมดุล */
-  white-space: nowrap;                 /* ❗ ไม่ตัดคำในปุ่ม */
-  min-width: max-content;              /* ✅ ขนาดพอดีกับข้อความ */
-}
 
   .product-card {
     flex-direction: column;
