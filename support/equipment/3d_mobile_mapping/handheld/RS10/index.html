@@ -1249,13 +1249,11 @@
 - ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C  </p>
 <hr />
 <style>
-  .rs10-full-layout {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+  .rs10-overview-wrapper {
     max-width: 1080px;
     margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: sans-serif;
   }
 
   .rs10-overview-box {
@@ -1263,24 +1261,23 @@
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    flex: 1 1 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 2rem;
     flex-wrap: wrap;
   }
 
-  .rs10-image-group {
-    flex: 0 0 auto;
-    max-width: 240px;
-    text-align: center;
+  .rs10-image-side {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
   }
 
-  .rs10-image-group img {
-    width: 100%;
-    max-width: 150px;
-    margin: 0.5rem auto;
-    display: block;
+  .rs10-image-side img {
+    width: 120px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
   }
 
   .rs10-overview-text {
@@ -1289,42 +1286,44 @@
 
   .rs10-overview-text h3 {
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #222;
   }
 
   .rs10-overview-text p {
-    margin: 0.3rem 0 0;
-    font-size: 0.95rem;
-    color: #666;
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    color: #555;
   }
 
-  .rs10-specs-columns {
+  .rs10-spec-columns {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 2rem;
   }
 
-  .rs10-spec-column {
+  .spec-col {
     flex: 1 1 300px;
   }
 
-  .rs10-spec-column h4 {
+  .spec-col h4 {
     color: #f57c00;
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
 
-  .rs10-spec-column ul {
-    list-style: disc;
+  .spec-col ul {
     margin-left: 1.2rem;
     font-size: 0.95rem;
     color: #333;
+    list-style: disc;
     padding-left: 0.5rem;
   }
 
-  .rs10-spec-column li {
-    margin-bottom: 0.3rem;
+  .spec-col li {
+    margin-bottom: 0.4rem;
   }
 
   @media (max-width: 768px) {
@@ -1333,32 +1332,38 @@
       text-align: center;
     }
 
+    .rs10-image-side {
+      justify-content: center;
+    }
+
     .rs10-overview-text {
       text-align: center;
     }
 
-    .rs10-specs-columns {
+    .rs10-spec-columns {
       flex-direction: column;
     }
   }
 </style>
 
-<div class="rs10-overview-box">
-  <div class="rs10-image-row">
-    <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16 lines">
-    <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32 lines">
-  </div>
+<div class="rs10-overview-wrapper">
 
-    <!-- Right Text -->
+  <!-- Header Section -->
+  <div class="rs10-overview-box">
+    <div class="rs10-image-side">
+      <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L">
+      <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L">
+    </div>
+
     <div class="rs10-overview-text">
       <h3>CHCNAV RS10</h3>
       <p>Handheld SLAM 3D Laser Scanner + GNSS RTK</p>
     </div>
   </div>
 
-<!-- Two-Column Specs -->
-<div class="rs10-specs-columns">
-    <div class="rs10-spec-column">
+  <!-- Specifications Section -->
+  <div class="rs10-spec-columns">
+    <div class="spec-col">
       <h4>Laser Scanner</h4>
       <ul>
         <li>Channels: 16 or 32</li>
@@ -1374,23 +1379,27 @@
       </ul>
     </div>
 
-    <div class="rs10-spec-column">
+    <div class="spec-col">
       <h4>Positioning</h4>
       <ul>
         <li>GNSS: Full GNSS</li>
         <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
         <li>Relative accuracy: &lt; 1 cm</li>
       </ul>
+    </div>
 
+    <div class="spec-col">
       <h4>Operation</h4>
       <ul>
         <li>Battery duration: ~1 hour</li>
         <li>Operating Temp: –20°C to +50°C</li>
-        <li>Weight+battery: RS10 (16L) &lt; 1.9kg, RS10 (32L) &lt; 1.7kg</li>
+        <li>Weight + battery: RS10 (16L) &lt; 1.9kg,<br>RS10 (32L) &lt; 1.7kg</li>
       </ul>
     </div>
   </div>
+
 </div>
+
 <p><a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
    style="display: inline-flex; align-items: center; font-weight: 300; 
           font-size: 1rem; text-decoration: none; gap: 0.3rem; 
