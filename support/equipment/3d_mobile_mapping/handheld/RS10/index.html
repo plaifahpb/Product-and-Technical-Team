@@ -1082,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../technical/faq/" class="md-nav__link">
+      <a href="../../../../technical/faq.md" class="md-nav__link">
         
   
   
@@ -1286,68 +1286,55 @@
 
 <h3 style="margin-top: 2.5rem;">ข้อมูล Specifications ของ RS10 รุ่น 16 lines และ 32 lines</h3>
 
-<h4 style="margin-top: 0.2rem; margin-bottom: 1.5rem; font-weight: normal; font-size: 1rem; color: var(--md-default-fg-color--light);">
-เปรียบเทียบคุณสมบัติหลักระหว่าง 2 รุ่น
-</h4>
-
 <div style="overflow-x: auto;">
-  <table id="rs10-spec-table" style="
-    width: 100%;
-    min-width: 500px;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-  ">
-    <thead style="background-color: #f47b20; color: white;">
+  <table id="rs10-spec-table" class="highlight-table">
+    <thead>
       <tr>
-        <th style="padding: 12px; text-align: left;">Specification</th>
-        <th style="padding: 12px; text-align: center;">RS10 (16 lines)</th>
-        <th style="padding: 12px; text-align: center;">RS10 (32 lines)</th>
+        <th style="text-align: left;">Specification</th>
+        <th>RS10 (16 lines)</th>
+        <th>RS10 (32 lines)</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Accuracy</td>
-        <td style="text-align:center;">Absolute: &lt;5cm<br>Relative: &lt;1cm</td>
-        <td style="text-align:center;">Absolute: &lt;5cm<br>Relative: &lt;1cm</td>
+        <td>Absolute: &lt;5cm<br>Relative: &lt;1cm</td>
+        <td>Absolute: &lt;5cm<br>Relative: &lt;1cm</td>
       </tr>
       <tr>
         <td>Point frequency</td>
-        <td style="text-align:center;">320,000 pts</td>
-        <td style="text-align:center; color: #f47b20;">640,000 pts</td>
+        <td>320,000 pts</td>
+        <td>640,000 pts</td>
       </tr>
       <tr>
         <td>Scan range</td>
-        <td style="text-align:center;">Max 120m</td>
-        <td style="text-align:center; color: #f47b20;">Max 300m</td>
+        <td>Max 120m</td>
+        <td>Max 300m</td>
       </tr>
       <tr>
         <td>FOV</td>
-        <td style="text-align:center;">360°×270</td>
-        <td style="text-align:center;">360°×270</td>
+        <td>360°×270</td>
+        <td>360°×270</td>
       </tr>
       <tr>
         <td>Resolution</td>
-        <td style="text-align:center;">15MP</td>
-        <td style="text-align:center;">15MP</td>
+        <td>15MP</td>
+        <td>15MP</td>
       </tr>
       <tr>
         <td>Temperature</td>
-        <td style="text-align:center;">-20~50°C</td>
-        <td style="text-align:center;">-20~50°C</td>
+        <td>-20~50°C</td>
+        <td>-20~50°C</td>
       </tr>
       <tr>
         <td>Duration</td>
-        <td style="text-align:center;">1h</td>
-        <td style="text-align:center;">1h</td>
+        <td>1h</td>
+        <td>1h</td>
       </tr>
       <tr>
         <td>Weight<br><span style="font-size: 0.85rem;">(includes battery)</span></td>
-        <td style="text-align:center;">&lt;1.9kg</td>
-        <td style="text-align:center; color: #f47b20;">&lt;1.7kg</td>
+        <td>&lt;1.9kg</td>
+        <td>&lt;1.7kg</td>
       </tr>
     </tbody>
   </table>
@@ -1357,13 +1344,15 @@
   const table = document.getElementById("rs10-spec-table");
   let selectedRow = null;
 
-  for (const row of table.tBodies[0].rows) {
+  table.querySelectorAll("tbody tr").forEach(row => {
     row.addEventListener("click", () => {
-      if (selectedRow) selectedRow.style.backgroundColor = "";
-      row.style.backgroundColor = "var(--md-default-bg-color--lighter)";
+      // Remove previous selection
+      if (selectedRow) selectedRow.classList.remove("selected");
+      // Add new selection
+      row.classList.add("selected");
       selectedRow = row;
     });
-  }
+  });
 </script>
 
 <p><a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
