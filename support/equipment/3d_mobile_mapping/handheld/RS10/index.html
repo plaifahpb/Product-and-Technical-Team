@@ -1193,9 +1193,16 @@
     color: var(--color-text);
   }
 
-  .rs10-container,
-  .rs10-container * {
-    color: var(--color-text);
+  /* ✅ Fix: Ensure dark mode text and nav color */
+  h1, h2, h3, h4, h5, h6,
+  p, ul, ol, li, strong, em, a,
+  .md-nav__title,
+  .md-nav__item .md-nav__link {
+    color: var(--color-text) !important;
+  }
+
+  hr {
+    border-color: var(--color-border);
   }
 
   .tab-nav {
@@ -1336,16 +1343,6 @@
   .download-button-rounded .icon {
     margin-left: 0.4rem;
     font-size: 0.95rem;
-  }
-
-  /* ✅ Fix: Ensure text remains visible in dark mode */
-  h1, h2, h3, h4, h5, h6,
-  p, ul, ol, li, strong, em, a {
-    color: var(--color-text);
-  }
-
-  hr {
-    border-color: var(--color-border);
   }
 
   @media (max-width: 768px) {
