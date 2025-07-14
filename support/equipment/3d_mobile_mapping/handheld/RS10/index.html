@@ -1249,7 +1249,7 @@
 - ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C  </p>
 <hr />
 <!-- Kanit Font -->
-<p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet"></p>
+<p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
 <style>
   :root {
     --color-text: #222;
@@ -1282,27 +1282,25 @@
     padding: 2rem;
     gap: 2rem;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
-  .rs10-card-img {
-    flex-shrink: 0;
+  .rs10-card-imgs {
+    display: flex;
+    gap: 1rem;
   }
 
-  .rs10-card-img img {
-    display: block;
-    height: auto;
-    width: auto;
-    max-height: 180px;
+  .rs10-card-imgs img {
+    height: 150px;
     object-fit: contain;
     background: transparent;
     box-shadow: none;
-    margin-bottom: 0.5rem;
+    border-radius: 6px;
   }
 
   .rs10-card-text {
-    text-align: center;
-    min-width: 200px;
+    flex: 1;
+    text-align: left;
   }
 
   .rs10-card-text h3 {
@@ -1348,7 +1346,7 @@
     padding-left: 1.2rem;
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--color-text); /* สำคัญสำหรับ dark mode */
+    color: var(--color-text);
   }
 
   .rs10-spec-col li {
@@ -1358,6 +1356,11 @@
   @media (max-width: 768px) {
     .rs10-card {
       flex-direction: column;
+      text-align: center;
+    }
+
+    .rs10-card-imgs {
+      justify-content: center;
     }
 
     .rs10-card-text {
@@ -1374,9 +1377,9 @@
 
   <!-- Header Card -->
   <div class="rs10-card">
-    <div class="rs10-card-img">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L">
+    <div class="rs10-card-imgs">
+      <img src="/Product-and-Technical-Team/assets/img/RS10_16_clean.png" alt="RS10 16L">
+      <img src="/Product-and-Technical-Team/assets/img/RS10_32_clean.png" alt="RS10 32L">
     </div>
     <div class="rs10-card-text">
       <h3>CHCNAV RS10</h3>
@@ -1384,7 +1387,7 @@
     </div>
   </div>
 
-  <!-- Specs -->
+  <!-- Specs Section -->
   <div class="rs10-specs">
     <div class="rs10-spec-col">
       <h4>Laser Scanner</h4>
