@@ -1248,7 +1248,7 @@
 <p><strong>การป้องกันระดับ IP64 (IP64 protection)</strong><br />
 - ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C  </p>
 <hr />
-<!-- Kanit Font -->
+<!-- Google Font -->
 <p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
 <style>
   :root,
@@ -1266,170 +1266,172 @@
     --color-bg: #1e1e1e;
   }
 
-  .rs10-container {
-    max-width: 1200px;
-    margin: 2rem auto;
+  .rs10-wrapper {
     font-family: 'Kanit', sans-serif;
     color: var(--color-text);
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: auto;
   }
 
-  .rs10-card {
+  .rs10-spec-section {
     display: flex;
     flex-wrap: wrap;
     background: var(--color-bg);
     border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     padding: 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     gap: 2rem;
-    align-items: center;
-    justify-content: space-between;
   }
 
-  .rs10-card-imgs {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  .rs10-image {
+    flex: 1 1 300px;
+    text-align: center;
   }
 
-  .rs10-card-imgs img {
-    height: 200px;
-    max-width: 180px;
-    object-fit: contain;
-    transition: transform 0.2s ease;
-    background: none;
-    border: none;
+  .rs10-image img {
+    max-height: 200px;
+    margin: 0.5rem;
   }
 
-  .rs10-card-imgs img:hover {
-    transform: scale(1.05);
+  .rs10-info {
+    flex: 2 1 500px;
   }
 
-  .rs10-card-text {
-    flex: 1;
-    text-align: left;
-    min-width: 250px;
-  }
-
-  .rs10-card-text h3 {
-    font-size: 2.2rem;
+  .rs10-info h3 {
+    font-size: 2rem;
     margin: 0;
     font-weight: 600;
-    color: var(--color-text);
   }
 
-  .rs10-card-text p {
-    font-size: 1.15rem;
-    margin: 0.5rem 0 0;
+  .rs10-info p {
     color: var(--color-subtext);
+    margin-top: 0.5rem;
   }
 
-  .rs10-specs {
+  .rs10-cols {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 2rem;
-    justify-content: center;
   }
 
-  .rs10-spec-col {
-    flex: 1 1 400px;
-    min-width: 280px;
+  .rs10-col {
+    flex: 1 1 300px;
   }
 
-  .rs10-spec-col h4 {
+  .rs10-col h4 {
     color: var(--color-accent);
     font-size: 1.1rem;
-    font-weight: 600;
-    margin-top: 2rem;
     margin-bottom: 0.6rem;
   }
 
-  .rs10-spec-col h4:first-of-type {
-    margin-top: 0;
-  }
-
-  .rs10-spec-col ul {
-    list-style: disc;
+  .rs10-col ul {
     padding-left: 1.2rem;
-    font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--color-text);
+    font-size: 0.95rem;
   }
 
-  .rs10-spec-col li {
-    margin-bottom: 0.3rem;
-    color: var(--color-text);
+  .rs10-download {
+    margin-top: 3rem;
+    background: var(--color-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .rs10-download h4 {
+    color: var(--color-accent);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+
+  .rs10-download a {
+    display: inline-block;
+    background: #fff;
+    color: #333;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    transition: background 0.2s;
+  }
+
+  .rs10-download a:hover {
+    background: #f0f0f0;
   }
 
   @media (max-width: 768px) {
-    .rs10-card {
+    .rs10-spec-section {
       flex-direction: column;
       text-align: center;
     }
 
-    .rs10-card-imgs {
-      justify-content: center;
-    }
-
-    .rs10-card-text {
+    .rs10-info {
       text-align: center;
     }
 
-    .rs10-specs {
+    .rs10-cols {
       flex-direction: column;
+    }
+
+    .rs10-col {
+      text-align: left;
     }
   }
 </style>
 
-<div class="rs10-container">
-
-  <!-- Header Card -->
-  <div class="rs10-card">
-    <a href="#rs10-channels" class="rs10-card-imgs">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L">
-    </a>
-    <div class="rs10-card-text">
+<div class="rs10-wrapper">
+  <!-- Main Content -->
+  <div class="rs10-spec-section">
+    <div class="rs10-image">
+      <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
+      <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L" />
+    </div>
+    <div class="rs10-info">
       <h3>CHCNAV RS10</h3>
-      <p>Handheld SLAM 3D Laser Scanner + GNSS RTK</p>
+      <p>RS10 16 Lines and 32 Lines</p>
+
+      <div class="rs10-cols">
+        <div class="rs10-col">
+          <h4>Laser Scanner</h4>
+          <ul>
+            <li>Channels: 16 or 32</li>
+            <li>Range: 120 m or 300 m</li>
+            <li>Scanning rate: 320k or 640k pts/sec</li>
+            <li>FOV: 360° × 270°</li>
+            <li>Returns: Up to 2</li>
+          </ul>
+
+          <h4>Sensors</h4>
+          <ul>
+            <li>Camera: 15 MP (3 × 5 MP)</li>
+          </ul>
+        </div>
+
+        <div class="rs10-col">
+          <h4>Positioning</h4>
+          <ul>
+            <li>GNSS: Full GNSS</li>
+            <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
+            <li>Relative accuracy: &lt; 1 cm</li>
+          </ul>
+
+          <h4>Operation</h4>
+          <ul>
+            <li>Battery duration: ~1 hour</li>
+            <li>Operating Temp: –20°C to +50°C</li>
+            <li>Weight + battery: RS10 (16) &lt; 1.9kg, RS10 (32) &lt; 1.7kg</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Specs Section -->
-  <div class="rs10-specs">
-    <div class="rs10-spec-col">
-      <h4>Laser Scanner</h4>
-      <ul>
-        <li id="rs10-channels">Channels: 16 or 32</li>
-        <li>Range: 120 m or 300 m</li>
-        <li>Scanning rate: 320k or 640k pts/sec</li>
-        <li>FOV: 360° × 270°</li>
-        <li>Returns: Up to 2</li>
-      </ul>
-
-      <h4>Sensors</h4>
-      <ul>
-        <li>Camera: 15 MP (3 × 5 MP)</li>
-      </ul>
-    </div>
-
-    <div class="rs10-spec-col">
-      <h4>Positioning</h4>
-      <ul>
-        <li>GNSS: Full GNSS</li>
-        <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
-        <li>Relative accuracy: &lt; 1 cm</li>
-      </ul>
-
-      <h4>Operation</h4>
-      <ul>
-        <li>Battery duration: ~1 hour</li>
-        <li>Operating Temp: –20°C to +50°C</li>
-        <li>Weight + battery: RS10 (16) &lt; 1.9kg , RS10 (32) &lt; 1.7kg</li>
-      </ul>
-    </div>
+  <!-- PDF Download -->
+  <div class="rs10-download">
+    <h4>Download Datasheet</h4>
+    <a href="/files/RS10_32_lines_DS_EN.pdf" target="_blank">📄 RS10_32_lines_DS_EN.pdf (2.13 MB)</a>
   </div>
 </div>
 
