@@ -1251,6 +1251,8 @@
 <style>
   .rs10-spec-container {
     margin-top: 2rem;
+    max-width: 1000px;
+    margin-inline: auto;
   }
 
   .rs10-images {
@@ -1315,6 +1317,50 @@
     font-size: 0.85rem;
     display: block;
     color: var(--md-typeset-color--light);
+  }
+
+  /* Layout for side-by-side summary */
+  .rs10-dual-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-content: center;
+  }
+
+  .rs10-summary-box,
+  .rs10-summary-details {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+    max-width: 400px;
+  }
+
+  .rs10-summary-box {
+    text-align: center;
+  }
+
+  .rs10-summary-img {
+    width: 80%;
+    max-width: 200px;
+    margin-bottom: 1rem;
+  }
+
+  .rs10-summary-details h4 {
+    color: #f57c00;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .rs10-summary-details ul {
+    list-style: disc;
+    margin-left: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 0.95rem;
+    padding-left: 0.5rem;
   }
 </style>
 
@@ -1386,6 +1432,43 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <!-- Side-by-side Summary -->
+  <div class="rs10-dual-layout">
+    <!-- RS10 Overview Image Box -->
+    <div class="rs10-summary-box">
+      <img src="/Product-and-Technical-Team/assets/img/rs10_spec_main.png" alt="RS10 Device" class="rs10-summary-img">
+      <h3>CHCNAV RS10</h3>
+      <p>Handheld SLAM 3D Laser Scanner + GNSS RTK</p>
+    </div>
+
+    <!-- Specification Summary Detail -->
+    <div class="rs10-summary-details">
+      <h4>Laser Scanner</h4>
+      <ul>
+        <li>Channels: 16 or 32</li>
+        <li>Range: 120 m or 300 m</li>
+        <li>Point Frequency: 320k or 640k pts/sec</li>
+        <li>FOV: 360° × 270°</li>
+        <li>Returns: Up to 2</li>
+      </ul>
+
+      <h4>Positioning</h4>
+      <ul>
+        <li>GNSS: Full GNSS</li>
+        <li>Absolute accuracy: &lt; 5 cm (H/V)</li>
+        <li>Relative accuracy: &lt; 1 cm</li>
+      </ul>
+
+      <h4>Sensors & Operation</h4>
+      <ul>
+        <li>Camera: 15 MP (3 × 5 MP)</li>
+        <li>Battery duration: ~1 hour</li>
+        <li>Operating Temp: -20°C to +50°C</li>
+        <li>Weight (incl. battery): RS10 (16L) &lt; 1.9kg, RS10 (32L) &lt; 1.7kg</li>
+      </ul>
+    </div>
   </div>
 </div>
 
