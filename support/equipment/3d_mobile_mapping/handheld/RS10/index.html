@@ -1257,7 +1257,7 @@
   }
 
   .highlight-table thead {
-    background-color: #f57c00; 
+    background-color: #f57c00;
     color: white;
   }
 
@@ -1282,17 +1282,44 @@
     font-weight: bold;
     color: #d64f00;
   }
+
+  .rs10-images {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0 2rem;
+    flex-wrap: wrap;
+  }
+
+  .rs10-images img {
+    width: 180px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .rs10-images img:hover {
+    transform: scale(1.05);
+  }
 </style>
 
 <h3 style="margin-top: 2.5rem;">ข้อมูล Specifications ของ RS10 รุ่น 16 lines และ 32 lines</h3>
+
+<div class="rs10-images">
+  <a href="#rs10-16">
+    <img src="/Product-and-Technical-Team/assets/img/rs10_16.png" alt="RS10 16 lines">
+  </a>
+  <a href="#rs10-32">
+    <img src="/Product-and-Technical-Team/assets/img/rs10_32.png" alt="RS10 32 lines">
+  </a>
+</div>
 
 <div style="overflow-x: auto;">
   <table id="rs10-spec-table" class="highlight-table">
     <thead>
       <tr>
         <th style="text-align: left;">Specification</th>
-        <th>RS10 (16 lines)</th>
-        <th>RS10 (32 lines)</th>
+        <th id="rs10-16">RS10 (16 lines)</th>
+        <th id="rs10-32">RS10 (32 lines)</th>
       </tr>
     </thead>
     <tbody>
@@ -1346,9 +1373,7 @@
 
   table.querySelectorAll("tbody tr").forEach(row => {
     row.addEventListener("click", () => {
-      // Remove previous selection
       if (selectedRow) selectedRow.classList.remove("selected");
-      // Add new selection
       row.classList.add("selected");
       selectedRow = row;
     });
