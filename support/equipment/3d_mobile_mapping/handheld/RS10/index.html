@@ -1248,117 +1248,76 @@
 <p><strong>การป้องกันระดับ IP64 (IP64 protection)</strong><br />
 - ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C  </p>
 <hr />
-<style>
-  .highlight-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-    font-family: inherit;
-  }
+<h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">
+  ข้อมูล Specifications ของ RS10 รุ่น 16 lines และ 32 lines
+</h3>
 
-  .highlight-table thead {
-    background-color: #f57c00; 
-    color: white;
-  }
-
-  .highlight-table th,
-  .highlight-table td {
-    padding: 10px 14px;
-    text-align: center;
-    border-bottom: 1px solid var(--md-default-fg-color--lightest);
-  }
-
-  .highlight-table tbody tr:nth-child(even) {
-    background-color: var(--md-default-bg-color);
-  }
-
-  .highlight-table td:first-child {
-    text-align: left;
-    cursor: pointer;
-  }
-
-  .highlight-table tr.selected {
-    background-color: #ffe3cc !important;
-    font-weight: bold;
-    color: #d64f00;
-  }
-</style>
-
-<h3>ข้อมูล Specifications ของ RS10 รุ่น 16 lines และ  32 lines/h3>
-
-
-<table class="highlight-table">
-  <thead>
+<table style="
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+">
+  <thead style="background-color: #f47b20; color: white;">
     <tr>
-      <th>Specification</th>
-      <th>RS10(16 lines)</th>
-      <th>RS10(32 lines)</th>
+      <th style="padding: 12px; text-align: left;">Specification</th>
+      <th style="padding: 12px; text-align: center;">RS10 (16 lines)</th>
+      <th style="padding: 12px; text-align: center;">RS10 (32 lines)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Accuracy</td>
-      <td>Absolute: &lt;5cm<br>Relative: &lt;1cm</td>
-      <td>Absolute: &lt;5cm<br>Relative: &lt;1cm</td>
+      <td style="padding: 10px;">Accuracy</td>
+      <td style="text-align: center;">Absolute: &lt;5cm<br>Relative: &lt;1cm</td>
+      <td style="text-align: center;">Absolute: &lt;5cm<br>Relative: &lt;1cm</td>
+    </tr>
+    <tr style="background-color: var(--md-default-bg-color--lightest);">
+      <td style="padding: 10px;">Point frequency</td>
+      <td style="text-align: center;">320,000 pts</td>
+      <td style="text-align: center; color: #f47b20;">640,000 pts</td>
     </tr>
     <tr>
-      <td>Point frequency</td>
-      <td>320,000 pts</td>
-      <td>640,000 pts</td>
+      <td style="padding: 10px;">Scan range</td>
+      <td style="text-align: center;">Max 120m</td>
+      <td style="text-align: center; color: #f47b20;">Max 300m</td>
+    </tr>
+    <tr style="background-color: var(--md-default-bg-color--lightest);">
+      <td style="padding: 10px;">FOV</td>
+      <td style="text-align: center;">360°×270</td>
+      <td style="text-align: center;">360°×270</td>
     </tr>
     <tr>
-      <td>Scan range</td>
-      <td>Max 120m</td>
-      <td>Max 300m</td>
+      <td style="padding: 10px;">Resolution</td>
+      <td style="text-align: center;">15MP</td>
+      <td style="text-align: center;">15MP</td>
+    </tr>
+    <tr style="background-color: var(--md-default-bg-color--lightest);">
+      <td style="padding: 10px;">Temperature</td>
+      <td style="text-align: center;">-20~50°C</td>
+      <td style="text-align: center;">-20~50°C</td>
     </tr>
     <tr>
-      <td>FOV</td>
-      <td>360°×270</td>
-      <td>360°×270</td>
+      <td style="padding: 10px;">Duration</td>
+      <td style="text-align: center;">1h</td>
+      <td style="text-align: center;">1h</td>
     </tr>
-    <tr>
-      <td>Resolution</td>
-      <td>15MP</td>
-      <td>15MP</td>
-    </tr>
-    <tr>
-      <td>Temperature</td>
-      <td>-20~50°C</td>
-      <td>-20~50°C</td>
-    </tr>
-    <tr>
-      <td>Duration</td>
-      <td>1h</td>
-      <td>1h</td>
-    </tr>
-    <tr>
-      <td>Weight<br>(includes battery)</td>
-      <td>&lt;1.9kg</td>
-      <td>&lt;1.7kg</td>
+    <tr style="background-color: var(--md-default-bg-color--lightest);">
+      <td style="padding: 10px;">Weight<br>(includes battery)</td>
+      <td style="text-align: center;">&lt;1.9kg</td>
+      <td style="text-align: center; color: #f47b20;">&lt;1.7kg</td>
     </tr>
   </tbody>
 </table>
 
-<script>
-  // คลิกเพื่อไฮไลต์แถว
-  document.querySelectorAll('.highlight-table tbody tr').forEach(row => {
-    row.addEventListener('click', () => {
-      document.querySelectorAll('.highlight-table tbody tr').forEach(r => r.classList.remove('selected'));
-      row.classList.add('selected');
-    });
-  });
-</script>
-
-
-
-
-
-<a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
+<p><a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
    style="display: inline-flex; align-items: center; font-weight: 300; 
           font-size: 1rem; text-decoration: none; gap: 0.3rem; 
           color: var(--md-typeset-color);">
   &#x276E; CHCNAV Overview
-</a>
+</a></p>
 
 
 
