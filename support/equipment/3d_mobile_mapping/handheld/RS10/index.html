@@ -1362,6 +1362,16 @@
     margin-bottom: 0.3rem;
   }
 
+  /* 🔧 เพิ่มความแน่นอนในการแสดงผลใน dark mode */
+  html[data-md-color-scheme="slate"] .rs10-spec-col ul,
+  html[data-md-color-scheme="slate"] .rs10-spec-col li {
+    color: var(--color-text) !important;
+  }
+
+  html[data-md-color-scheme="slate"] .rs10-spec-col h4 {
+    color: var(--color-accent);
+  }
+
   @media (max-width: 768px) {
     .rs10-card {
       flex-direction: column;
