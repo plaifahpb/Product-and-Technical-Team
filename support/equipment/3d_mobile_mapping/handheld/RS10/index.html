@@ -1257,7 +1257,7 @@
 
   .rs10-dual-layout {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* เพื่อให้ไม่ stack */
     gap: 2rem;
     justify-content: center;
     align-items: flex-start;
@@ -1269,8 +1269,8 @@
     padding: 1.8rem 1.5rem;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    flex: 1 1 420px;
-    max-width: 480px;
+    flex: 1 1 50%;
+    max-width: 460px;
   }
 
   .rs10-summary-box {
@@ -1279,10 +1279,11 @@
 
   .rs10-summary-box img {
     width: 100%;
-    max-width: 220px;
+    max-width: 200px;
     margin: 0.5rem auto;
     display: block;
     border-radius: 6px;
+    cursor: pointer;
   }
 
   .rs10-summary-box h3 {
@@ -1316,27 +1317,44 @@
     margin-bottom: 0.35rem;
     line-height: 1.4;
   }
+
+  .highlighted {
+    background-color: #ffe3cc;
+    border-left: 4px solid #f57c00;
+    padding-left: 0.5rem;
+    transition: background-color 0.6s ease;
+  }
+
+  @media (max-width: 768px) {
+    .rs10-dual-layout {
+      flex-wrap: wrap;
+    }
+  }
 </style>
 
 <div class="rs10-spec-container">
   <div class="rs10-dual-layout">
-    <!-- LEFT: RS10 Images -->
+    <!-- RS10 Image Block -->
     <div class="rs10-summary-box">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16 lines">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32 lines">
+      <a href="#spec-16" onclick="highlightSpec('spec-16')">
+        <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16 lines">
+      </a>
+      <a href="#spec-16">
+        <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32 lines">
+      </a>
       <h3>CHCNAV RS10</h3>
       <p>ข้อมูล Specifications ของ RS10 รุ่น<br>16 lines และ 32 lines</p>
     </div>
 
-    <!-- RIGHT: RS10 Specification Details -->
+    <!-- Specification Details -->
     <div class="rs10-summary-details">
       <h4>Laser Scanner</h4>
       <ul>
-        <li>Channels: 16 or 32</li>
-        <li>Range: 120 m or 300 m</li>
-        <li>Point Frequency: 320k or 640k pts/sec</li>
-        <li>FOV: 360° × 270°</li>
-        <li>Returns: Up to 2</li>
+        <li id="spec-16"><strong>Channels:</strong> 16 or 32</li>
+        <li><strong>Range:</strong> 120 m or 300 m</li>
+        <li><strong>Point Frequency:</strong> 320k or 640k pts/sec</li>
+        <li><strong>FOV:</strong> 360° × 270°</li>
+        <li><strong>Returns:</strong> Up to 2</li>
       </ul>
 
       <h4>Positioning</h4>
@@ -1356,6 +1374,29 @@
     </div>
   </div>
 </div>
+
+<script>
+  function highlightSpec(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    // Remove existing highlight (if any)
+    document.querySelectorAll(".highlighted").forEach(e => {
+      e.classList.remove("highlighted");
+    });
+
+    // Scroll to element
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    // Add highlight class
+    el.classList.add("highlighted");
+
+    // Remove highlight after delay
+    setTimeout(() => {
+      el.classList.remove("highlighted");
+    }, 2000);
+  }
+</script>
 
 <p><a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
    style="display: inline-flex; align-items: center; font-weight: 300; 
