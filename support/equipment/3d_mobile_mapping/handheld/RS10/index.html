@@ -1323,6 +1323,7 @@
   .rs10-header-info h2 {
     font-size: 1.8rem;
     margin: 0;
+    color: var(--color-text);
   }
 
   .rs10-header-info p {
@@ -1345,6 +1346,7 @@
     padding-left: 1.2rem;
     line-height: 1.6;
     font-size: 0.9rem;
+    color: var(--color-text);
   }
 
   .rs10-download-card-style {
@@ -1375,6 +1377,7 @@
     font-weight: 500;
     margin: 0;
     font-size: 0.9rem;
+    color: var(--color-text);
   }
 
   .download-box-vertical .filesize {
@@ -1422,6 +1425,14 @@
 
 <!-- Main Container -->
 <div class="rs10-container">
+
+  <!-- Header Image (Dark Mode Support) -->
+  <div style="background: var(--color-bg); padding: 1rem; border-radius: 12px; max-width: 900px; margin: 2rem auto;">
+    <picture>
+      <source srcset="/Product-and-Technical-Team/assets/img/rs10_overview_dark.png" media="(prefers-color-scheme: dark)">
+      <img src="/Product-and-Technical-Team/assets/img/rs10_overview.png" alt="RS10 Overview" style="width: 100%; display: block; border-radius: 10px;" />
+    </picture>
+  </div>
 
   <!-- Header -->
   <div class="rs10-header" id="specifications">
@@ -1477,20 +1488,20 @@
       <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF Icon" />
       <p class="filename">RS10_32_lines_DS_EN.pdf</p>
       <p class="filesize">2.13 MB</p>
-      <a href="./assets/pdf/RS10_32_lines_DS_EN.pdf" target="_blank" class="download-button-rounded">
+      <a href="/assets/pdf/RS10_32_lines_DS_EN.pdf" target="_blank" class="download-button-rounded">
         Download <span class="icon">⬇</span>
       </a>
     </div>
   </div>
-</div>
 
-<!-- Back to Overview Link -->
-<p><a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
-   style="display: inline-flex; align-items: center; font-weight: 300; 
-          font-size: 1rem; text-decoration: none; gap: 0.3rem; 
-          color: var(--color-accent); margin-top: 2rem; display: block;">
-  &#x276E; Back to CHCNAV Overview
-</a></p>
+  <!-- Back to Overview Link -->
+  <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
+     style="display: inline-flex; align-items: center; font-weight: 300; 
+            font-size: 1rem; text-decoration: none; gap: 0.3rem; 
+            color: var(--color-accent); margin-top: 2rem; display: block;">
+    &#x276E; Back to CHCNAV Overview
+  </a>
+</div>
 
 
 
