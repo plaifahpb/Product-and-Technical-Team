@@ -1266,108 +1266,97 @@
     --color-bg: #1e1e1e;
   }
 
+  .tab-nav {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .tab-nav a {
+    display: inline-block;
+    margin: 0 1rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.1rem;
+    color: var(--color-subtext);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+  }
+
+  .tab-nav a.active,
+  .tab-nav a:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+  }
+
   .rs10-container {
     font-family: 'Kanit', sans-serif;
     color: var(--color-text);
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .rs10-header {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 2rem;
-    max-width: 1200px;
-    margin: auto;
-    padding: 2rem 1rem;
+    margin-top: 2rem;
   }
 
-  .rs10-main {
-    flex: 1 1 700px;
-    background: var(--color-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  }
-
-  .rs10-sidebar {
-    flex: 0 0 200px;
-    position: sticky;
-    top: 100px;
-  }
-
-  .rs10-sidebar nav a {
-    display: block;
-    margin-bottom: 0.8rem;
-    color: var(--color-subtext);
-    text-decoration: none;
-    font-size: 0.95rem;
-    padding-left: 0.5rem;
-    border-left: 3px solid transparent;
-    transition: all 0.2s ease;
-  }
-
-  .rs10-sidebar nav a:hover,
-  .rs10-sidebar nav a.active {
-    color: var(--color-accent);
-    border-left-color: var(--color-accent);
-  }
-
-  .rs10-imgs {
-    text-align: center;
-  }
-
-  .rs10-imgs img {
-    height: 160px;
-    margin: 0 0.5rem;
-    transition: transform 0.3s ease, filter 0.2s ease;
+  .rs10-header img {
+    height: 180px;
+    transition: transform 0.3s ease;
     cursor: pointer;
   }
 
-  .rs10-imgs img:hover {
+  .rs10-header img:hover {
     transform: scale(1.08) translateY(-4px);
-    filter: brightness(1.1);
   }
 
-  .rs10-main h2 {
+  .rs10-header-info h2 {
     font-size: 1.8rem;
-    margin: 1rem 0 0.3rem;
+    margin: 0;
   }
 
-  .rs10-main p {
-    margin-bottom: 2rem;
+  .rs10-header-info p {
     color: var(--color-subtext);
+    margin: 0.5rem 0;
   }
 
   .rs10-section {
-    margin-bottom: 2rem;
+    margin-top: 2rem;
   }
 
   .rs10-section h4 {
     color: var(--color-accent);
-    font-size: 1.05rem;
     margin-bottom: 0.5rem;
   }
 
   .rs10-section ul {
     padding-left: 1.2rem;
-    font-size: 0.95rem;
     line-height: 1.6;
   }
 
   .rs10-download {
     background: var(--color-bg);
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
 
   .rs10-download a {
     display: inline-block;
-    margin-top: 0.5rem;
     background: #fff;
-    color: #333;
-    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    padding: 0.6rem 1rem;
     border-radius: 6px;
     text-decoration: none;
-    border: 1px solid #ccc;
+    font-size: 0.95rem;
     transition: background 0.2s;
-    font-size: 0.9rem;
+    color: #333;
   }
 
   .rs10-download a:hover {
@@ -1375,83 +1364,75 @@
   }
 
   @media (max-width: 768px) {
-    .rs10-container {
+    .rs10-header {
       flex-direction: column;
-    }
-
-    .rs10-sidebar {
-      order: -1;
-    }
-
-    .rs10-sidebar nav a {
-      display: inline-block;
-      margin-right: 1rem;
+      text-align: center;
     }
   }
 </style>
 
+<!-- Tab Navigation -->
+<div class="tab-nav">
+  <a href="#specifications" class="active">Specifications</a>
+  <a href="#resources">Resources</a>
+</div>
+
+<!-- Main Container -->
 <div class="rs10-container">
-  <!-- Sidebar -->
-  <aside class="rs10-sidebar">
-    <nav>
-      <a href="#scanner">Laser Scanner</a>
-      <a href="#sensor">Sensors</a>
-      <a href="#positioning">Positioning</a>
-      <a href="#operation">Operation</a>
-      <a href="#pdf">Datasheet</a>
-    </nav>
-  </aside>
 
-  <!-- Main -->
-  <div class="rs10-main">
-    <div class="rs10-imgs">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L">
+  <!-- Header -->
+  <div class="rs10-header" id="specifications">
+    <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
+    <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L" />
+    <div class="rs10-header-info">
+      <h2>CHCNAV RS10</h2>
+      <p>RS10 16 Lines and 32 Lines</p>
     </div>
+  </div>
 
-    <h2>CHCNAV RS10</h2>
-    <p>RS10 16 Lines and 32 Lines | Handheld SLAM 3D Laser Scanner + GNSS RTK</p>
+  <!-- Sections -->
+  <div class="rs10-section">
+    <h4>Laser Scanner</h4>
+    <ul>
+      <li>Channels: 16 or 32</li>
+      <li>Range: 120 m or 300 m</li>
+      <li>Scanning rate: 320k or 640k pts/sec</li>
+      <li>FOV: 360° × 270°</li>
+      <li>Returns: Up to 2</li>
+    </ul>
+  </div>
 
-    <div class="rs10-section" id="scanner">
-      <h4>Laser Scanner</h4>
-      <ul>
-        <li>Channels: 16 or 32</li>
-        <li>Range: 120 m or 300 m</li>
-        <li>Scanning rate: 320k or 640k pts/sec</li>
-        <li>FOV: 360° × 270°</li>
-        <li>Returns: Up to 2</li>
-      </ul>
-    </div>
+  <div class="rs10-section">
+    <h4>Sensors</h4>
+    <ul>
+      <li>Camera: 15 MP (3 × 5 MP)</li>
+    </ul>
+  </div>
 
-    <div class="rs10-section" id="sensor">
-      <h4>Sensors</h4>
-      <ul>
-        <li>Camera: 15 MP (3 × 5 MP)</li>
-      </ul>
-    </div>
+  <div class="rs10-section">
+    <h4>Positioning</h4>
+    <ul>
+      <li>GNSS: Full GNSS</li>
+      <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
+      <li>Relative accuracy: &lt; 1 cm</li>
+    </ul>
+  </div>
 
-    <div class="rs10-section" id="positioning">
-      <h4>Positioning</h4>
-      <ul>
-        <li>GNSS: Full GNSS</li>
-        <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
-        <li>Relative accuracy: &lt; 1 cm</li>
-      </ul>
-    </div>
+  <div class="rs10-section">
+    <h4>Operation</h4>
+    <ul>
+      <li>Battery duration: ~1 hour</li>
+      <li>Operating Temp: –20°C to +50°C</li>
+      <li>Weight + battery: RS10 (16) &lt; 1.9kg, RS10 (32) &lt; 1.7kg</li>
+    </ul>
+  </div>
 
-    <div class="rs10-section" id="operation">
-      <h4>Operation</h4>
-      <ul>
-        <li>Battery duration: ~1 hour</li>
-        <li>Operating Temp: –20°C to +50°C</li>
-        <li>Weight + battery: RS10 (16) &lt; 1.9kg, RS10 (32) &lt; 1.7kg</li>
-      </ul>
-    </div>
-
-    <div class="rs10-download" id="pdf">
-      <h4>Download Datasheet</h4>
-      <a href="/files/RS10-32-lines-_DS_EN.pdf" target="_blank">📄 RS10_32_lines_DS_EN.pdf (2.13 MB)</a>
-    </div>
+  <!-- Resources -->
+  <div id="resources" class="rs10-download">
+    <h4>Download Datasheet</h4>
+    <a href="/files/RS10-32-lines-_DS_EN.pdf" target="_blank">
+      📄 RS10_32_lines_DS_EN.pdf (2.13 MB)
+    </a>
   </div>
 </div>
 
