@@ -1248,6 +1248,42 @@
 <p><strong>การป้องกันระดับ IP64 (IP64 protection)</strong><br />
 - ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C  </p>
 <hr />
+<style>
+  .highlight-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    font-family: inherit;
+  }
+
+  .highlight-table thead {
+    background-color: #f57c00; 
+    color: white;
+  }
+
+  .highlight-table th,
+  .highlight-table td {
+    padding: 10px 14px;
+    text-align: center;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  }
+
+  .highlight-table tbody tr:nth-child(even) {
+    background-color: var(--md-default-bg-color);
+  }
+
+  .highlight-table td:first-child {
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .highlight-table tr.selected {
+    background-color: #ffe3cc !important;
+    font-weight: bold;
+    color: #d64f00;
+  }
+</style>
+
 <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">
   ข้อมูล Specifications ของ RS10 รุ่น 16 lines และ 32 lines
 </h3>
@@ -1277,12 +1313,12 @@
     <tr style="background-color: var(--md-default-bg-color--lightest);">
       <td style="padding: 10px;">Point frequency</td>
       <td style="text-align: center;">320,000 pts</td>
-      <td style="text-align: center; color: #f47b20;">640,000 pts</td>
+      <td style="text-align: center;">640,000 pts</td>
     </tr>
     <tr>
       <td style="padding: 10px;">Scan range</td>
       <td style="text-align: center;">Max 120m</td>
-      <td style="text-align: center; color: #f47b20;">Max 300m</td>
+      <td style="text-align: center;">Max 300m</td>
     </tr>
     <tr style="background-color: var(--md-default-bg-color--lightest);">
       <td style="padding: 10px;">FOV</td>
@@ -1307,7 +1343,7 @@
     <tr style="background-color: var(--md-default-bg-color--lightest);">
       <td style="padding: 10px;">Weight<br>(includes battery)</td>
       <td style="text-align: center;">&lt;1.9kg</td>
-      <td style="text-align: center; color: #f47b20;">&lt;1.7kg</td>
+      <td style="text-align: center;">&lt;1.7kg</td>
     </tr>
   </tbody>
 </table>
