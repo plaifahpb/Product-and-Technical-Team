@@ -1266,6 +1266,12 @@
     --color-bg: #1e1e1e;
   }
 
+  body {
+    font-family: 'Kanit', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+
   .tab-nav {
     text-align: center;
     margin-top: 2rem;
@@ -1289,8 +1295,6 @@
   }
 
   .rs10-container {
-    font-family: 'Kanit', sans-serif;
-    color: var(--color-text);
     max-width: 1000px;
     margin: 2rem auto;
     padding: 0 1rem;
@@ -1338,29 +1342,58 @@
     line-height: 1.6;
   }
 
-  .rs10-download {
+  .rs10-download-card-style {
     background: var(--color-bg);
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-top: 3rem;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    max-width: 260px;
+    margin: 2rem auto;
   }
 
-  .rs10-download a {
+  .rs10-download-card-style h5 {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    color: var(--color-subtext);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .download-box-vertical img {
+    width: 50px;
+    margin-bottom: 1rem;
+  }
+
+  .download-box-vertical .filename {
+    font-weight: 500;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .download-box-vertical .filesize {
+    margin: 0.2rem 0 1rem;
+    font-size: 0.85rem;
+    color: var(--color-subtext);
+  }
+
+  .download-button-rounded {
     display: inline-block;
-    background: #fff;
-    border: 1px solid #ccc;
-    padding: 0.6rem 1rem;
-    border-radius: 6px;
+    padding: 0.6rem 1.6rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+    color: #fff;
     text-decoration: none;
     font-size: 0.95rem;
-    transition: background 0.2s;
-    color: #333;
+    transition: background 0.2s ease;
   }
 
-  .rs10-download a:hover {
-    background: #f5f5f5;
+  .download-button-rounded:hover {
+    background: #e06f00;
+  }
+
+  .download-button-rounded .icon {
+    margin-left: 0.4rem;
   }
 
   @media (max-width: 768px) {
@@ -1369,69 +1402,6 @@
       text-align: center;
     }
   }
-  .rs10-download-box {
-  background: var(--color-bg);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  margin-top: 2rem;
-}
-
-.rs10-download-box h4 {
-  margin-bottom: 1rem;
-  font-size: 1.05rem;
-  color: var(--color-text);
-}
-
-.download-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
-  background: #fff;
-}
-
-.file-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.file-info img {
-  width: 36px;
-  height: 36px;
-}
-
-.filename {
-  margin: 0;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-.filesize {
-  margin: 0;
-  color: #777;
-  font-size: 0.85rem;
-}
-
-.download-btn {
-  background: #f57c00;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: background 0.2s ease;
-  margin-top: 0.5rem;
-}
-
-.download-btn:hover {
-  background: #e06f00;
-}
-
 </style>
 
 <!-- Tab Navigation -->
@@ -1490,15 +1460,15 @@
     </ul>
   </div>
 
- <!-- Download Section -->
+  <!-- Download Section -->
   <div id="resources" class="rs10-download-card-style">
     <h5>Download Datasheet</h5>
     <div class="download-box-vertical">
       <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF Icon" />
       <p class="filename">RS10_32_lines_DS_EN.pdf</p>
       <p class="filesize">2.13 MB</p>
-      <a href="./assets/pdf/RS10_32_lines_DS_EN.pdf" target="_blank">Download</a>
-        Download ⬇
+      <a href="./assets/pdf/RS10_32_lines_DS_EN.pdf" target="_blank" class="download-button-rounded">
+        Download <span class="icon">⬇</span>
       </a>
     </div>
   </div>
