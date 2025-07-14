@@ -1251,7 +1251,8 @@
 <!-- Kanit Font -->
 <p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
 <style>
-  :root {
+  :root,
+  html[data-md-color-scheme="default"] {
     --color-text: #222;
     --color-subtext: #555;
     --color-bg: #fff;
@@ -1288,15 +1289,20 @@
     gap: 1.5rem;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
 
   .rs10-card-imgs img {
-    height: 180px;
-    max-width: 200px;
+    height: 200px;
+    max-width: 220px;
     object-fit: contain;
-    background: none;
+    background: transparent;
     border: none;
-    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .rs10-card-imgs img:hover {
+    transform: scale(1.05);
   }
 
   .rs10-card-text {
@@ -1306,14 +1312,14 @@
   }
 
   .rs10-card-text h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin: 0;
     font-weight: 600;
     color: var(--color-text);
   }
 
   .rs10-card-text p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin: 0.5rem 0 0;
     color: var(--color-subtext);
   }
@@ -1363,7 +1369,6 @@
     }
 
     .rs10-card-imgs {
-      flex-direction: row;
       justify-content: center;
     }
 
