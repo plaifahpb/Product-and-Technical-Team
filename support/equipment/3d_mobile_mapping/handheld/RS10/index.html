@@ -73,11 +73,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#rs10-product-overview" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -350,21 +345,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Handheld Laser Scanners
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -377,34 +357,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#product-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      ภาพรวมผลิตภัณฑ์ (Product Overview)
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1210,26 +1162,8 @@
 
 
 
-<h1 id="rs10-product-overview">RS10 PRODUCT OVERVIEW</h1>
-<h3 id="product-overview">ภาพรวมผลิตภัณฑ์ (Product Overview)</h3>
-<p><strong>RTK ความแม่นยำสูง (High-precision RTK)</strong><br />
-- รองรับทุกกลุ่มดาวเทียม หลายความถี่ พร้อมโมดูลกำหนดตำแหน่งและทิศทางแบบแม่นยำสูง  </p>
-<p><strong>IMU แบบบูรณาการ (Integrated IMU)</strong><br />
-- อัตราการอัปเดต 200 Hz  </p>
-<p><strong>กล้องสำรวจ SLAM (SLAM Survey Camera)</strong><br />
-- กล้อง HD จำนวน 3 ตัว  </p>
-<p><strong>เครื่องสแกนเลเซอร์ SLAM (SLAM Laser Scanner)</strong><br />
-- รองรับ 16 lines หรือ 32 lines  </p>
-<p><strong>ที่จับ RS10 (RS10 holder)</strong><br />
-- ถอดได้เมื่อใช้โหมด RTK rover  </p>
-<p><strong>แหล่งจ่ายไฟ (Power supply)</strong><br />
-- ใช้งานได้ 1 ชั่วโมงต่อแบตเตอรี่<br />
-- รองรับการเปลี่ยนระหว่างใช้งาน และชาร์จผ่าน Powerbank ได้  </p>
-<p><strong>หน่วยความจำภายใน (Internal Memory)</strong><br />
-- ความจุ 512 GB รองรับการถ่ายโอนข้อมูลผ่าน USB-C  </p>
-<p><strong>การป้องกันระดับ IP64 (IP64 protection)</strong><br />
-- ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C  </p>
-<hr />
+  <h1>Handheld Laser Scanners</h1>
+
 <!-- Google Font -->
 <p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
 <style>
@@ -1256,6 +1190,11 @@
   body {
     font-family: 'Kanit', sans-serif;
     background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  .rs10-container,
+  .rs10-container * {
     color: var(--color-text);
   }
 
@@ -1308,7 +1247,6 @@
   .rs10-header-info h2 {
     font-size: 1.8rem;
     margin: 0;
-    color: var(--color-text);
   }
 
   .rs10-header-info p {
@@ -1331,7 +1269,6 @@
     padding-left: 1.2rem;
     line-height: 1.6;
     font-size: 0.9rem;
-    color: var(--color-text);
   }
 
   .overview-box {
@@ -1370,7 +1307,6 @@
     font-weight: 500;
     margin: 0;
     font-size: 0.9rem;
-    color: var(--color-text);
   }
 
   .download-box-vertical .filesize {
@@ -1410,7 +1346,7 @@
   }
 </style>
 
-<!-- Tab Navigation -->
+<!-- Navigation -->
 <div class="tab-nav">
   <a href="#specifications" class="active">Specifications</a>
   <a href="#resources">Resources</a>
@@ -1427,6 +1363,21 @@
     </picture>
   </div>
 
+  <!-- Product Overview Section -->
+  <div class="rs10-section">
+    <h3>ภาพรวมผลิตภัณฑ์ (Product Overview)</h3>
+    <ul>
+      <li><strong>RTK ความแม่นยำสูง (High-precision RTK):</strong> รองรับทุกกลุ่มดาวเทียม หลายความถี่ พร้อมโมดูลกำหนดตำแหน่งและทิศทางแบบแม่นยำสูง</li>
+      <li><strong>IMU แบบบูรณาการ (Integrated IMU):</strong> อัตราการอัปเดต 200 Hz</li>
+      <li><strong>กล้องสำรวจ SLAM (SLAM Survey Camera):</strong> กล้อง HD จำนวน 3 ตัว</li>
+      <li><strong>เครื่องสแกนเลเซอร์ SLAM (SLAM Laser Scanner):</strong> รองรับ 16 lines หรือ 32 lines</li>
+      <li><strong>ที่จับ RS10 (RS10 holder):</strong> ถอดได้เมื่อใช้โหมด RTK rover</li>
+      <li><strong>แหล่งจ่ายไฟ (Power supply):</strong> ใช้งานได้ 1 ชั่วโมงต่อแบตเตอรี่ รองรับการเปลี่ยนระหว่างใช้งาน และชาร์จผ่าน Powerbank ได้</li>
+      <li><strong>หน่วยความจำภายใน (Internal Memory):</strong> ความจุ 512 GB รองรับการถ่ายโอนข้อมูลผ่าน USB-C</li>
+      <li><strong>การป้องกันระดับ IP64 (IP64 protection):</strong> ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C</li>
+    </ul>
+  </div>
+
   <!-- Header -->
   <div class="rs10-header" id="specifications">
     <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
@@ -1437,7 +1388,7 @@
     </div>
   </div>
 
-  <!-- Specification Section -->
+  <!-- Specs Sections -->
   <div class="rs10-section">
     <h3>Laser Scanner</h3>
     <ul>
@@ -1474,7 +1425,7 @@
     </ul>
   </div>
 
-  <!-- Download Card -->
+  <!-- Download Section -->
   <div id="resources" class="rs10-download-card-style">
     <h5>Download Datasheet</h5>
     <div class="download-box-vertical">
