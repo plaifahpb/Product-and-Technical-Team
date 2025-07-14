@@ -1248,7 +1248,7 @@
 <p><strong>การป้องกันระดับ IP64 (IP64 protection)</strong><br />
 - ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C  </p>
 <hr />
-<!-- Kanit font -->
+<!-- Kanit Font -->
 <p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet"></p>
 <style>
   :root {
@@ -1261,7 +1261,7 @@
   @media (prefers-color-scheme: dark) {
     :root {
       --color-text: #f0f0f0;
-      --color-subtext: #aaa;
+      --color-subtext: #bbb;
       --color-bg: #1e1e1e;
     }
   }
@@ -1278,7 +1278,7 @@
     flex-wrap: wrap;
     background: var(--color-bg);
     border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     padding: 2rem;
     gap: 2rem;
     align-items: center;
@@ -1293,7 +1293,7 @@
     display: block;
     height: auto;
     width: auto;
-    max-height: 200px;
+    max-height: 180px;
     object-fit: contain;
     background: transparent;
     box-shadow: none;
@@ -1335,8 +1335,12 @@
     color: var(--color-accent);
     font-size: 1.05rem;
     font-weight: 600;
-    margin-top: 1.8rem;    /* เพิ่มระยะห่างจากกลุ่มก่อนหน้า */
-    margin-bottom: 0.5rem; /* ระยะห่างก่อนรายการ bullet */
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .rs10-spec-col h4:first-of-type {
+    margin-top: 0;
   }
 
   .rs10-spec-col ul {
@@ -1344,12 +1348,8 @@
     padding-left: 1.2rem;
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--color-text);
+    color: var(--color-text); /* สำคัญสำหรับ dark mode */
   }
-
-  .rs10-spec-col h4:first-of-type {
-    margin-top: 0; /* ยกเว้นหัวข้อแรกของแต่ละ column */
-}
 
   .rs10-spec-col li {
     margin-bottom: 0.3rem;
@@ -1375,7 +1375,8 @@
   <!-- Header Card -->
   <div class="rs10-card">
     <div class="rs10-card-img">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_all.png" alt="RS10 all">
+      <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L">
+      <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L">
     </div>
     <div class="rs10-card-text">
       <h3>CHCNAV RS10</h3>
