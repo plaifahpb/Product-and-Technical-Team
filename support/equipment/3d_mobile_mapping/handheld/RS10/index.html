@@ -1270,7 +1270,7 @@
     max-width: 1200px;
     margin: 2rem auto;
     font-family: 'Kanit', sans-serif;
-    color: var(--color-text);
+    color: var(--color-text) !important;
   }
 
   .rs10-card {
@@ -1282,18 +1282,20 @@
     padding: 2rem;
     gap: 2rem;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .rs10-card-imgs {
     display: flex;
+    flex-direction: row;
     gap: 1rem;
     align-items: center;
     justify-content: center;
   }
 
   .rs10-card-imgs img {
-    height: 140px;
+    height: 180px;
+    max-width: 160px;
     object-fit: contain;
     background: none;
     box-shadow: none;
@@ -1303,20 +1305,20 @@
 
   .rs10-card-text {
     flex: 1;
-    text-align: left;
+    text-align: center;
   }
 
   .rs10-card-text h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin: 0;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-text) !important;
   }
 
   .rs10-card-text p {
     font-size: 1.05rem;
     margin: 0.5rem 0 0;
-    color: var(--color-subtext);
+    color: var(--color-subtext) !important;
   }
 
   .rs10-specs {
@@ -1344,27 +1346,25 @@
     margin-top: 0;
   }
 
-  .rs10-spec-col ul,
-  .rs10-spec-col li {
+  .rs10-spec-col ul {
     list-style: disc;
     padding-left: 1.2rem;
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--color-text) !important; /* บังคับสีใน dark mode */
+    color: var(--color-text) !important;
   }
 
   .rs10-spec-col li {
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
   }
 
   @media (max-width: 768px) {
     .rs10-card {
       flex-direction: column;
-      text-align: center;
     }
 
     .rs10-card-imgs {
-      flex-direction: row;
+      flex-wrap: wrap;
       justify-content: center;
     }
 
