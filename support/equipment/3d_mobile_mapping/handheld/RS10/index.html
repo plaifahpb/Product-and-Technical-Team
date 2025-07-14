@@ -1204,27 +1204,228 @@
 
 <hr>
 
-<!-- Download Section -->
-<div class="rs10-download-card">
-  <div class="rs10-download-header">
-    <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF icon" />
-    <div class="rs10-download-info">
-      <strong>RS10-32-lines-_DS_EN.pdf</strong>
-      <span>2.13 MB</span>
-    </div>
-  </div>
-  <a class="rs10-download-button" href="/Product-and-Technical-Team/assets/pdf/RS10(32-lines)_DS_EN.pdf" download>
-    ⬇ Download
-  </a>
-</div>
+<!-- CSS -->
+<p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
+<style>
+  :root,
+  html[data-md-color-scheme="default"] {
+    --color-text: #222;
+    --color-subtext: #555;
+    --color-bg: #fff;
+    --color-accent: #f57c00;
+  }
 
-<!-- Tabs + Spec -->
+  html[data-md-color-scheme="slate"] {
+    --color-text: #f0f0f0;
+    --color-subtext: #bbb;
+    --color-bg: #1e1e1e;
+  }
+
+  .rs10-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    font-family: 'Kanit', sans-serif;
+    color: var(--color-text);
+  }
+
+  .rs10-tabs {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+  }
+
+  .rs10-tabs a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--color-subtext);
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .rs10-tabs a:hover,
+  .rs10-tabs a.active {
+    color: var(--color-accent);
+  }
+
+  .rs10-tabs a.active::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: var(--color-accent);
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+  }
+
+  .rs10-card {
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--color-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .rs10-card-imgs {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .rs10-card-imgs img {
+    height: 200px;
+    max-width: 180px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+  }
+
+  .rs10-card-imgs img:hover {
+    transform: scale(1.05);
+  }
+
+  .rs10-card-text h3 {
+    font-size: 2.2rem;
+    margin: 0;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .rs10-card-text p {
+    font-size: 1.15rem;
+    margin: 0.5rem 0 0;
+    color: var(--color-subtext);
+  }
+
+  .rs10-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
+  }
+
+  .rs10-spec-col {
+    flex: 1 1 400px;
+    min-width: 280px;
+  }
+
+  .rs10-spec-col h4 {
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .rs10-spec-col ul {
+    list-style: disc;
+    padding-left: 1.2rem;
+  }
+
+  .rs10-spec-col li {
+    margin-bottom: 0.4rem;
+    color: var(--color-text) !important;
+  }
+
+  .force-dark-text {
+    color: var(--color-text) !important;
+  }
+
+  .rs10-download-card {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: var(--color-bg);
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+
+  .rs10-download-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .rs10-download-header img {
+    width: 36px;
+    height: 36px;
+    filter: invert(0);
+  }
+
+  html[data-md-color-scheme="slate"] .rs10-download-header img {
+    filter: invert(1);
+  }
+
+  .rs10-download-info span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-subtext);
+  }
+
+  .rs10-download-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--color-text);
+    border-radius: 8px;
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .rs10-download-button:hover {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .rs10-card {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .rs10-tabs {
+      justify-content: center;
+      padding-left: 0;
+    }
+
+    .rs10-specs {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<!-- Content -->
 <div class="rs10-container">
+  <!-- Tabs -->
   <div class="rs10-tabs">
     <a href="#specifications" class="tab active">Specifications</a>
+    <a href="#resources" class="tab">Resources</a>
   </div>
 
+  <!-- Specifications -->
   <div id="specifications">
+    <div class="rs10-card">
+      <a href="#rs10-channels" class="rs10-card-imgs">
+        <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
+        <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L" />
+      </a>
+      <div class="rs10-card-text">
+        <h3>CHCNAV RS10</h3>
+        <p>RS10 16 Lines and 32 Lines</p>
+      </div>
+    </div>
+
     <div class="rs10-specs">
       <div class="rs10-spec-col">
         <h4>Laser Scanner</h4>
@@ -1259,104 +1460,31 @@
       </div>
     </div>
   </div>
+
+  <!-- Resources -->
+  <div id="resources">
+    <div class="rs10-download-card">
+      <div class="rs10-download-header">
+        <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF icon" />
+        <div class="rs10-download-info">
+          <strong>RS10_32_lines_DS_EN.pdf</strong>
+          <span>2.13 MB</span>
+        </div>
+      </div>
+      <a class="rs10-download-button" href="/Product-and-Technical-Team/assets/pdf/RS10_32_lines_DS_EN.pdf" download>
+        ⬇ Download
+      </a>
+    </div>
+  </div>
 </div>
 
-<!-- Styles -->
-<style>
-  .force-dark-text {
-    color: var(--color-text) !important;
-  }
-
-  .rs10-container {
-    font-family: 'Kanit', sans-serif;
-  }
-
-  .rs10-tabs {
-    display: flex;
-    gap: 1rem;
-    margin: 1rem 0;
-  }
-
-  .rs10-tabs a {
-    text-decoration: none;
-    font-weight: 500;
-    color: var(--color-subtext);
-  }
-
-  .rs10-tabs a.active {
-    color: var(--color-accent);
-    border-bottom: 2px solid var(--color-accent);
-  }
-
-  .rs10-specs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-
-  .rs10-spec-col {
-    flex: 1 1 400px;
-  }
-
-  .rs10-spec-col h4 {
-    color: var(--color-accent);
-    margin-bottom: 0.5rem;
-  }
-
-  .rs10-spec-col ul {
-    padding-left: 1.2rem;
-  }
-
-  .rs10-spec-col li {
-    margin-bottom: 0.4rem;
-  }
-
-  .rs10-download-card {
-    max-width: 400px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    background: var(--color-bg);
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    text-align: center;
-  }
-
-  .rs10-download-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-
-  .rs10-download-header img {
-    width: 36px;
-    height: 36px;
-  }
-
-  .rs10-download-info span {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--color-subtext);
-  }
-
-  .rs10-download-button {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    border: 1px solid var(--color-text);
-    border-radius: 8px;
-    font-weight: 500;
-    color: var(--color-text);
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-
-  .rs10-download-button:hover {
-    background: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
-  }
-</style>
+<!-- Back link -->
+<p><a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
+   style="display: inline-flex; align-items: center; font-weight: 300; 
+          font-size: 1rem; text-decoration: none; gap: 0.3rem; 
+          color: var(--md-typeset-color);">
+  &#x276E; CHCNAV Overview
+</a></p>
 
 
 
