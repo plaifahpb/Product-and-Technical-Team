@@ -1293,7 +1293,7 @@
     display: block;
     height: auto;
     width: auto;
-    max-height: 160px;
+    max-height: 200px;
     object-fit: contain;
     background: transparent;
     box-shadow: none;
@@ -1335,7 +1335,8 @@
     color: var(--color-accent);
     font-size: 1.05rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-top: 1.8rem;    /* เพิ่มระยะห่างจากกลุ่มก่อนหน้า */
+    margin-bottom: 0.5rem; /* ระยะห่างก่อนรายการ bullet */
   }
 
   .rs10-spec-col ul {
@@ -1345,6 +1346,10 @@
     line-height: 1.6;
     color: var(--color-text);
   }
+
+  .rs10-spec-col h4:first-of-type {
+    margin-top: 0; /* ยกเว้นหัวข้อแรกของแต่ละ column */
+}
 
   .rs10-spec-col li {
     margin-bottom: 0.3rem;
