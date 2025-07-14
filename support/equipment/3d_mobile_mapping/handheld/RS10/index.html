@@ -1272,6 +1272,39 @@
     color: var(--color-text);
   }
 
+  /* Tabs */
+  .rs10-tabs {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+  }
+
+  .rs10-tabs a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--color-subtext);
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .rs10-tabs a:hover,
+  .rs10-tabs a.active {
+    color: var(--color-accent);
+  }
+
+  .rs10-tabs a.active::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: var(--color-accent);
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+  }
+
+  /* Card Layout */
   .rs10-card {
     display: flex;
     flex-wrap: wrap;
@@ -1307,7 +1340,6 @@
 
   .rs10-card-text {
     flex: 1;
-    text-align: left;
     min-width: 250px;
   }
 
@@ -1324,6 +1356,7 @@
     color: var(--color-subtext);
   }
 
+  /* Specifications Section */
   .rs10-specs {
     display: flex;
     flex-wrap: wrap;
@@ -1349,27 +1382,72 @@
     margin-top: 0;
   }
 
-  .rs10-spec-col ul,
-  .rs10-spec-col li {
+  .rs10-spec-col ul {
     list-style: disc;
     padding-left: 1.2rem;
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--color-text) !important;
+    color: var(--color-text);
   }
 
   .rs10-spec-col li {
     margin-bottom: 0.3rem;
+    color: var(--color-text);
   }
 
-  /* 🔧 เพิ่มความแน่นอนในการแสดงผลใน dark mode */
-  html[data-md-color-scheme="slate"] .rs10-spec-col ul,
-  html[data-md-color-scheme="slate"] .rs10-spec-col li {
-    color: var(--color-text) !important;
+  /* Resources Section */
+  #resources {
+    margin-top: 3rem;
   }
 
-  html[data-md-color-scheme="slate"] .rs10-spec-col h4 {
-    color: var(--color-accent);
+  .rs10-resources {
+    background: var(--color-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    max-width: 400px;
+  }
+
+  .rs10-resources h4 {
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--color-text);
+  }
+
+  .rs10-download-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f44336;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+  }
+
+  .rs10-download-box:hover {
+    background: #d32f2f;
+  }
+
+  .rs10-download-box .file-icon {
+    font-size: 2rem;
+  }
+
+  .rs10-download-box .file-info p {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .rs10-download-box .file-info small {
+    font-size: 0.85rem;
+  }
+
+  .rs10-download-box .file-download-btn {
+    margin-left: auto;
+    font-size: 0.9rem;
   }
 
   @media (max-width: 768px) {
@@ -1389,55 +1467,82 @@
     .rs10-specs {
       flex-direction: column;
     }
+
+    .rs10-tabs {
+      justify-content: center;
+      padding-left: 0;
+    }
   }
 </style>
 
 <div class="rs10-container">
 
-  <!-- Header Card -->
-  <div class="rs10-card">
-    <a href="#rs10-channels" class="rs10-card-imgs">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L">
-    </a>
-    <div class="rs10-card-text">
-      <h3>CHCNAV RS10</h3>
-      <p>RS10 16 Lines and 32 Lines</p>
+  <!-- Tabs -->
+  <div class="rs10-tabs">
+    <a href="#specifications" class="tab active">Specifications</a>
+    <a href="#resources" class="tab">Resources</a>
+  </div>
+
+  <!-- Specifications Section -->
+  <div id="specifications">
+    <div class="rs10-card">
+      <a href="#rs10-channels" class="rs10-card-imgs">
+        <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
+        <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L" />
+      </a>
+      <div class="rs10-card-text">
+        <h3>CHCNAV RS10</h3>
+        <p>RS10 16 Lines and 32 Lines</p>
+      </div>
+    </div>
+
+    <div class="rs10-specs">
+      <div class="rs10-spec-col">
+        <h4>Laser Scanner</h4>
+        <ul>
+          <li id="rs10-channels">Channels: 16 or 32</li>
+          <li>Range: 120 m or 300 m</li>
+          <li>Scanning rate: 320k or 640k pts/sec</li>
+          <li>FOV: 360° × 270°</li>
+          <li>Returns: Up to 2</li>
+        </ul>
+
+        <h4>Sensors</h4>
+        <ul>
+          <li>Camera: 15 MP (3 × 5 MP)</li>
+        </ul>
+      </div>
+
+      <div class="rs10-spec-col">
+        <h4>Positioning</h4>
+        <ul>
+          <li>GNSS: Full GNSS</li>
+          <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
+          <li>Relative accuracy: &lt; 1 cm</li>
+        </ul>
+
+        <h4>Operation</h4>
+        <ul>
+          <li>Battery duration: ~1 hour</li>
+          <li>Operating Temp: –20°C to +50°C</li>
+          <li>Weight + battery: RS10 (16) &lt; 1.9kg , RS10 (32) &lt; 1.7kg</li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <!-- Specs Section -->
-  <div class="rs10-specs">
-    <div class="rs10-spec-col">
-      <h4>Laser Scanner</h4>
-      <ul>
-        <li id="rs10-channels">Channels: 16 or 32</li>
-        <li>Range: 120 m or 300 m</li>
-        <li>Scanning rate: 320k or 640k pts/sec</li>
-        <li>FOV: 360° × 270°</li>
-        <li>Returns: Up to 2</li>
-      </ul>
-
-      <h4>Sensors</h4>
-      <ul>
-        <li>Camera: 15 MP (3 × 5 MP)</li>
-      </ul>
-    </div>
-
-    <div class="rs10-spec-col">
-      <h4>Positioning</h4>
-      <ul>
-        <li>GNSS: Full GNSS</li>
-        <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
-        <li>Relative accuracy: &lt; 1 cm</li>
-      </ul>
-
-      <h4>Operation</h4>
-      <ul>
-        <li>Battery duration: ~1 hour</li>
-        <li>Operating Temp: –20°C to +50°C</li>
-        <li>Weight + battery: RS10 (16) &lt; 1.9kg , RS10 (32) &lt; 1.7kg</li>
-      </ul>
+  <!-- Resources Section -->
+  <div id="resources">
+    <div class="rs10-resources">
+      <h4>Download</h4>
+      <a class="rs10-download-box" href="/Product-and-Technical-Team/assets/pdf/RS10-32-lines-_DS_EN.pdf" download>
+        <div class="file-icon">📄</div>
+        <div class="file-info">
+          <p>RS10-32-lines-_DS_EN.pdf</p>
+          <small>2.13 MB</small>
+        </div>
+        <div class="file-download-btn">⬇ Download</div>
+      </a>
     </div>
   </div>
 </div>
