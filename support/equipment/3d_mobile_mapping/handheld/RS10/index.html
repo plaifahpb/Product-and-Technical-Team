@@ -1257,6 +1257,7 @@
     --color-subtext: #555;
     --color-bg: #fff;
     --color-accent: #f57c00;
+    --color-border: #ccc;
   }
 
   html[data-md-color-scheme="slate"],
@@ -1264,6 +1265,7 @@
     --color-text: #f0f0f0;
     --color-subtext: #bbb;
     --color-bg: #1e1e1e;
+    --color-border: #444;
   }
 
   body {
@@ -1326,6 +1328,7 @@
   .rs10-header-info p {
     color: var(--color-subtext);
     margin: 0.5rem 0;
+    font-size: 0.95rem;
   }
 
   .rs10-section {
@@ -1335,11 +1338,13 @@
   .rs10-section h3 {
     color: var(--color-accent);
     margin-bottom: 0.5rem;
+    font-size: 1.05rem;
   }
 
   .rs10-section ul {
     padding-left: 1.2rem;
     line-height: 1.6;
+    font-size: 0.9rem;
   }
 
   .rs10-download-card-style {
@@ -1350,10 +1355,11 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     max-width: 260px;
     margin: 2rem auto;
+    border: 1px solid var(--color-border);
   }
 
   .rs10-download-card-style h5 {
-    font-size: 1rem;
+    font-size: 0.85rem;
     margin-bottom: 1.2rem;
     color: var(--color-subtext);
     text-transform: uppercase;
@@ -1368,32 +1374,36 @@
   .download-box-vertical .filename {
     font-weight: 500;
     margin: 0;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .download-box-vertical .filesize {
     margin: 0.2rem 0 1rem;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-subtext);
   }
 
   .download-button-rounded {
     display: inline-block;
-    padding: 0.6rem 1.6rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 999px;
-    background: var(--color-accent);
-    color: #fff;
+    background: var(--color-bg);
+    color: var(--color-text);
     text-decoration: none;
-    font-size: 0.95rem;
-    transition: background 0.2s ease;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-border);
+    transition: all 0.2s ease;
   }
 
   .download-button-rounded:hover {
-    background: #e06f00;
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
   }
 
   .download-button-rounded .icon {
     margin-left: 0.4rem;
+    font-size: 0.95rem;
   }
 
   @media (max-width: 768px) {
@@ -1472,7 +1482,6 @@
       </a>
     </div>
   </div>
-
 </div>
 
 <!-- Back to Overview Link -->
