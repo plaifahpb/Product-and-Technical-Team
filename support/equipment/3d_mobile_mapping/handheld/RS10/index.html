@@ -1338,6 +1338,16 @@
     font-size: 0.95rem;
   }
 
+  /* ✅ Fix: Ensure text remains visible in dark mode */
+  h1, h2, h3, h4, h5, h6,
+  p, ul, ol, li, strong, em, a {
+    color: var(--color-text);
+  }
+
+  hr {
+    border-color: var(--color-border);
+  }
+
   @media (max-width: 768px) {
     .rs10-header {
       flex-direction: column;
@@ -1346,7 +1356,7 @@
   }
 </style>
 
-<!-- Navigation -->
+<!-- Tab Navigation -->
 <div class="tab-nav">
   <a href="#specifications" class="active">Specifications</a>
   <a href="#resources">Resources</a>
