@@ -1280,7 +1280,7 @@
     padding: 2rem;
     gap: 2rem;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 
   .rs10-card-imgs {
@@ -1295,14 +1295,14 @@
     max-width: 200px;
     object-fit: contain;
     background: none;
-    box-shadow: none;
     border: none;
-    margin: 0;
+    cursor: pointer;
   }
 
   .rs10-card-text {
     flex: 1;
     text-align: left;
+    min-width: 250px;
   }
 
   .rs10-card-text h3 {
@@ -1378,15 +1378,16 @@
 </style>
 
 <div class="rs10-container">
+
   <!-- Header Card -->
   <div class="rs10-card">
-    <div class="rs10-card-imgs">
+    <a href="#rs10-channels" class="rs10-card-imgs">
       <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L">
       <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L">
-    </div>
+    </a>
     <div class="rs10-card-text">
       <h3>CHCNAV RS10</h3>
-      <p>Handheld SLAM 3D Laser Scanner + GNSS RTK</p>
+      <p>RS10 16 Lines and 32 Lines</p>
     </div>
   </div>
 
@@ -1395,7 +1396,7 @@
     <div class="rs10-spec-col">
       <h4>Laser Scanner</h4>
       <ul>
-        <li>Channels: 16 or 32</li>
+        <li id="rs10-channels">Channels: 16 or 32</li>
         <li>Range: 120 m or 300 m</li>
         <li>Scanning rate: 320k or 640k pts/sec</li>
         <li>FOV: 360° × 270°</li>
@@ -1420,7 +1421,7 @@
       <ul>
         <li>Battery duration: ~1 hour</li>
         <li>Operating Temp: –20°C to +50°C</li>
-        <li>Weight + battery: RS10 (16) &lt; 1.9kg, RS10 (32) &lt; 1.7kg</li>
+        <li>Weight + battery: RS10 (16) &lt; 1.9kg , RS10 (32) &lt; 1.7kg</li>
       </ul>
     </div>
   </div>
