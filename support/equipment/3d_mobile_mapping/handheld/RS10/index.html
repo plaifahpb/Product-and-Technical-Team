@@ -1204,7 +1204,7 @@
 
 <hr>
 
-<!-- CSS -->
+<!-- Kanit Font -->
 <p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
 <style>
   :root,
@@ -1283,11 +1283,18 @@
     height: 200px;
     max-width: 180px;
     object-fit: contain;
+    background: transparent;
+    border: none;
     transition: transform 0.2s ease;
   }
 
   .rs10-card-imgs img:hover {
     transform: scale(1.05);
+  }
+
+  .rs10-card-text {
+    flex: 1;
+    min-width: 250px;
   }
 
   .rs10-card-text h3 {
@@ -1320,72 +1327,71 @@
     color: var(--color-accent);
     font-size: 1.1rem;
     font-weight: 600;
+    margin-top: 2rem;
     margin-bottom: 0.6rem;
   }
 
-  .rs10-spec-col ul {
-    list-style: disc;
-    padding-left: 1.2rem;
+  .rs10-spec-col h4:first-of-type {
+    margin-top: 0;
   }
 
-  .rs10-spec-col li {
-    margin-bottom: 0.4rem;
+  .force-dark-text,
+  .force-dark-text li {
     color: var(--color-text) !important;
   }
 
-  .force-dark-text {
-    color: var(--color-text) !important;
+  #resources {
+    margin-top: 3rem;
   }
 
-  .rs10-download-card {
-    max-width: 400px;
-    margin: 2rem auto;
-    padding: 1.5rem;
+  .rs10-resources {
     background: var(--color-bg);
+    padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    max-width: 400px;
   }
 
-  .rs10-download-header {
+  .rs10-resources h4 {
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--color-text);
+  }
+
+  .rs10-download-box {
     display: flex;
     align-items: center;
     gap: 1rem;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-
-  .rs10-download-header img {
-    width: 36px;
-    height: 36px;
-    filter: invert(0);
-  }
-
-  html[data-md-color-scheme="slate"] .rs10-download-header img {
-    filter: invert(1);
-  }
-
-  .rs10-download-info span {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--color-subtext);
-  }
-
-  .rs10-download-button {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    border: 1px solid var(--color-text);
+    padding: 1rem;
+    background: #f44336;
     border-radius: 8px;
-    font-weight: 500;
-    color: var(--color-text);
+    color: #fff;
     text-decoration: none;
+    margin-top: 1rem;
     transition: background 0.3s ease;
   }
 
-  .rs10-download-button:hover {
-    background: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
+  .rs10-download-box:hover {
+    background: #d32f2f;
+  }
+
+  .rs10-download-box .file-icon {
+    font-size: 2rem;
+  }
+
+  .rs10-download-box .file-info p {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .rs10-download-box .file-info small {
+    font-size: 0.85rem;
+  }
+
+  .rs10-download-box .file-download-btn {
+    margin-left: auto;
+    font-size: 0.9rem;
   }
 
   @media (max-width: 768px) {
@@ -1394,18 +1400,25 @@
       text-align: center;
     }
 
-    .rs10-tabs {
+    .rs10-card-imgs {
       justify-content: center;
-      padding-left: 0;
+    }
+
+    .rs10-card-text {
+      text-align: center;
     }
 
     .rs10-specs {
       flex-direction: column;
     }
+
+    .rs10-tabs {
+      justify-content: center;
+      padding-left: 0;
+    }
   }
 </style>
 
-<!-- Content -->
 <div class="rs10-container">
   <!-- Tabs -->
   <div class="rs10-tabs">
@@ -1413,23 +1426,20 @@
     <a href="#resources" class="tab">Resources</a>
   </div>
 
-<!-- Specifications -->
-<div id="specifications">
-  <div class="rs10-card">
-    <div class="rs10-card-imgs">
-      <a href="#rs10-channels">
+  <!-- Specifications Section -->
+  <div id="specifications">
+    <div class="rs10-card">
+      <a href="#rs10-channels" class="rs10-card-imgs">
         <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
-      </a>
-      <a href="#rs10-channels">
         <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L" />
       </a>
+      <div class="rs10-card-text">
+        <h3>CHCNAV RS10</h3>
+        <p>RS10 16 Lines and 32 Lines</p>
+      </div>
     </div>
-    <div class="rs10-card-text">
-      <h3>CHCNAV RS10</h3>
-      <p>RS10 16 Lines and 32 Lines</p>
-    </div>
-  </div>
 
+<div id="specifications">
     <div class="rs10-specs">
       <div class="rs10-spec-col">
         <h4>Laser Scanner</h4>
@@ -1464,31 +1474,126 @@
       </div>
     </div>
   </div>
-
-  <!-- Resources -->
-  <div id="resources">
-    <div class="rs10-download-card">
-      <div class="rs10-download-header">
-        <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF icon" />
-        <div class="rs10-download-info">
-          <strong>RS10_32_lines_DS_EN.pdf</strong>
-          <span>2.13 MB</span>
-        </div>
-      </div>
-      <a class="rs10-download-button" href="/Product-and-Technical-Team/assets/pdf/RS10_32_lines_DS_EN.pdf" download>
-        ⬇ Download
-      </a>
-    </div>
-  </div>
 </div>
 
-<!-- Back link -->
-<p><a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
+<!-- Styles -->
+<style>
+  .force-dark-text {
+    color: var(--color-text) !important;
+  }
+
+  .rs10-container {
+    font-family: 'Kanit', sans-serif;
+  }
+
+  .rs10-tabs {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .rs10-tabs a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--color-subtext);
+  }
+
+  .rs10-tabs a.active {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  .rs10-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .rs10-spec-col {
+    flex: 1 1 400px;
+  }
+
+  .rs10-spec-col h4 {
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .rs10-spec-col ul {
+    padding-left: 1.2rem;
+  }
+
+  .rs10-spec-col li {
+    margin-bottom: 0.4rem;
+  }
+
+  .rs10-download-card {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: var(--color-bg);
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+
+  .rs10-download-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .rs10-download-header img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .rs10-download-info span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-subtext);
+  }
+
+  .rs10-download-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--color-text);
+    border-radius: 8px;
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .rs10-download-button:hover {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+  }
+</style>
+
+
+<!-- Download Section -->
+<div class="rs10-download-card">
+  <div class="rs10-download-header">
+    <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF icon" />
+    <div class="rs10-download-info">
+      <strong>RS10-32-lines-_DS_EN.pdf</strong>
+      <span>2.13 MB</span>
+    </div>
+  </div>
+  <a class="rs10-download-button" href="/Product-and-Technical-Team/assets/pdf/RS10(32-lines)_DS_EN.pdf" download>
+    ⬇ Download
+  </a>
+</div>
+
+<a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
    style="display: inline-flex; align-items: center; font-weight: 300; 
           font-size: 1rem; text-decoration: none; gap: 0.3rem; 
           color: var(--md-typeset-color);">
   &#x276E; CHCNAV Overview
-</a></p>
+</a>
 
 
 
