@@ -1251,131 +1251,84 @@
 <style>
   .rs10-spec-container {
     margin-top: 2rem;
-    max-width: 1000px;
+    max-width: 1080px;
     margin-inline: auto;
   }
 
-  .rs10-images {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .rs10-images a {
-    transition: transform 0.2s;
-    border-radius: 8px;
-  }
-
-  .rs10-images a:hover {
-    transform: scale(1.05);
-  }
-
-  .rs10-images img {
-    width: 140px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  }
-
-  .highlight-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-    font-family: inherit;
-    overflow: hidden;
-    border-radius: 8px;
-  }
-
-  .highlight-table thead {
-    background-color: #f57c00;
-    color: white;
-  }
-
-  .highlight-table th,
-  .highlight-table td {
-    padding: 10px 14px;
-    text-align: center;
-    border-bottom: 1px solid var(--md-default-fg-color--lightest);
-  }
-
-  .highlight-table td:first-child {
-    text-align: left;
-  }
-
-  .highlight-table tbody tr:nth-child(even) {
-    background-color: var(--md-default-bg-color);
-  }
-
-  .highlight-table tr.selected {
-    background-color: #ffe3cc !important;
-    font-weight: bold;
-    color: #d64f00;
-  }
-
-  .highlight-table span.subtext {
-    font-size: 0.85rem;
-    display: block;
-    color: var(--md-typeset-color--light);
-  }
-
-  /* Layout for side-by-side summary */
   .rs10-dual-layout {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    margin-top: 3rem;
     justify-content: center;
+    align-items: flex-start;
   }
 
   .rs10-summary-box,
   .rs10-summary-details {
     background: #fff;
-    padding: 1.5rem;
+    padding: 1.8rem 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    flex: 1 1 300px;
-    max-width: 400px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    flex: 1 1 420px;
+    max-width: 480px;
   }
 
   .rs10-summary-box {
     text-align: center;
   }
 
-  .rs10-summary-img {
-    width: 80%;
-    max-width: 200px;
-    margin-bottom: 1rem;
+  .rs10-summary-box img {
+    width: 100%;
+    max-width: 220px;
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 6px;
+  }
+
+  .rs10-summary-box h3 {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .rs10-summary-box p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
   }
 
   .rs10-summary-details h4 {
     color: #f57c00;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
   }
 
   .rs10-summary-details ul {
     list-style: disc;
-    margin-left: 1.2rem;
-    margin-bottom: 1rem;
-    color: #333;
+    margin-left: 1.5rem;
     font-size: 0.95rem;
-    padding-left: 0.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .rs10-summary-details li {
+    margin-bottom: 0.35rem;
+    line-height: 1.4;
   }
 </style>
 
 <div class="rs10-spec-container">
-  <!-- Side-by-side Summary -->
   <div class="rs10-dual-layout">
-    <!-- RS10 Overview Image Box -->
+    <!-- LEFT: RS10 Images -->
     <div class="rs10-summary-box">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 Device" class="rs10-summary-img">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 Device" class="rs10-summary-img">
+      <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16 lines">
+      <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32 lines">
       <h3>CHCNAV RS10</h3>
-      <p>ข้อมูล Specifications ของ RS10 รุ่น 16 lines และ 32 lines</p>
+      <p>ข้อมูล Specifications ของ RS10 รุ่น<br>16 lines และ 32 lines</p>
     </div>
 
-    <!-- Specification Summary Detail -->
+    <!-- RIGHT: RS10 Specification Details -->
     <div class="rs10-summary-details">
       <h4>Laser Scanner</h4>
       <ul>
@@ -1397,25 +1350,12 @@
       <ul>
         <li>Camera: 15 MP (3 × 5 MP)</li>
         <li>Battery duration: ~1 hour</li>
-        <li>Operating Temp: -20°C to +50°C</li>
+        <li>Operating Temp: –20°C to +50°C</li>
         <li>Weight (incl. battery): RS10 (16L) &lt; 1.9kg, RS10 (32L) &lt; 1.7kg</li>
       </ul>
     </div>
   </div>
 </div>
-
-<script>
-  const table = document.getElementById("rs10-spec-table");
-  let selectedRow = null;
-
-  table.querySelectorAll("tbody tr").forEach(row => {
-    row.addEventListener("click", () => {
-      if (selectedRow) selectedRow.classList.remove("selected");
-      row.classList.add("selected");
-      selectedRow = row;
-    });
-  });
-</script>
 
 <p><a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
    style="display: inline-flex; align-items: center; font-weight: 300; 
