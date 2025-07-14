@@ -1248,20 +1248,135 @@
 <p><strong>การป้องกันระดับ IP64 (IP64 protection)</strong><br />
 - ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C  </p>
 <hr />
-<div class="rs10-overview-wrapper">
-  <div class="rs10-overview-box">
-    <div class="rs10-image-side">
+<!-- Font: Kanit -->
+<p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
+<style>
+  :root {
+    --color-text: #222;
+    --color-subtext: #555;
+    --color-bg: #fff;
+    --color-accent: #f57c00;
+    --color-bullet: #f57c00;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text: #f0f0f0;
+      --color-subtext: #aaa;
+      --color-bg: #1e1e1e;
+      --color-bullet: #f57c00;
+    }
+  }
+
+  .rs10-wrapper {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: 'Kanit', sans-serif;
+    color: var(--color-text);
+  }
+
+  .rs10-header {
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--color-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rs10-header img {
+    width: 140px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+
+  .rs10-title {
+    flex: 1 1 300px;
+    text-align: center;
+  }
+
+  .rs10-title h3 {
+    font-size: 1.6rem;
+    margin: 0;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .rs10-title p {
+    margin: 0.3rem 0 0;
+    font-size: 1rem;
+    color: var(--color-subtext);
+  }
+
+  .rs10-spec {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
+  }
+
+  .rs10-col {
+    flex: 1 1 400px;
+  }
+
+  .rs10-col h4 {
+    color: var(--color-accent);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .rs10-col ul {
+    padding-left: 1.2rem;
+    list-style: disc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  .rs10-col li {
+    margin-bottom: 0.3rem;
+  }
+
+  @media (max-width: 768px) {
+    .rs10-header {
+      flex-direction: column;
+    }
+
+    .rs10-title {
+      text-align: center;
+    }
+
+    .rs10-spec {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<div class="rs10-wrapper">
+
+  <!-- Header: Image + Title -->
+  <div class="rs10-header">
+    <div>
       <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L">
       <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L">
     </div>
-    <div class="rs10-overview-text">
+    <div class="rs10-title">
       <h3>CHCNAV RS10</h3>
       <p>Handheld SLAM 3D Laser Scanner + GNSS RTK</p>
     </div>
   </div>
 
-  <div class="rs10-spec-columns">
-    <div class="spec-col">
+  <!-- Spec Section -->
+  <div class="rs10-spec">
+    <div class="rs10-col">
       <h4>Laser Scanner</h4>
       <ul>
         <li>Channels: 16 or 32</li>
@@ -1277,16 +1392,14 @@
       </ul>
     </div>
 
-    <div class="spec-col">
+    <div class="rs10-col">
       <h4>Positioning</h4>
       <ul>
         <li>GNSS: Full GNSS</li>
         <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
         <li>Relative accuracy: &lt; 1 cm</li>
       </ul>
-    </div>
 
-    <div class="spec-col">
       <h4>Operation</h4>
       <ul>
         <li>Battery duration: ~1 hour</li>
