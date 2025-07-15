@@ -1355,6 +1355,46 @@
       max-width: 100%;
     }
   }
+
+  /* Grid Style for Specs */
+  .rs10-spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    color: var(--color-text);
+  }
+
+  .rs10-spec-grid h3 {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .rs10-spec-grid ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+  }
+
+  .rs10-spec-grid li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+  }
+
+  .rs10-spec-grid li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  .rs10-spec-grid .label {
+    font-weight: 600;
+    margin-right: 0.4rem;
+    color: var(--color-text);
+  }
 </style>
 
 <!-- Overview Image -->
@@ -1429,40 +1469,39 @@
     </ul>
   </div>
 
-  <div class="rs10-section">
-    <h3>Laser Scanner</h3>
-    <ul>
-      <li>Channels: 16 or 32</li>
-      <li>Range: 120 m or 300 m</li>
-      <li>Scanning rate: 320k or 640k pts/sec</li>
-      <li>FOV: 360° × 270°</li>
-      <li>Returns: Up to 2</li>
-    </ul>
-  </div>
+  <!-- Replaced sections with Grid -->
+  <div class="rs10-spec-grid">
+    <div class="spec-col">
+      <h3>Laser Scanner</h3>
+      <ul>
+        <li><span class="label">Channels:</span> 16 or 32</li>
+        <li><span class="label">Range:</span> 120 m or 300 m</li>
+        <li><span class="label">Scanning rate:</span> 320k or 640k pts/sec</li>
+        <li><span class="label">FOV:</span> 360° × 270°</li>
+        <li><span class="label">Returns:</span> Up to 2</li>
+      </ul>
 
-  <div class="rs10-section">
-    <h3>Sensors</h3>
-    <ul>
-      <li>Camera: 15 MP (3 × 5 MP)</li>
-    </ul>
-  </div>
+      <h3>Sensors</h3>
+      <ul>
+        <li><span class="label">Camera:</span> 15 MP (3 × 5 MP)</li>
+      </ul>
+    </div>
 
-  <div class="rs10-section">
-    <h3>Positioning</h3>
-    <ul>
-      <li>GNSS: Full GNSS</li>
-      <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
-      <li>Relative accuracy: &lt; 1 cm</li>
-    </ul>
-  </div>
+    <div class="spec-col">
+      <h3>Positioning</h3>
+      <ul>
+        <li><span class="label">GNSS:</span> Full GNSS</li>
+        <li><span class="label">Absolute accuracy:</span> &lt; 5 cm H / &lt; 5 cm V</li>
+        <li><span class="label">Relative accuracy:</span> &lt; 1 cm</li>
+      </ul>
 
-  <div class="rs10-section">
-    <h3>Operation</h3>
-    <ul>
-      <li>Battery duration: ~1 hour</li>
-      <li>Operating Temp: –20°C to +50°C</li>
-      <li>Weight + battery: RS10 (16) &lt; 1.9kg, RS10 (32) &lt; 1.7kg</li>
-    </ul>
+      <h3>Operation</h3>
+      <ul>
+        <li><span class="label">Battery duration:</span> ~1 hour</li>
+        <li><span class="label">Operating Temp:</span> –20°C to +50°C</li>
+        <li><span class="label">Weight + battery:</span> RS10 (16) &lt; 1.9kg, RS10 (32) &lt; 1.7kg</li>
+      </ul>
+    </div>
   </div>
 
   <!-- PDF Download -->
