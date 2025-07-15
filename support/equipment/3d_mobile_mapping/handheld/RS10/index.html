@@ -1164,351 +1164,327 @@
 
   <h1>Handheld Laser Scanners</h1>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CHCNAV RS10</title>
+<!-- Google Font -->
+<p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
+<style>
+  :root,
+  html[data-md-color-scheme="default"] {
+    --color-text: #222;
+    --color-subtext: #555;
+    --color-bg: #fff;
+    --color-accent: #f57c00;
+  }
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" />
+  html[data-md-color-scheme="slate"],
+  html[data-md-color-scheme="dark"] {
+    --color-text: #f0f0f0;
+    --color-subtext: #bbb;
+    --color-bg: #1e1e1e;
+  }
 
-  <style>
-    :root,
-    html[data-md-color-scheme="default"] {
-      --color-text: #222;
-      --color-subtext: #555;
-      --color-bg: #fff;
-      --color-accent: #f57c00;
-    }
+  body {
+    font-family: 'Kanit', sans-serif;
+  }
 
-    html[data-md-color-scheme="slate"],
-    html[data-md-color-scheme="dark"] {
-      --color-text: #f0f0f0;
-      --color-subtext: #bbb;
-      --color-bg: #1e1e1e;
-    }
+  .rs10-container {
+    color: var(--color-text);
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
 
-    body {
-      font-family: 'Kanit', sans-serif;
-      background: var(--color-bg);
-      color: var(--color-text);
-      margin: 0;
-      padding: 0;
-    }
+  .tab-nav {
+    text-align: center;
+    margin-top: 2rem;
+  }
 
-    .rs10-container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
+  .tab-nav a {
+    display: inline-block;
+    margin: 0 1rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.1rem;
+    color: var(--color-subtext);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+  }
 
-    .tab-nav {
-      text-align: center;
-      margin-top: 2rem;
-    }
+  .tab-nav a.active,
+  .tab-nav a:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+  }
 
-    .tab-nav a {
-      display: inline-block;
-      margin: 0 1rem;
-      padding-bottom: 0.3rem;
-      font-size: 1.1rem;
-      color: var(--color-subtext);
-      text-decoration: none;
-      border-bottom: 2px solid transparent;
-      transition: 0.2s;
-    }
+  .rs10-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
 
-    .tab-nav a.active,
-    .tab-nav a:hover {
-      color: var(--color-accent);
-      border-bottom-color: var(--color-accent);
-    }
+  .rs10-header img {
+    height: 180px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
 
+  .rs10-header img:hover {
+    transform: scale(1.08) translateY(-4px);
+  }
+
+  .rs10-header-info h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .rs10-header-info p {
+    color: var(--color-subtext);
+    margin: 0.5rem 0;
+  }
+
+  .rs10-section {
+    margin-top: 2rem;
+    color: var(--color-text);
+  }
+
+  .rs10-section h3,
+  .rs10-section h4 {
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  ul.main-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul.main-list > li {
+    margin-bottom: 0.8rem;
+  }
+
+  ul.sub-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.3rem;
+  }
+
+  .topic {
+    color: var(--color-accent);
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .highlight-heading {
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .rs10-download {
+    background: var(--color-bg);
+    border-radius: 16px;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .download-card {
+    background: var(--color-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+  }
+
+  html[data-md-color-scheme="dark"] .download-card {
+    background: #2a2a2a;
+    border: 1px solid #444;
+  }
+
+  .download-card img {
+    width: 40px;
+    margin-bottom: 0.8rem;
+  }
+
+  .download-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 0.2rem;
+    word-break: break-word;
+  }
+
+  .download-size {
+    font-size: 0.75rem;
+    color: var(--color-subtext);
+    margin-bottom: 1rem;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    justify-content: center;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .download-btn:hover {
+    background: #f5f5f5;
+  }
+
+  @media (max-width: 768px) {
     .rs10-header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .rs10-header img {
-      height: 180px;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .rs10-header img:hover {
-      transform: scale(1.08) translateY(-4px);
-    }
-
-    .rs10-header-info h2 {
-      font-size: 1.8rem;
-      margin: 0;
-      color: var(--color-text);
-    }
-
-    .rs10-header-info p {
-      color: var(--color-subtext);
-      margin: 0.5rem 0;
-    }
-
-    .rs10-section {
-      margin-top: 2rem;
-    }
-
-    .rs10-section h3,
-    .rs10-section h4 {
-      color: var(--color-accent);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    ul.main-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul.main-list > li {
-      margin-bottom: 0.8rem;
-    }
-
-    ul.sub-list {
-      list-style: disc;
-      padding-left: 1.5rem;
-      margin-top: 0.3rem;
-    }
-
-    .topic {
-      color: var(--color-accent);
-      font-weight: 600;
-      display: inline-block;
-    }
-
-    .highlight-heading {
-      color: var(--color-accent);
-      font-weight: 600;
-      margin-bottom: 1rem;
-      display: inline-block;
-    }
-
-    .rs10-download {
-      background: var(--color-bg);
-      border-radius: 16px;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
-      display: flex;
-      justify-content: center;
+      flex-direction: column;
+      text-align: center;
     }
 
     .download-card {
-      background: var(--color-bg);
-      border-radius: 16px;
-      padding: 2rem;
-      max-width: 280px;
-      text-align: center;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-      border: 1px solid #eee;
+      max-width: 100%;
     }
+  }
+</style>
 
-    html[data-md-color-scheme="dark"] .download-card {
-      background-color: #2a2a2a;
-      border: 1px solid #444;
-    }
+<!-- Overview Image -->
+<div style="background-color: var(--color-bg); padding: 1rem; border-radius: 12px; max-width: 900px; margin: 2rem auto; color: var(--color-text);">
+  <picture>
+    <source srcset="/Product-and-Technical-Team/assets/img/rs10_overview_dark.png" media="(prefers-color-scheme: dark)">
+    <img src="/Product-and-Technical-Team/assets/img/rs10_overview.png" alt="RS10 Overview" style="width: 100%; display: block;">
+  </picture>
+</div>
 
-    .download-card img {
-      width: 40px;
-      margin-bottom: 0.8rem;
-    }
+<!-- Tab Navigation -->
+<div class="tab-nav">
+  <a href="#specifications" class="active">Specifications</a>
+  <a href="#resources">Resources</a>
+</div>
 
-    .download-title {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--color-text);
-      margin-bottom: 0.2rem;
-      word-break: break-word;
-    }
-
-    .download-size {
-      font-size: 0.75rem;
-      color: var(--color-subtext);
-      margin-bottom: 1rem;
-    }
-
-    .download-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      justify-content: center;
-      padding: 0.5rem 1.5rem;
-      font-size: 0.95rem;
-      border: 1px solid #ccc;
-      border-radius: 999px;
-      color: var(--color-accent);
-      text-decoration: none;
-      transition: background 0.2s ease;
-    }
-
-    .download-btn:hover {
-      background: #f5f5f5;
-    }
-
-    html[data-md-color-scheme="dark"] .download-btn {
-      border-color: #666;
-      background-color: transparent;
-    }
-
-    html[data-md-color-scheme="dark"] .download-btn:hover {
-      background-color: #333;
-    }
-
-    @media (max-width: 768px) {
-      .rs10-header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .download-card {
-        max-width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="rs10-container">
-    <!-- Overview Image -->
-    <div style="background-color: var(--color-bg); padding: 1rem; border-radius: 12px; max-width: 900px; margin: 2rem auto;">
-      <picture>
-        <source srcset="/Product-and-Technical-Team/assets/img/rs10_overview_dark.png" media="(prefers-color-scheme: dark)">
-        <img src="/Product-and-Technical-Team/assets/img/rs10_overview.png" alt="RS10 Overview" style="width: 100%; display: block;">
-      </picture>
+<!-- Main Content -->
+<div class="rs10-container" id="specifications">
+  <div class="rs10-header">
+    <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
+    <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L" />
+    <div class="rs10-header-info">
+      <h2>CHCNAV RS10</h2>
+      <p>RS10 16 Lines and 32 Lines</p>
     </div>
-
-    <!-- Tab Navigation -->
-    <div class="tab-nav">
-      <a href="#specifications" class="active">Specifications</a>
-      <a href="#resources">Resources</a>
-    </div>
-
-    <!-- Header -->
-    <div class="rs10-header">
-      <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
-      <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L" />
-      <div class="rs10-header-info">
-        <h2>CHCNAV RS10</h2>
-        <p>RS10 16 Lines and 32 Lines</p>
-      </div>
-    </div>
-
-    <!-- Product Overview -->
-    <div class="rs10-section" id="specifications">
-      <h3 class="highlight-heading">ภาพรวมผลิตภัณฑ์ (Product Overview)</h3>
-      <ul class="main-list">
-        <li><span class="topic">RTK ความแม่นยำสูง</span>
-          <ul class="sub-list">
-            <li>รองรับทุกกลุ่มดาวเทียม หลายความถี่ พร้อมโมดูลกำหนดตำแหน่งและทิศทางแบบแม่นยำสูง</li>
-          </ul>
-        </li>
-        <li><span class="topic">IMU แบบบูรณาการ</span>
-          <ul class="sub-list">
-            <li>อัตราการอัปเดต 200 Hz</li>
-          </ul>
-        </li>
-        <li><span class="topic">กล้องสำรวจ SLAM</span>
-          <ul class="sub-list">
-            <li>กล้อง HD จำนวน 3 ตัว</li>
-          </ul>
-        </li>
-        <li><span class="topic">เครื่องสแกนเลเซอร์ SLAM</span>
-          <ul class="sub-list">
-            <li>รองรับ 16 lines หรือ 32 lines</li>
-          </ul>
-        </li>
-        <li><span class="topic">ที่จับ RS10</span>
-          <ul class="sub-list">
-            <li>ถอดได้เมื่อใช้โหมด RTK rover</li>
-          </ul>
-        </li>
-        <li><span class="topic">แหล่งจ่ายไฟ</span>
-          <ul class="sub-list">
-            <li>ใช้งานได้ 1 ชั่วโมงต่อแบตเตอรี่</li>
-            <li>รองรับการเปลี่ยนระหว่างใช้งาน และชาร์จผ่าน Powerbank ได้</li>
-          </ul>
-        </li>
-        <li><span class="topic">หน่วยความจำภายใน</span>
-          <ul class="sub-list">
-            <li>ความจุ 512 GB รองรับการถ่ายโอนข้อมูลผ่าน USB-C</li>
-          </ul>
-        </li>
-        <li><span class="topic">การป้องกันระดับ IP64</span>
-          <ul class="sub-list">
-            <li>ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Technical Specs -->
-    <div class="rs10-section">
-      <h3>Laser Scanner</h3>
-      <ul>
-        <li>Channels: 16 or 32</li>
-        <li>Range: 120 m or 300 m</li>
-        <li>Scanning rate: 320k or 640k pts/sec</li>
-        <li>FOV: 360° × 270°</li>
-        <li>Returns: Up to 2</li>
-      </ul>
-    </div>
-
-    <div class="rs10-section">
-      <h3>Sensors</h3>
-      <ul>
-        <li>Camera: 15 MP (3 × 5 MP)</li>
-      </ul>
-    </div>
-
-    <div class="rs10-section">
-      <h3>Positioning</h3>
-      <ul>
-        <li>GNSS: Full GNSS</li>
-        <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
-        <li>Relative accuracy: &lt; 1 cm</li>
-      </ul>
-    </div>
-
-    <div class="rs10-section">
-      <h3>Operation</h3>
-      <ul>
-        <li>Battery duration: ~1 hour</li>
-        <li>Operating Temp: –20°C to +50°C</li>
-        <li>Weight + battery: RS10 (16) &lt; 1.9kg, RS10 (32) &lt; 1.7kg</li>
-      </ul>
-    </div>
-
-    <!-- PDF Download -->
-    <div class="rs10-download" id="resources">
-      <div class="download-card">
-        <img src="/Product-and-Technical-Team/assets/img/pdf_icon.png" alt="PDF Icon">
-        <div class="download-title">RS10_32_lines_DS_EN.pdf</div>
-        <div class="download-size">2.13 MB</div>
-        <a href="/Product-and-Technical-Team/assets/pdf/RS10_32_lines_DS_EN.pdf" target="_blank" class="download-btn">
-          Download ↓
-        </a>
-      </div>
-    </div>
-
-    <!-- Back Link -->
-    <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/"
-       style="display: inline-flex; align-items: center; font-weight: 300;
-              font-size: 1rem; text-decoration: none; gap: 0.3rem;
-              color: var(--color-accent); margin-top: 2rem; display: block;">
-      &#x276E; Back to CHCNAV Overview
-    </a>
   </div>
-</body>
-</html>
+
+  <div class="rs10-section">
+    <h3 class="highlight-heading">ภาพรวมผลิตภัณฑ์ (Product Overview)</h3>
+    <ul class="main-list">
+      <li><span class="topic">RTK ความแม่นยำสูง (High-precision RTK)</span>
+        <ul class="sub-list">
+          <li>รองรับทุกกลุ่มดาวเทียม หลายความถี่ พร้อมโมดูลกำหนดตำแหน่งและทิศทางแบบแม่นยำสูง</li>
+        </ul>
+      </li>
+      <li><span class="topic">IMU แบบบูรณาการ (Integrated IMU)</span>
+        <ul class="sub-list">
+          <li>อัตราการอัปเดต 200 Hz</li>
+        </ul>
+      </li>
+      <li><span class="topic">กล้องสำรวจ SLAM (SLAM Survey Camera)</span>
+        <ul class="sub-list">
+          <li>กล้อง HD จำนวน 3 ตัว</li>
+        </ul>
+      </li>
+      <li><span class="topic">เครื่องสแกนเลเซอร์ SLAM (SLAM Laser Scanner)</span>
+        <ul class="sub-list">
+          <li>รองรับ 16 lines หรือ 32 lines</li>
+        </ul>
+      </li>
+      <li><span class="topic">ที่จับ RS10 (RS10 holder)</span>
+        <ul class="sub-list">
+          <li>ถอดได้เมื่อใช้โหมด RTK rover</li>
+        </ul>
+      </li>
+      <li><span class="topic">แหล่งจ่ายไฟ (Power supply)</span>
+        <ul class="sub-list">
+          <li>ใช้งานได้ 1 ชั่วโมงต่อแบตเตอรี่</li>
+          <li>รองรับการเปลี่ยนระหว่างใช้งาน และชาร์จผ่าน Powerbank ได้</li>
+        </ul>
+      </li>
+      <li><span class="topic">หน่วยความจำภายใน (Internal Memory)</span>
+        <ul class="sub-list">
+          <li>ความจุ 512 GB รองรับการถ่ายโอนข้อมูลผ่าน USB-C</li>
+        </ul>
+      </li>
+      <li><span class="topic">การป้องกันระดับ IP64 (IP64 protection)</span>
+        <ul class="sub-list">
+          <li>ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="rs10-section">
+    <h3>Laser Scanner</h3>
+    <ul>
+      <li>Channels: 16 or 32</li>
+      <li>Range: 120 m or 300 m</li>
+      <li>Scanning rate: 320k or 640k pts/sec</li>
+      <li>FOV: 360° × 270°</li>
+      <li>Returns: Up to 2</li>
+    </ul>
+  </div>
+
+  <div class="rs10-section">
+    <h3>Sensors</h3>
+    <ul>
+      <li>Camera: 15 MP (3 × 5 MP)</li>
+    </ul>
+  </div>
+
+  <div class="rs10-section">
+    <h3>Positioning</h3>
+    <ul>
+      <li>GNSS: Full GNSS</li>
+      <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
+      <li>Relative accuracy: &lt; 1 cm</li>
+    </ul>
+  </div>
+
+  <div class="rs10-section">
+    <h3>Operation</h3>
+    <ul>
+      <li>Battery duration: ~1 hour</li>
+      <li>Operating Temp: –20°C to +50°C</li>
+      <li>Weight + battery: RS10 (16) &lt; 1.9kg, RS10 (32) &lt; 1.7kg</li>
+    </ul>
+  </div>
+
+  <!-- PDF Download -->
+  <div class="rs10-download" id="resources">
+    <div class="download-card">
+      <img src="/Product-and-Technical-Team/assets/img/pdf_icon.png" alt="PDF Icon">
+      <div class="download-title">RS10_32_lines_DS_EN.pdf</div>
+      <div class="download-size">2.13 MB</div>
+      <a href="/Product-and-Technical-Team/assets/pdf/RS10_32_lines_DS_EN.pdf" target="_blank" class="download-btn">
+        Download ↓
+      </a>
+    </div>
+  </div>
+
+  <!-- Back Link -->
+  <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/"
+     style="display: inline-flex; align-items: center; font-weight: 300;
+            font-size: 1rem; text-decoration: none; gap: 0.3rem;
+            color: var(--color-accent); margin-top: 2rem; display: block;">
+    &#x276E; Back to CHCNAV Overview
+  </a>
+</div>
 
 
 
