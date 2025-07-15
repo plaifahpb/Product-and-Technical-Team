@@ -1175,6 +1175,7 @@
     --color-accent: #f57c00;
   }
 
+  html[data-md-color-scheme="slate"],
   html[data-md-color-scheme="dark"] {
     --color-text: #f0f0f0;
     --color-subtext: #bbb;
@@ -1183,6 +1184,103 @@
 
   body {
     font-family: 'Kanit', sans-serif;
+  }
+
+  .rs10-container {
+    color: var(--color-text);
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .tab-nav {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .tab-nav a {
+    display: inline-block;
+    margin: 0 1rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.1rem;
+    color: var(--color-subtext);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+  }
+
+  .tab-nav a.active,
+  .tab-nav a:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+  }
+
+  .rs10-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .rs10-header img {
+    height: 180px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .rs10-header img:hover {
+    transform: scale(1.08) translateY(-4px);
+  }
+
+  .rs10-header-info h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .rs10-header-info p {
+    color: var(--color-subtext);
+    margin: 0.5rem 0;
+  }
+
+  .rs10-section {
+    margin-top: 2rem;
+    color: var(--color-text);
+  }
+
+  .rs10-section h4 {
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  ul.main-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul.main-list > li {
+    margin-bottom: 0.8rem;
+  }
+
+  ul.sub-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.3rem;
+  }
+
+  .topic {
+    color: var(--color-accent);
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .highlight-heading {
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: inline-block;
   }
 
   .rs10-download {
@@ -1199,18 +1297,17 @@
     border-radius: 16px;
     padding: 2rem;
     max-width: 280px;
-    width: 100%;
     text-align: center;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     border: 1px solid #eee;
-    color: var(--color-text);
   }
 
+  /* ✅ เพิ่มเฉพาะ dark mode: ให้พื้นหลังเข้มขึ้น */
   html[data-md-color-scheme="dark"] .download-card {
-    background: #2a2a2a !important;
-    border: 1px solid #444 !important;
-    color: var(--color-text) !important;
-  }
+  background: #2a2a2a !important;
+  border: 1px solid #444 !important;
+  color: var(--color-text) !important;
+}
 
   .download-card img {
     width: 40px;
@@ -1227,7 +1324,7 @@
 
   .download-size {
     font-size: 0.75rem;
-    color: var(--color-subtext) !important;
+    color: var(--color-subtext) 
     margin-bottom: 1rem;
   }
 
@@ -1250,8 +1347,9 @@
   }
 
   @media (max-width: 768px) {
-    .rs10-download {
-      padding: 1.5rem 0.5rem;
+    .rs10-header {
+      flex-direction: column;
+      text-align: center;
     }
 
     .download-card {
