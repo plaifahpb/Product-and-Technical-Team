@@ -1187,7 +1187,6 @@
   }
 
   .rs10-container {
-    font-family: 'Kanit', sans-serif;
     color: var(--color-text);
     max-width: 1000px;
     margin: 2rem auto;
@@ -1250,39 +1249,30 @@
     color: var(--color-text);
   }
 
-  .rs10-section h4,
-  .rs10-container .rs10-section h4 {
-    color: var(--color-accent) !important;
+  .rs10-section h4 {
+    color: var(--color-accent);
     font-weight: 600;
     margin-bottom: 0.5rem;
-  }
-
-  .rs10-section ul {
-    padding-left: 1.2rem;
-    line-height: 1.6;
   }
 
   ul.main-list {
     list-style: none;
     padding-left: 0;
-    margin-left: 0;
   }
 
   ul.main-list > li {
-    list-style-type: none;
-    margin-left: 0;
+    margin-bottom: 0.8rem;
   }
 
   ul.sub-list {
-    list-style: disc inside;
-    padding-left: 1.2rem;
-    margin-top: 0.5rem;
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.3rem;
   }
 
-  ul.main-list > li > .topic {
+  .topic {
     color: var(--color-accent);
     font-weight: 600;
-    margin-bottom: 0.5rem;
     display: inline-block;
   }
 
@@ -1355,10 +1345,6 @@
       text-align: center;
     }
 
-    .rs10-container {
-      padding: 0 1rem;
-    }
-
     .download-card {
       max-width: 100%;
     }
@@ -1379,7 +1365,7 @@
   <a href="#resources">Resources</a>
 </div>
 
-<!-- Main Container -->
+<!-- Main Content -->
 <div class="rs10-container" id="specifications">
   <div class="rs10-header">
     <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
@@ -1473,6 +1459,7 @@
     </ul>
   </div>
 
+  <!-- PDF Download -->
   <div class="rs10-download" id="resources">
     <div class="download-card">
       <img src="/Product-and-Technical-Team/assets/img/pdf_icon.png" alt="PDF Icon">
@@ -1484,9 +1471,10 @@
     </div>
   </div>
 
-  <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
-     style="display: inline-flex; align-items: center; font-weight: 300; 
-            font-size: 1rem; text-decoration: none; gap: 0.3rem; 
+  <!-- Back Link -->
+  <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/"
+     style="display: inline-flex; align-items: center; font-weight: 300;
+            font-size: 1rem; text-decoration: none; gap: 0.3rem;
             color: var(--color-accent); margin-top: 2rem; display: block;">
     &#x276E; Back to CHCNAV Overview
   </a>
