@@ -1166,8 +1166,6 @@
 
 <!-- Google Font -->
 <p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
-<!-- Google Font -->
-<p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
 <style>
   :root,
   html[data-md-color-scheme="default"] {
@@ -1195,12 +1193,18 @@
     color: var(--color-text);
   }
 
-  /* ✅ Ensure all text and navigation appear correctly in dark mode */
+  /* ✅ Force text and nav color in dark mode */
   h1, h2, h3, h4, h5, h6,
   p, ul, ol, li, strong, em, a,
   .md-nav__title,
   .md-nav__item .md-nav__link {
     color: var(--color-text) !important;
+  }
+
+  /* ✅ Highlight nav active item in orange */
+  .md-nav__item--active > .md-nav__link {
+    color: var(--color-accent) !important;
+    font-weight: bold;
   }
 
   hr {
