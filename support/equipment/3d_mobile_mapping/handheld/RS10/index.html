@@ -73,11 +73,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#rs10-product-overview" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -350,21 +345,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Handheld Laser Scanners
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -377,34 +357,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#deeply-integrated-of-precision-rtk-and-slam" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deeply integrated of precision RTK and SLAM
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1210,8 +1162,207 @@
 
 
 
-<h1 id="rs10-product-overview">RS10 PRODUCT OVERVIEW</h1>
-<h3 id="deeply-integrated-of-precision-rtk-and-slam">Deeply integrated of precision RTK and SLAM</h3>
+  <h1>Handheld Laser Scanners</h1>
+
+<!-- Google Font -->
+<p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
+<style>
+  :root,
+  html[data-md-color-scheme="default"] {
+    --color-text: #222;
+    --color-subtext: #555;
+    --color-bg: #fff;
+    --color-accent: #f57c00;
+  }
+
+  html[data-md-color-scheme="slate"],
+  html[data-md-color-scheme="dark"] {
+    --color-text: #f0f0f0;
+    --color-subtext: #bbb;
+    --color-bg: #1e1e1e;
+  }
+
+  body {
+    font-family: 'Kanit', sans-serif;
+  }
+
+  .rs10-container {
+    font-family: 'Kanit', sans-serif;
+    color: var(--color-text);
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .tab-nav {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .tab-nav a {
+    display: inline-block;
+    margin: 0 1rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.1rem;
+    color: var(--color-subtext);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+  }
+
+  .tab-nav a.active,
+  .tab-nav a:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+  }
+
+  .rs10-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .rs10-header img {
+    height: 180px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .rs10-header img:hover {
+    transform: scale(1.08) translateY(-4px);
+  }
+
+  .rs10-header-info h2 {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  .rs10-header-info p {
+    color: var(--color-subtext);
+    margin: 0.5rem 0;
+  }
+
+  .rs10-section {
+    margin-top: 2rem;
+  }
+
+  .rs10-section h4,
+  .rs10-container .rs10-section h4 {
+    color: var(--color-accent) !important;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .rs10-section ul {
+    padding-left: 1.2rem;
+    line-height: 1.6;
+  }
+
+  ul.main-list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  ul.main-list > li {
+    list-style-type: none;
+    margin-left: 0;
+  }
+
+  ul.sub-list {
+    list-style: disc inside;
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  ul.main-list > li > .topic {
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .highlight-heading {
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .rs10-download {
+    background: var(--color-bg);
+    border-radius: 16px;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .download-card {
+    background: var(--color-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+  }
+
+  .download-card img {
+    width: 40px;
+    margin-bottom: 0.8rem;
+  }
+
+  .download-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.3rem;
+  }
+
+  .download-size {
+    font-size: 0.9rem;
+    color: var(--color-subtext);
+    margin-bottom: 1.2rem;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    justify-content: center;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .download-btn:hover {
+    background: #f5f5f5;
+  }
+
+  @media (max-width: 768px) {
+    .rs10-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .rs10-container {
+      padding: 0 1rem;
+    }
+
+    .download-card {
+      max-width: 100%;
+    }
+  }
+</style>
+
+<!-- Overview Image -->
 <div style="background-color: #fff; padding: 1rem; border-radius: 12px; max-width: 900px; margin: 2rem auto;">
   <picture>
     <source srcset="/Product-and-Technical-Team/assets/img/rs10_overview_dark.png" media="(prefers-color-scheme: dark)">
@@ -1219,9 +1370,26 @@
   </picture>
 </div>
 
-<hr />
-<!-- Product Overview Section -->
+<!-- Tab Navigation -->
+<div class="tab-nav">
+  <a href="#specifications" class="active">Specifications</a>
+  <a href="#resources">Resources</a>
+</div>
+
+<!-- Main Container -->
 <div class="rs10-container">
+
+  <!-- Header -->
+  <div class="rs10-header" id="specifications">
+    <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
+    <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L" />
+    <div class="rs10-header-info">
+      <h2>CHCNAV RS10</h2>
+      <p>RS10 16 Lines and 32 Lines</p>
+    </div>
+  </div>
+
+  <!-- Product Overview Section -->
   <div class="rs10-section">
     <h3 class="highlight-heading">ภาพรวมผลิตภัณฑ์ (Product Overview)</h3>
     <ul class="main-list">
@@ -1276,257 +1444,8 @@
       </li>
     </ul>
   </div>
-</div>
 
-<hr />
-<!-- Google Font -->
-<p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
-<style>
-  :root,
-  html[data-md-color-scheme="default"] {
-    --color-text: #222;
-    --color-subtext: #555;
-    --color-bg: #fff;
-    --color-accent: #f57c00;
-  }
-
-  html[data-md-color-scheme="slate"],
-  html[data-md-color-scheme="dark"] {
-    --color-text: #f0f0f0;
-    --color-subtext: #bbb;
-    --color-bg: #1e1e1e;
-  }
-
-  body {
-    font-family: 'Kanit', sans-serif;
-  }
-
-  .tab-nav {
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  .tab-nav a {
-    display: inline-block;
-    margin: 0 1rem;
-    padding-bottom: 0.3rem;
-    font-size: 1.1rem;
-    color: var(--color-subtext);
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    transition: 0.2s;
-  }
-
-  .tab-nav a.active,
-  .tab-nav a:hover {
-    color: var(--color-accent);
-    border-bottom-color: var(--color-accent);
-  }
-
-  .rs10-container {
-    color: var(--color-text);
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-
-  .rs10-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .rs10-header img {
-    height: 180px;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-
-  .rs10-header img:hover {
-    transform: scale(1.08) translateY(-4px);
-  }
-
-  .rs10-header-info h2 {
-    font-size: 1.8rem;
-    margin: 0;
-  }
-
-  .rs10-header-info p {
-    color: var(--color-subtext);
-    margin: 0.5rem 0;
-  }
-
-  .rs10-section {
-    margin-top: 2rem;
-  }
-
-  .rs10-section h4,
-  .rs10-container .rs10-section h4 {
-    color: var(--color-accent) !important;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .rs10-section ul {
-    padding-left: 1.2rem;
-    line-height: 1.6;
-  }
-
-  /* 🔶 DOWNLOAD SECTION */
-  .rs10-download {
-    background: var(--color-bg);
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 2rem;
-    margin-top: 3rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  }
-
-  .rs10-download h4 {
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  .download-language {
-    margin-bottom: 1rem;
-  }
-
-  .download-language select {
-    padding: 0.5rem 0.8rem;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 0.95rem;
-    border: 1px solid #ccc;
-    background: var(--color-bg);
-    color: var(--color-text);
-  }
-
-  .download-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background: #fff;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    max-width: 400px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-  }
-
-  .download-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .download-icon {
-    font-size: 2rem;
-    color: #d9534f;
-  }
-
-  .download-info {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .download-title {
-    font-weight: 600;
-    font-size: 1rem;
-    color: #222;
-  }
-
-  .download-size {
-    font-size: 0.9rem;
-    color: #777;
-  }
-
-  .download-btn {
-    align-self: flex-start;
-    padding: 0.5rem 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background: #f5f5f5;
-    text-decoration: none;
-    font-size: 0.95rem;
-    color: #222;
-    transition: background 0.2s ease;
-  }
-
-  .download-btn:hover {
-    background: #eee;
-  }
-
-  /* LIST: Main/Sub List Styling */
-  ul.main-list {
-    list-style: none;
-    padding-left: 0;
-    margin-left: 0;
-  }
-
-  ul.main-list > li {
-    list-style-type: none;
-    margin-left: 0;
-  }
-
-  ul.sub-list {
-    list-style: disc inside;
-    padding-left: 1.2rem;
-    margin-top: 0.5rem;
-  }
-
-  ul.main-list > li > .topic {
-    color: var(--color-accent);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-  }
-
-  .highlight-heading {
-    color: var(--color-accent);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    display: inline-block;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .rs10-header {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .rs10-container {
-      padding: 0 1rem;
-    }
-
-    .download-card {
-      max-width: 100%;
-    }
-  }
-</style>
-
-<!-- Tab Navigation -->
-<div class="tab-nav">
-  <a href="#specifications" class="active">Specifications</a>
-  <a href="#resources">Resources</a>
-</div>
-
-<!-- Main Container -->
-<div class="rs10-container">
-
-  <!-- Header -->
-  <div class="rs10-header" id="specifications">
-    <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
-    <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L" />
-    <div class="rs10-header-info">
-      <h2>CHCNAV RS10</h2>
-      <p>RS10 16 Lines and 32 Lines</p>
-    </div>
-  </div>
-
-  <!-- Sections -->
+  <!-- Technical Specs Section -->
   <div class="rs10-section">
     <h4>Laser Scanner</h4>
     <ul>
@@ -1563,42 +1482,26 @@
     </ul>
   </div>
 
-  <div id="resources" class="rs10-download">
-  <h4>Download</h4>
-
+  <!-- Download Card Component -->
   <div class="rs10-download" id="resources">
-  <h4>Download</h4>
-
-  <div class="download-language">
-    <select>
-      <option>English</option>
-      <option>ไทย</option>
-      <option>中文</option>
-    </select>
-  </div>
-
-  <div class="download-card">
-    <div class="download-header">
-      <span class="download-icon">📄</span>
-      <div class="download-info">
-        <div class="download-title">RS10-32-lines-_DS_EN.pdf</div>
-        <div class="download-size">2.13 MB</div>
-      </div>
+    <div class="download-card">
+      <img src="https://img.icons8.com/?size=96&id=3745&format=png" alt="PDF Icon">
+      <div class="download-title">RS10-32-lines-_DS_EN.pdf</div>
+      <div class="download-size">2.13 MB</div>
+      <a href="/files/RS10-32-lines-_DS_EN.pdf" target="_blank" class="download-btn">
+        Download ⬇
+      </a>
     </div>
-    <a class="download-btn" href="/files/RS10-32-lines-_DS_EN.pdf" target="_blank">Download</a>
   </div>
+
+  <!-- Back to Overview Link -->
+  <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
+     style="display: inline-flex; align-items: center; font-weight: 300; 
+            font-size: 1rem; text-decoration: none; gap: 0.3rem; 
+            color: var(--color-accent); margin-top: 2rem; display: block;">
+    &#x276E; Back to CHCNAV Overview
+  </a>
 </div>
-
-
-
-
-<!-- Back to Overview Link -->
-<a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
-   style="display: inline-flex; align-items: center; font-weight: 300; 
-          font-size: 1rem; text-decoration: none; gap: 0.3rem; 
-          color: var(--color-accent); margin-top: 2rem; display: block;">
-  &#x276E; Back to CHCNAV Overview
-</a>
 
 
 
