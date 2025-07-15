@@ -1375,7 +1375,7 @@
     border-radius: 12px;
     padding: 1.5rem;
     margin-top: 3rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   }
 
   .rs10-download a {
@@ -1394,12 +1394,42 @@
     background: #f5f5f5;
   }
 
+  /* ✅ ลบ bullet เฉพาะรายการหลัก */
+  ul.main-list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  ul.main-list > li {
+    list-style-type: none;
+    margin-left: 0;
+  }
+
+  /* ✅ ให้ sub-list แสดง bullet ตามปกติ */
+  ul.sub-list {
+    list-style: disc inside;
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  /* ✅ จัด spacing หัวข้อหลักให้สวยงาม */
+  ul.main-list > li > .topic {
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ✅ Responsive */
   @media (max-width: 768px) {
     .rs10-header {
       flex-direction: column;
       text-align: center;
     }
 
+    .rs10-container {
+      padding: 0 1rem;
+    }
   }
 </style>
 
