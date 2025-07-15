@@ -1182,11 +1182,18 @@
     --color-bg: #1e1e1e;
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     font-family: 'Kanit', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
   }
 
   .rs10-container {
+    font-family: 'Kanit', sans-serif;
     color: var(--color-text);
     max-width: 1000px;
     margin: 2rem auto;
@@ -1294,6 +1301,7 @@
 
   .download-card {
     background: var(--color-bg);
+    color: var(--color-text); /* ✅ สำคัญ เพื่อให้ text ด้านใน inherit ได้ */
     border-radius: 16px;
     padding: 2rem;
     max-width: 280px;
@@ -1302,10 +1310,11 @@
     border: 1px solid #eee;
   }
 
-  /* ✅ เพิ่มเฉพาะ dark mode: ให้พื้นหลังเข้มขึ้น */
+  /* ✅ Fix dark mode */
   html[data-md-color-scheme="dark"] .download-card {
     background: #2a2a2a;
     border: 1px solid #444;
+    color: var(--color-text);
   }
 
   .download-card img {
