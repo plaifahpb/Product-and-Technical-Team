@@ -1237,6 +1237,7 @@
   .rs10-header-info h2 {
     font-size: 1.8rem;
     margin: 0;
+    color: var(--color-text);
   }
 
   .rs10-header-info p {
@@ -1246,6 +1247,7 @@
 
   .rs10-section {
     margin-top: 2rem;
+    color: var(--color-text);
   }
 
   .rs10-section h4,
@@ -1364,7 +1366,7 @@
 </style>
 
 <!-- Overview Image -->
-<div style="background-color: #fff; padding: 1rem; border-radius: 12px; max-width: 900px; margin: 2rem auto;">
+<div style="background-color: var(--color-bg); padding: 1rem; border-radius: 12px; max-width: 900px; margin: 2rem auto; color: var(--color-text);">
   <picture>
     <source srcset="/Product-and-Technical-Team/assets/img/rs10_overview_dark.png" media="(prefers-color-scheme: dark)">
     <img src="/Product-and-Technical-Team/assets/img/rs10_overview.png" alt="RS10 Overview" style="width: 100%; display: block;">
@@ -1378,10 +1380,8 @@
 </div>
 
 <!-- Main Container -->
-<div class="rs10-container">
-
-  <!-- Header -->
-  <div class="rs10-header" id="specifications">
+<div class="rs10-container" id="specifications">
+  <div class="rs10-header">
     <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
     <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L" />
     <div class="rs10-header-info">
@@ -1390,55 +1390,46 @@
     </div>
   </div>
 
-  <!-- Product Overview Section -->
   <div class="rs10-section">
     <h3 class="highlight-heading">ภาพรวมผลิตภัณฑ์ (Product Overview)</h3>
     <ul class="main-list">
-      <li>
-        <span class="topic">RTK ความแม่นยำสูง (High-precision RTK)</span>
+      <li><span class="topic">RTK ความแม่นยำสูง (High-precision RTK)</span>
         <ul class="sub-list">
           <li>รองรับทุกกลุ่มดาวเทียม หลายความถี่ พร้อมโมดูลกำหนดตำแหน่งและทิศทางแบบแม่นยำสูง</li>
         </ul>
       </li>
-      <li>
-        <span class="topic">IMU แบบบูรณาการ (Integrated IMU)</span>
+      <li><span class="topic">IMU แบบบูรณาการ (Integrated IMU)</span>
         <ul class="sub-list">
           <li>อัตราการอัปเดต 200 Hz</li>
         </ul>
       </li>
-      <li>
-        <span class="topic">กล้องสำรวจ SLAM (SLAM Survey Camera)</span>
+      <li><span class="topic">กล้องสำรวจ SLAM (SLAM Survey Camera)</span>
         <ul class="sub-list">
           <li>กล้อง HD จำนวน 3 ตัว</li>
         </ul>
       </li>
-      <li>
-        <span class="topic">เครื่องสแกนเลเซอร์ SLAM (SLAM Laser Scanner)</span>
+      <li><span class="topic">เครื่องสแกนเลเซอร์ SLAM (SLAM Laser Scanner)</span>
         <ul class="sub-list">
           <li>รองรับ 16 lines หรือ 32 lines</li>
         </ul>
       </li>
-      <li>
-        <span class="topic">ที่จับ RS10 (RS10 holder)</span>
+      <li><span class="topic">ที่จับ RS10 (RS10 holder)</span>
         <ul class="sub-list">
           <li>ถอดได้เมื่อใช้โหมด RTK rover</li>
         </ul>
       </li>
-      <li>
-        <span class="topic">แหล่งจ่ายไฟ (Power supply)</span>
+      <li><span class="topic">แหล่งจ่ายไฟ (Power supply)</span>
         <ul class="sub-list">
           <li>ใช้งานได้ 1 ชั่วโมงต่อแบตเตอรี่</li>
           <li>รองรับการเปลี่ยนระหว่างใช้งาน และชาร์จผ่าน Powerbank ได้</li>
         </ul>
       </li>
-      <li>
-        <span class="topic">หน่วยความจำภายใน (Internal Memory)</span>
+      <li><span class="topic">หน่วยความจำภายใน (Internal Memory)</span>
         <ul class="sub-list">
           <li>ความจุ 512 GB รองรับการถ่ายโอนข้อมูลผ่าน USB-C</li>
         </ul>
       </li>
-      <li>
-        <span class="topic">การป้องกันระดับ IP64 (IP64 protection)</span>
+      <li><span class="topic">การป้องกันระดับ IP64 (IP64 protection)</span>
         <ul class="sub-list">
           <li>ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C</li>
         </ul>
@@ -1446,7 +1437,6 @@
     </ul>
   </div>
 
-  <!-- Technical Specs Section -->
   <div class="rs10-section">
     <h4>Laser Scanner</h4>
     <ul>
@@ -1483,7 +1473,6 @@
     </ul>
   </div>
 
-  <!-- Download Card Component -->
   <div class="rs10-download" id="resources">
     <div class="download-card">
       <img src="/Product-and-Technical-Team/assets/img/pdf_icon.png" alt="PDF Icon">
@@ -1495,7 +1484,6 @@
     </div>
   </div>
 
-  <!-- Back to Overview Link -->
   <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
      style="display: inline-flex; align-items: center; font-weight: 300; 
             font-size: 1rem; text-decoration: none; gap: 0.3rem; 
