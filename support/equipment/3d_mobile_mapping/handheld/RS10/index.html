@@ -1317,14 +1317,14 @@
   .download-title {
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--color-text);
+    color: var(--color-text) !important;
     margin-bottom: 0.2rem;
     word-break: break-word;
   }
 
   .download-size {
     font-size: 0.75rem;
-    color: var(--color-subtext);
+    color: var(--color-subtext) !important;
     margin-bottom: 1rem;
   }
 
@@ -1353,8 +1353,16 @@
     }
 
     .download-card {
-      max-width: 100%;
-    }
+  background: var(--color-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 280px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+  color: var(--color-text); /* ให้แน่ใจว่ามีการกำหนดไว้ */
+}
   }
 </style>
 
