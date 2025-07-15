@@ -242,3 +242,14 @@ h1, h2, h3 {
     max-width: 250px;
   }
 }
+/* ====== Fix Download Card Font Color ====== */
+.download-title,
+.download-size {
+  color: #222 !important; /* default for light mode */
+}
+
+[data-md-color-scheme="slate"] .download-title,
+[data-md-color-scheme="slate"] .download-size {
+  color: #f0f0f0 !important; /* ensure visible in dark mode */
+}
+
