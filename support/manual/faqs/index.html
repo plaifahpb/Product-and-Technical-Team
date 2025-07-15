@@ -1162,14 +1162,124 @@
 
   <h1>Explore our FAQs</h1>
 
-<details class="question">
-<summary>1. What are handheld laser scanners used for?</summary>
-<p>Handheld laser scanners are used for capturing detailed 3D measurements...</p>
-</details>
-<details class="question">
-<summary>2. What factors should be considered?</summary>
-<p>You should consider resolution, range, battery life...</p>
-</details>
+<style>
+  .faq-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-family: "Kanit", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 1.2rem 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .faq-question {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--md-default-fg-color, #333);
+  }
+
+  .faq-question:hover {
+    color: var(--md-accent-fg-color, #f58220);
+  }
+
+  .faq-answer {
+    display: none;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--md-default-fg-color--light, #444);
+  }
+
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+
+  .faq-icon {
+    font-size: 1.4rem;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+  }
+</style>
+
+<div class="faq-container">
+
+<div class="faq-item">
+  <div class="faq-question">
+    1. What are handheld laser scanners used for?
+    <span class="faq-icon">+</span>
+  </div>
+  <div class="faq-answer">
+    Handheld laser scanners are used for capturing detailed 3D measurements and models.
+    The RS10 is widely used in surveying, construction, and engineering, building information modeling (BIM),
+    construction verification, industrial inspection, heritage preservation, forensics, and any task requiring accurate 3D spatial data.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    2. What factors should be considered when choosing a handheld laser scanner?
+    <span class="faq-icon">+</span>
+  </div>
+  <div class="faq-answer">
+    Consider factors such as measurement accuracy, range, portability, ease of use, data compatibility, and software integration capabilities.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    3. How do handheld laser scanners integrate with other surveying tools?
+    <span class="faq-icon">+</span>
+  </div>
+  <div class="faq-answer">
+    Handheld laser scanners can integrate with GNSS, total stations, and BIM software through standard file formats (e.g., LAS, E57, PLY), enabling seamless data workflows.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    4. What makes the RS10 ideal for indoor and outdoor surveying?
+    <span class="faq-icon">+</span>
+  </div>
+  <div class="faq-answer">
+    The RS10 offers flexible scanning in various environments with its SLAM technology, IP64 protection, hot-swappable batteries, and multi-sensor capabilities.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    5. How does the RS10 simplify data collection?
+    <span class="faq-icon">+</span>
+  </div>
+  <div class="faq-answer">
+    With intuitive interface, real-time preview, internal memory, and compatibility with post-processing software, RS10 enables efficient field-to-office workflows.
+  </div>
+</div>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+  });
+</script>
 
 
 
