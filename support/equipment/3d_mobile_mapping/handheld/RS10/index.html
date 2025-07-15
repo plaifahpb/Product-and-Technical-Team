@@ -1311,7 +1311,7 @@
   }
 
   .download-card img {
-    width: 48px;
+    width: 40px;
     margin-bottom: 0.8rem;
   }
 
@@ -1337,7 +1337,7 @@
     font-size: 0.95rem;
     border: 1px solid #ccc;
     border-radius: 999px;
-    color: var(--color-accent);
+    color: var(--color-text);
     text-decoration: none;
     transition: background 0.2s ease;
   }
@@ -1362,6 +1362,126 @@
   }
 </style>
 
+<!-- Overview Image -->
+<div style="background-color: #fff; padding: 1rem; border-radius: 12px; max-width: 900px; margin: 2rem auto;">
+  <picture>
+    <source srcset="/Product-and-Technical-Team/assets/img/rs10_overview_dark.png" media="(prefers-color-scheme: dark)">
+    <img src="/Product-and-Technical-Team/assets/img/rs10_overview.png" alt="RS10 Overview" style="width: 100%; display: block;">
+  </picture>
+</div>
+
+<!-- Tab Navigation -->
+<div class="tab-nav">
+  <a href="#specifications" class="active">Specifications</a>
+  <a href="#resources">Resources</a>
+</div>
+
+<!-- Main Container -->
+<div class="rs10-container">
+
+  <!-- Header -->
+  <div class="rs10-header" id="specifications">
+    <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
+    <img src="/Product-and-Technical-Team/assets/img/RS10_32.png" alt="RS10 32L" />
+    <div class="rs10-header-info">
+      <h2>CHCNAV RS10</h2>
+      <p>RS10 16 Lines and 32 Lines</p>
+    </div>
+  </div>
+
+  <!-- Product Overview Section -->
+  <div class="rs10-section">
+    <h3 class="highlight-heading">ภาพรวมผลิตภัณฑ์ (Product Overview)</h3>
+    <ul class="main-list">
+      <li>
+        <span class="topic">RTK ความแม่นยำสูง (High-precision RTK)</span>
+        <ul class="sub-list">
+          <li>รองรับทุกกลุ่มดาวเทียม หลายความถี่ พร้อมโมดูลกำหนดตำแหน่งและทิศทางแบบแม่นยำสูง</li>
+        </ul>
+      </li>
+      <li>
+        <span class="topic">IMU แบบบูรณาการ (Integrated IMU)</span>
+        <ul class="sub-list">
+          <li>อัตราการอัปเดต 200 Hz</li>
+        </ul>
+      </li>
+      <li>
+        <span class="topic">กล้องสำรวจ SLAM (SLAM Survey Camera)</span>
+        <ul class="sub-list">
+          <li>กล้อง HD จำนวน 3 ตัว</li>
+        </ul>
+      </li>
+      <li>
+        <span class="topic">เครื่องสแกนเลเซอร์ SLAM (SLAM Laser Scanner)</span>
+        <ul class="sub-list">
+          <li>รองรับ 16 lines หรือ 32 lines</li>
+        </ul>
+      </li>
+      <li>
+        <span class="topic">ที่จับ RS10 (RS10 holder)</span>
+        <ul class="sub-list">
+          <li>ถอดได้เมื่อใช้โหมด RTK rover</li>
+        </ul>
+      </li>
+      <li>
+        <span class="topic">แหล่งจ่ายไฟ (Power supply)</span>
+        <ul class="sub-list">
+          <li>ใช้งานได้ 1 ชั่วโมงต่อแบตเตอรี่</li>
+          <li>รองรับการเปลี่ยนระหว่างใช้งาน และชาร์จผ่าน Powerbank ได้</li>
+        </ul>
+      </li>
+      <li>
+        <span class="topic">หน่วยความจำภายใน (Internal Memory)</span>
+        <ul class="sub-list">
+          <li>ความจุ 512 GB รองรับการถ่ายโอนข้อมูลผ่าน USB-C</li>
+        </ul>
+      </li>
+      <li>
+        <span class="topic">การป้องกันระดับ IP64 (IP64 protection)</span>
+        <ul class="sub-list">
+          <li>ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Technical Specs Section -->
+  <div class="rs10-section">
+    <h4>Laser Scanner</h4>
+    <ul>
+      <li>Channels: 16 or 32</li>
+      <li>Range: 120 m or 300 m</li>
+      <li>Scanning rate: 320k or 640k pts/sec</li>
+      <li>FOV: 360° × 270°</li>
+      <li>Returns: Up to 2</li>
+    </ul>
+  </div>
+
+  <div class="rs10-section">
+    <h4>Sensors</h4>
+    <ul>
+      <li>Camera: 15 MP (3 × 5 MP)</li>
+    </ul>
+  </div>
+
+  <div class="rs10-section">
+    <h4>Positioning</h4>
+    <ul>
+      <li>GNSS: Full GNSS</li>
+      <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
+      <li>Relative accuracy: &lt; 1 cm</li>
+    </ul>
+  </div>
+
+  <div class="rs10-section">
+    <h4>Operation</h4>
+    <ul>
+      <li>Battery duration: ~1 hour</li>
+      <li>Operating Temp: –20°C to +50°C</li>
+      <li>Weight + battery: RS10 (16) &lt; 1.9kg, RS10 (32) &lt; 1.7kg</li>
+    </ul>
+  </div>
+
 <!-- Download Card Component -->
 <div class="rs10-download" id="resources">
   <div class="download-card">
@@ -1372,6 +1492,15 @@
       Download ↓
     </a>
   </div>
+</div>
+
+  <!-- Back to Overview Link -->
+  <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
+     style="display: inline-flex; align-items: center; font-weight: 300; 
+            font-size: 1rem; text-decoration: none; gap: 0.3rem; 
+            color: var(--color-accent); margin-top: 2rem; display: block;">
+    &#x276E; Back to CHCNAV Overview
+  </a>
 </div>
 
 
