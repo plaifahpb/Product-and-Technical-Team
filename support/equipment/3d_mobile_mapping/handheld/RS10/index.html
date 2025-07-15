@@ -1184,8 +1184,6 @@
 
   body {
     font-family: 'Kanit', sans-serif;
-    background: var(--color-bg);
-    color: var(--color-text);
   }
 
   .rs10-container {
@@ -1285,7 +1283,6 @@
     display: inline-block;
   }
 
-  /* ========== DOWNLOAD BOX ========== */
   .rs10-download {
     background: var(--color-bg);
     border-radius: 16px;
@@ -1300,18 +1297,17 @@
     border-radius: 16px;
     padding: 2rem;
     max-width: 280px;
-    width: 100%;
     text-align: center;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     border: 1px solid #eee;
-    color: var(--color-text);
   }
 
+  /* ✅ เพิ่มเฉพาะ dark mode: ให้พื้นหลังเข้มขึ้น */
   html[data-md-color-scheme="dark"] .download-card {
-    background: #2a2a2a !important;
-    border: 1px solid #444 !important;
-    color: var(--color-text) !important;
-  }
+  background: #2a2a2a !important;
+  border: 1px solid #444 !important;
+  color: var(--color-text) !important;
+}
 
   .download-card img {
     width: 40px;
