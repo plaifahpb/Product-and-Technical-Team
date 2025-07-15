@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#rs10-product-overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -345,6 +350,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Handheld Laser Scanners
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -357,6 +377,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deeply-integrated-of-precision-rtk-and-slam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deeply integrated of precision RTK and SLAM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#product-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      ภาพรวมผลิตภัณฑ์ (Product Overview)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1162,8 +1219,35 @@
 
 
 
-  <h1>Handheld Laser Scanners</h1>
+<h1 id="rs10-product-overview">RS10 PRODUCT OVERVIEW</h1>
+<h3 id="deeply-integrated-of-precision-rtk-and-slam">Deeply integrated of precision RTK and SLAM</h3>
+<div style="background-color: #fff; padding: 1rem; border-radius: 12px; max-width: 900px; margin: 2rem auto;">
+  <picture>
+    <source srcset="/Product-and-Technical-Team/assets/img/rs10_overview_dark.png" media="(prefers-color-scheme: dark)">
+    <img src="/Product-and-Technical-Team/assets/img/rs10_overview.png" alt="RS10 Overview" style="width: 100%; display: block;">
+  </picture>
+</div>
 
+<hr />
+<h3 id="product-overview">ภาพรวมผลิตภัณฑ์ (Product Overview)</h3>
+<p><strong>RTK ความแม่นยำสูง (High-precision RTK)</strong><br />
+- รองรับทุกกลุ่มดาวเทียม หลายความถี่ พร้อมโมดูลกำหนดตำแหน่งและทิศทางแบบแม่นยำสูง  </p>
+<p><strong>IMU แบบบูรณาการ (Integrated IMU)</strong><br />
+- อัตราการอัปเดต 200 Hz  </p>
+<p><strong>กล้องสำรวจ SLAM (SLAM Survey Camera)</strong><br />
+- กล้อง HD จำนวน 3 ตัว  </p>
+<p><strong>เครื่องสแกนเลเซอร์ SLAM (SLAM Laser Scanner)</strong><br />
+- รองรับ 16 lines หรือ 32 lines  </p>
+<p><strong>ที่จับ RS10 (RS10 holder)</strong><br />
+- ถอดได้เมื่อใช้โหมด RTK rover  </p>
+<p><strong>แหล่งจ่ายไฟ (Power supply)</strong><br />
+- ใช้งานได้ 1 ชั่วโมงต่อแบตเตอรี่<br />
+- รองรับการเปลี่ยนระหว่างใช้งาน และชาร์จผ่าน Powerbank ได้  </p>
+<p><strong>หน่วยความจำภายใน (Internal Memory)</strong><br />
+- ความจุ 512 GB รองรับการถ่ายโอนข้อมูลผ่าน USB-C  </p>
+<p><strong>การป้องกันระดับ IP64 (IP64 protection)</strong><br />
+- ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C  </p>
+<hr />
 <!-- Google Font -->
 <p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
 <style>
@@ -1173,42 +1257,13 @@
     --color-subtext: #555;
     --color-bg: #fff;
     --color-accent: #f57c00;
-    --color-border: #ccc;
-    --color-card-bg: #f9f9f9;
   }
 
-  html[data-md-color-scheme="dark"],
-  html[data-md-color-scheme="slate"] {
+  html[data-md-color-scheme="slate"],
+  html[data-md-color-scheme="dark"] {
     --color-text: #f0f0f0;
     --color-subtext: #bbb;
     --color-bg: #1e1e1e;
-    --color-accent: #ffa14a;
-    --color-border: #444;
-    --color-card-bg: #2a2a2a;
-  }
-
-  body {
-    font-family: 'Kanit', sans-serif;
-    background-color: var(--color-bg);
-    color: var(--color-text);
-  }
-
-  /* ✅ Force text and nav color in dark mode */
-  h1, h2, h3, h4, h5, h6,
-  p, ul, ol, li, strong, em, a,
-  .md-nav__title,
-  .md-nav__item .md-nav__link {
-    color: var(--color-text) !important;
-  }
-
-  /* ✅ Highlight nav active item in orange */
-  .md-nav__item--active > .md-nav__link {
-    color: var(--color-accent) !important;
-    font-weight: bold;
-  }
-
-  hr {
-    border-color: var(--color-border);
   }
 
   .tab-nav {
@@ -1219,8 +1274,8 @@
   .tab-nav a {
     display: inline-block;
     margin: 0 1rem;
-    padding-bottom: 0.2rem;
-    font-size: 0.9rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.1rem;
     color: var(--color-subtext);
     text-decoration: none;
     border-bottom: 2px solid transparent;
@@ -1234,6 +1289,8 @@
   }
 
   .rs10-container {
+    font-family: 'Kanit', sans-serif;
+    color: var(--color-text);
     max-width: 1000px;
     margin: 2rem auto;
     padding: 0 1rem;
@@ -1260,98 +1317,50 @@
   .rs10-header-info h2 {
     font-size: 1.8rem;
     margin: 0;
-    color: var(--color-text);
   }
 
   .rs10-header-info p {
     color: var(--color-subtext);
     margin: 0.5rem 0;
-    font-size: 0.95rem;
   }
 
   .rs10-section {
     margin-top: 2rem;
   }
 
-  .rs10-section h3 {
+  .rs10-section h4 {
     color: var(--color-accent);
     margin-bottom: 0.5rem;
-    font-size: 1.05rem;
   }
 
   .rs10-section ul {
     padding-left: 1.2rem;
     line-height: 1.6;
-    font-size: 0.9rem;
-    color: var(--color-text);
   }
 
-  .overview-box {
-    background: var(--color-card-bg);
-    padding: 1rem;
-    border-radius: 12px;
-    margin: 2rem auto;
-    max-width: 900px;
-  }
-
-  .rs10-download-card-style {
-    background: var(--color-card-bg);
-    border-radius: 16px;
-    padding: 2rem 1.5rem;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    max-width: 260px;
-    margin: 2rem auto;
-    border: 1px solid var(--color-border);
-  }
-
-  .rs10-download-card-style h5 {
-    font-size: 0.85rem;
-    margin-bottom: 1.2rem;
-    color: var(--color-subtext);
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  .download-box-vertical img {
-    width: 50px;
-    margin-bottom: 1rem;
-  }
-
-  .download-box-vertical .filename {
-    font-weight: 500;
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--color-text);
-  }
-
-  .download-box-vertical .filesize {
-    margin: 0.2rem 0 1rem;
-    font-size: 0.8rem;
-    color: var(--color-subtext);
-  }
-
-  .download-button-rounded {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    border-radius: 999px;
+  .rs10-download {
     background: var(--color-bg);
-    color: var(--color-text);
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .rs10-download a {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
     text-decoration: none;
-    font-size: 0.9rem;
-    border: 1px solid var(--color-border);
-    transition: all 0.2s ease;
-  }
-
-  .download-button-rounded:hover {
-    background: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
-  }
-
-  .download-button-rounded .icon {
-    margin-left: 0.4rem;
     font-size: 0.95rem;
+    transition: background 0.2s;
+    color: #333;
+  }
+
+  .rs10-download a:hover {
+    background: #f5f5f5;
   }
 
   @media (max-width: 768px) {
@@ -1371,29 +1380,6 @@
 <!-- Main Container -->
 <div class="rs10-container">
 
-  <!-- Header Image -->
-  <div class="overview-box">
-    <picture>
-      <source srcset="/Product-and-Technical-Team/assets/img/rs10_overview_dark.png" media="(prefers-color-scheme: dark)">
-      <img src="/Product-and-Technical-Team/assets/img/rs10_overview.png" alt="RS10 Overview" style="width:100%; border-radius: 10px;" />
-    </picture>
-  </div>
-
-  <!-- Product Overview Section -->
-  <div class="rs10-section">
-    <h3>ภาพรวมผลิตภัณฑ์ (Product Overview)</h3>
-    <ul>
-      <li><strong>RTK ความแม่นยำสูง (High-precision RTK):</strong> รองรับทุกกลุ่มดาวเทียม หลายความถี่ พร้อมโมดูลกำหนดตำแหน่งและทิศทางแบบแม่นยำสูง</li>
-      <li><strong>IMU แบบบูรณาการ (Integrated IMU):</strong> อัตราการอัปเดต 200 Hz</li>
-      <li><strong>กล้องสำรวจ SLAM (SLAM Survey Camera):</strong> กล้อง HD จำนวน 3 ตัว</li>
-      <li><strong>เครื่องสแกนเลเซอร์ SLAM (SLAM Laser Scanner):</strong> รองรับ 16 lines หรือ 32 lines</li>
-      <li><strong>ที่จับ RS10 (RS10 holder):</strong> ถอดได้เมื่อใช้โหมด RTK rover</li>
-      <li><strong>แหล่งจ่ายไฟ (Power supply):</strong> ใช้งานได้ 1 ชั่วโมงต่อแบตเตอรี่ รองรับการเปลี่ยนระหว่างใช้งาน และชาร์จผ่าน Powerbank ได้</li>
-      <li><strong>หน่วยความจำภายใน (Internal Memory):</strong> ความจุ 512 GB รองรับการถ่ายโอนข้อมูลผ่าน USB-C</li>
-      <li><strong>การป้องกันระดับ IP64 (IP64 protection):</strong> ทำงานได้ในช่วงอุณหภูมิ -20 °C ถึง +50 °C</li>
-    </ul>
-  </div>
-
   <!-- Header -->
   <div class="rs10-header" id="specifications">
     <img src="/Product-and-Technical-Team/assets/img/RS10_16.png" alt="RS10 16L" />
@@ -1404,9 +1390,9 @@
     </div>
   </div>
 
-  <!-- Specs Sections -->
+  <!-- Sections -->
   <div class="rs10-section">
-    <h3>Laser Scanner</h3>
+    <h4>Laser Scanner</h4>
     <ul>
       <li>Channels: 16 or 32</li>
       <li>Range: 120 m or 300 m</li>
@@ -1417,14 +1403,14 @@
   </div>
 
   <div class="rs10-section">
-    <h3>Sensors</h3>
+    <h4>Sensors</h4>
     <ul>
       <li>Camera: 15 MP (3 × 5 MP)</li>
     </ul>
   </div>
 
   <div class="rs10-section">
-    <h3>Positioning</h3>
+    <h4>Positioning</h4>
     <ul>
       <li>GNSS: Full GNSS</li>
       <li>Absolute accuracy: &lt; 5 cm H / &lt; 5 cm V</li>
@@ -1433,7 +1419,7 @@
   </div>
 
   <div class="rs10-section">
-    <h3>Operation</h3>
+    <h4>Operation</h4>
     <ul>
       <li>Battery duration: ~1 hour</li>
       <li>Operating Temp: –20°C to +50°C</li>
@@ -1441,27 +1427,22 @@
     </ul>
   </div>
 
-  <!-- Download Section -->
-  <div id="resources" class="rs10-download-card-style">
-    <h5>Download Datasheet</h5>
-    <div class="download-box-vertical">
-      <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF Icon" />
-      <p class="filename">RS10_32_lines_DS_EN.pdf</p>
-      <p class="filesize">2.13 MB</p>
-      <a href="/assets/pdf/RS10_32_lines_DS_EN.pdf" target="_blank" class="download-button-rounded">
-        Download <span class="icon">⬇</span>
-      </a>
-    </div>
+  <!-- Resources -->
+  <div id="resources" class="rs10-download">
+    <h4>Download Datasheet</h4>
+    <a href="/files/RS10-32-lines-_DS_EN.pdf" target="_blank">
+      📄 RS10_32_lines_DS_EN.pdf (2.13 MB)
+    </a>
   </div>
-
-  <!-- Back Link -->
-  <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
-     style="display: inline-flex; align-items: center; font-weight: 300; 
-            font-size: 1rem; text-decoration: none; gap: 0.3rem; 
-            color: var(--color-accent); margin-top: 2rem; display: block;">
-    &#x276E; Back to CHCNAV Overview
-  </a>
 </div>
+
+<!-- Back to Overview Link -->
+<p><a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/" 
+   style="display: inline-flex; align-items: center; font-weight: 300; 
+          font-size: 1rem; text-decoration: none; gap: 0.3rem; 
+          color: var(--color-accent); margin-top: 2rem; display: block;">
+  &#x276E; Back to CHCNAV Overview
+</a></p>
 
 
 
