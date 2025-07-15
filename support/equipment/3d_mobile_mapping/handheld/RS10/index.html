@@ -1413,7 +1413,7 @@
     margin-top: 0.5rem;
   }
 
-  /* ✅ หัวข้อหลักให้เป็นกล่องสีส้ม */
+  /* ✅ หัวข้อหลักในรายการเป็นกล่องสีส้ม */
   ul.main-list > li > .topic {
     background-color: var(--color-accent);
     color: #fff;
@@ -1422,6 +1422,17 @@
     display: inline-block;
     font-weight: 600;
     margin-bottom: 0.5rem;
+  }
+
+  /* ✅ กล่องสีส้มใช้ได้กับทุก heading ที่ใช้ class นี้ เช่น h3 หรือ span */
+  .highlight-heading {
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 1rem;
   }
 
   /* ✅ Responsive */
