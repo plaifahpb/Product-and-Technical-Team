@@ -1164,7 +1164,7 @@
 
   <h1>Overview</h1>
 
-<!-- Google Fonts -->
+<!-- Font -->
 <p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet" /></p>
 <style>
   .kanit-light {
@@ -1188,14 +1188,11 @@
     font-size: 1rem;
     font-weight: 300;
     margin-bottom: 2rem;
-  }
-
-  html[data-md-color-scheme="default"] .app-subtitle {
-    color: #f57c00;
+    color: #f57c00 !important;
   }
 
   html[data-md-color-scheme="dark"] .app-subtitle {
-    color: #ffa94d;
+    color: #ffa94d !important;
   }
 
   .app-images {
@@ -1203,6 +1200,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+    padding: 0 1rem;
   }
 
   @media screen and (min-width: 768px) {
@@ -1210,16 +1208,21 @@
       flex-direction: row;
       justify-content: center;
     }
-    .app-images img {
-      max-width: 45%;
-    }
   }
 
   .app-images img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    max-width: 100%;
-    height: auto;
+    object-fit: contain;
+  }
+
+  @media screen and (min-width: 768px) {
+    .app-images img {
+      max-width: 45%;
+    }
   }
 </style>
 
