@@ -1189,11 +1189,13 @@
     font-weight: 300;
     font-family: 'Kanit', sans-serif;
     margin-bottom: 2rem;
-    color: #f57c00 !important;
+    /* ใช้ CSS variable + fallback เพื่อให้รองรับทั้ง theme */
+    color: #f57c00;
   }
 
   html[data-md-color-scheme="dark"] .app-subtitle {
-    color: #ffa94d !important;
+    color: #ffb347 !important; /* ใช้ !important เพื่อ override จาก theme */
+    filter: brightness(1.1); /* เพิ่ม contrast กรณีโดน theme มืดกลืนสี */
   }
 
   .app-images {
@@ -1213,17 +1215,17 @@
 
   .app-images img {
     width: 100%;
-    max-width: 480px;
+    max-width: 420px;
     height: auto;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     object-fit: contain;
   }
 
   .app-images img:hover {
-    transform: scale(1.015);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transform: scale(1.01);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   }
 </style>
 
