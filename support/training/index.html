@@ -1164,71 +1164,30 @@
 
   <h1>Overview</h1>
 
-<style>
-/* === Section Styling === */
-.app-section {
-  text-align: center;
-  margin: 1.5rem auto 3rem auto;
-  max-width: 1100px;
-  padding: 0 1rem;
-}
+<!-- Multiple Applications Section -->
+<h2 style="text-align: center; font-weight: bold; margin-bottom: 0.5rem;">
+  Multiple Applications
+</h2>
+<p style="text-align: center; color: var(--md-accent-fg-color); font-size: 1.2rem; margin-top: 0;">
+  Support five common scenarios for SLAM Using
+</p>
 
-/* === Header === */
-.app-section h2 {
-  font-size: 2.2rem;
-  font-weight: bold;
-  font-family: 'Kanit', sans-serif;
-  margin-bottom: 0.3rem;
-  margin-top: 0; /* ขยับขึ้นชิดบน */
-}
-
-/* === Subtitle Styling === */
-.app-subtitle {
-  font-size: 1.2rem;
-  font-weight: 400;
-  font-family: 'Kanit', sans-serif;
-  color: #f57c00 !important;
-  margin-bottom: 2rem;
-}
-
-/* === Subtitle Dark Mode Override === */
-[data-md-color-scheme="dark"] .app-subtitle {
-  color: #ffa726 !important;
-}
-
-/* === Images Container === */
-.app-images {
+<!-- Images Row -->
+<div style="
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 1.5rem;
-}
-
-/* === Individual Image === */
-.app-images img {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease;
-}
-
-.app-images img:hover {
-  transform: scale(1.03);
-}
-</style>
-
-<div class="app-section">
-  <h2>Multiple Applications</h2>
-  <div class="app-subtitle">
-    Support five common scenarios for SLAM Using
-  </div>
-
-  <div class="app-images">
-    <img src="../../assets/img/se1.png" alt="Indoor and Outdoor" />
-    <img src="../../assets/img/se2.png" alt="Open Area and Tunnel" />
-  </div>
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+">
+  <img src="/assets/images/se1.png"
+       alt="SLAM Scenarios: Indoor and Outdoor"
+       style="max-width: 100%; width: 480px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border-radius: 16px;">
+  <img src="/assets/images/se2.png"
+       alt="SLAM Scenarios: Open Area and Tunnel"
+       style="max-width: 100%; width: 480px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border-radius: 16px;">
 </div>
 
 
