@@ -1167,12 +1167,12 @@
 <style>
 .video-section {
   display: flex;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 2rem auto;
   padding: 1rem;
-  border-radius: 12px;
+  border-radius: 16px;
   background: #fff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   flex-wrap: wrap;
 }
 
@@ -1182,7 +1182,7 @@
 
 .video-accordion {
   flex: 1;
-  min-width: 300px;
+  min-width: 200px;
   margin-right: 2rem;
 }
 
@@ -1190,15 +1190,16 @@
   display: block;
   width: 100%;
   padding: 1rem;
-  margin-bottom: 0.5rem;
-  text-align: left;
+  margin-bottom: 0.75rem;
   font-family: 'Kanit', sans-serif;
-  font-weight: 600;
-  background: #f3f3f3;
+  font-weight: bold;
+  font-size: 1rem;
   border: none;
-  border-radius: 8px;
+  background: #f3f3f3;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  text-align: left;
 }
 
 .video-accordion button:hover {
@@ -1210,19 +1211,34 @@
   color: #fff;
 }
 [data-md-color-scheme="dark"] .video-accordion button:hover {
-  background: #555;
+  background: #4a4a4a;
 }
 
 .video-display {
-  flex: 2;
-  min-width: 300px;
+  flex: 2.5;
+  min-width: 400px;
 }
 
 .video-display iframe,
 .video-display video {
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.video-description {
+  font-family: 'Kanit', sans-serif;
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  display: none;
+}
+
+[data-md-color-scheme="dark"] .video-description {
+  background-color: #3c3c3c;
+  color: #ddd;
 }
 </style>
 
@@ -1233,32 +1249,46 @@
     <button onclick="showVideo('demo')">03 Video Demo</button>
   </div>
 
-  <div class="video-display" id="videoContainer">
-    <!-- default -->
-    <video controls poster="../../assets/img/indoor_cover.jpg">
-      <source src="../../assets/vdo/TipsonRSseriesHandheldSLAMIndoorScanning.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <div class="video-display">
+    <div id="videoContainer">
+      <video controls poster="../../assets/img/indoor_cover.jpg">
+        <source src="../../assets/vdo/TipsonRSseriesHandheldSLAMIndoorScanning.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-description" id="videoDescription" style="display:block">
+      ใช้งานได้ทั้งในร่มและกลางแจ้งในโหมด SLAM โดยอุปกรณ์สามารถเก็บข้อมูลได้แม้ในพื้นที่สัญญาณ GNSS อ่อนหรือไม่มี
+    </div>
   </div>
 </div>
 
 <script>
 function showVideo(type) {
-  const videoContainer = document.getElementById('videoContainer');
-  if (type === 'indoor') {
-    videoContainer.innerHTML = `
+  const container = document.getElementById("videoContainer");
+  const desc = document.getElementById("videoDescription");
+
+  if (type === "indoor") {
+    container.innerHTML = `
       <video controls poster="../../assets/img/indoor_cover.jpg">
         <source src="../../assets/vdo/TipsonRSseriesHandheldSLAMIndoorScanning.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>`;
-  } else if (type === 'openarea') {
-    videoContainer.innerHTML = `
-      <img src="../../assets/img/open_area_tunnel.png" alt="Open Area / Tunnel" style="width:100%; border-radius:12px;">`;
-  } else if (type === 'demo') {
-    videoContainer.innerHTML = `
+    desc.innerHTML = "ใช้งานได้ทั้งในร่มและกลางแจ้งในโหมด SLAM โดยอุปกรณ์สามารถเก็บข้อมูลได้แม้ในพื้นที่สัญญาณ GNSS อ่อนหรือไม่มี";
+  }
+
+  else if (type === "openarea") {
+    container.innerHTML = `<img src="../../assets/img/open_area_tunnel.png" alt="Open Area and Tunnel" style="width:100%; border-radius:12px;">`;
+    desc.innerHTML = "เหมาะกับพื้นที่เปิดโล่ง เช่น ทุ่งหญ้า สนามบิน หรืออุโมงค์/ท่อระบายน้ำที่สัญญาณ GNSS เข้าไม่ถึง";
+  }
+
+  else if (type === "demo") {
+    container.innerHTML = `
       <iframe src="https://1drv.ms/v/c/4befec23bfba4a58/IQTMU_Bd5qKeRZVfhsGsu3rgAQwyPGykecIqJsXaFspGUMM" 
         width="100%" height="360" frameborder="0" scrolling="no" allowfullscreen></iframe>`;
+    desc.innerHTML = "วิดีโอสาธิตการใช้งานอุปกรณ์รุ่น RS ในการสแกนภายในอาคาร เพื่อหลีกเลี่ยงสิ่งรบกวนขณะเคลื่อนที่";
   }
+
+  desc.style.display = "block";
 }
 </script>
 
