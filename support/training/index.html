@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -473,6 +478,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -484,6 +502,32 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1164,117 +1208,129 @@
 
   <h1>Overview</h1>
 
+<h2 id="overview">Overview</h2>
+<div class="video-section">
+
+  <!-- ซ้าย: ปุ่มเมนู -->
+  <div class="video-menu">
+    <button onclick="showVideo(0)" class="active">01 Indoor/Outdoor SLAM</button>
+    <button onclick="showVideo(1)">02 Open Area / Tunnel</button>
+    <button onclick="showVideo(2)">03 Video Demo</button>
+  </div>
+
+  <!-- ขวา: แสดงวิดีโอ + คำอธิบาย -->
+  <div class="video-content">
+    <div class="video-block active">
+      <iframe src="https://onedrive.live.com/embed?cid=4BEFEC23BFBA4A58&resid=4BEFEC23BFBA4A58%2117340&authkey=AF5RMeQl6L7B6no&em=2" frameborder="0" allowfullscreen></iframe>
+      <p class="video-description">วิดีโอสาธิตการใช้งานอุปกรณ์รุ่น RS ในการสแกนภายในอาคาร เพื่อหลีกเลี่ยงสิ่งรบกวนขณะเคลื่อนที่</p>
+    </div>
+
+    <div class="video-block">
+      <iframe src="https://onedrive.live.com/embed?cid=xxxx&resid=xxxx&authkey=xxxx&em=2" frameborder="0" allowfullscreen></iframe>
+      <p class="video-description">การใช้งานในพื้นที่เปิดโล่งหรืออุโมงค์ที่ต้องการความแม่นยำสูง ด้วยการผสาน SLAM และ GNSS</p>
+    </div>
+
+    <div class="video-block">
+      <iframe src="https://onedrive.live.com/embed?cid=yyyy&resid=yyyy&authkey=yyyy&em=2" frameborder="0" allowfullscreen></iframe>
+      <p class="video-description">ตัวอย่างวิดีโอเพิ่มเติมเกี่ยวกับขั้นตอนการใช้งานอุปกรณ์ในสถานการณ์ต่าง ๆ</p>
+    </div>
+  </div>
+</div>
+
 <style>
-.video-accordion-container {
+.video-section {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  max-width: 1100px;
-  margin: auto;
-  padding: 2rem 1rem;
-  font-family: 'Kanit', sans-serif;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
-.video-accordion-left {
-  flex: 1 1 240px;
+.video-menu {
+  flex: 1 1 220px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 
-.video-tab {
-  background: #f5f5f5;
+.video-menu button {
+  background-color: #f5f5f5;
+  border: none;
   padding: 1rem;
-  cursor: pointer;
-  border-radius: 10px;
+  margin-bottom: 0.5rem;
   font-weight: bold;
-  transition: background 0.3s ease;
-  border-left: 5px solid transparent;
-}
-.video-tab.active {
-  background: #222;
-  color: white;
-  border-left: 5px solid #f57c00;
+  font-family: 'Kanit', sans-serif;
+  text-align: left;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  color: #212121;
 }
 
-.video-accordion-right {
-  flex: 2 1 480px;
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+.video-menu button:hover,
+.video-menu button.active {
+  background-color: #212121;
+  color: #ffffff;
 }
 
 .video-content {
+  flex: 3 1 600px;
+  min-width: 0;
+}
+
+.video-block {
   display: none;
 }
-.video-content.active {
+
+.video-block.active {
   display: block;
 }
 
-.video-desc {
-  background: #f9f9f9;
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 10px;
-  color: #333;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-iframe {
+.video-block iframe {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  max-width: 100%;
+  height: 360px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background-color: #000;
 }
 
+.video-description {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-top: 1rem;
+}
+
+/* Dark mode support */
+[data-md-color-scheme="dark"] .video-menu button {
+  background-color: #333;
+  color: #eee;
+}
+
+[data-md-color-scheme="dark"] .video-menu button.active {
+  background-color: #f57c00;
+  color: #fff;
+}
+
+[data-md-color-scheme="dark"] .video-description {
+  color: #ccc;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .video-accordion-container {
+  .video-section {
     flex-direction: column;
   }
 }
 </style>
 
-<div class="video-accordion-container">
-  <div class="video-accordion-left">
-    <div class="video-tab active" onclick="showVideo(0)">01 Indoor/Outdoor SLAM</div>
-    <div class="video-tab" onclick="showVideo(1)">02 Open Area / Tunnel</div>
-    <div class="video-tab" onclick="showVideo(2)">03 Video Demo</div>
-  </div>
-
-  <div class="video-accordion-right">
-    <div class="video-content active">
-      <iframe src="https://onedrive.live.com/embed?cid=4BEFEC23BFBA4A58&resid=4BEFEC23BFBA4A58%211923&authkey=ABCRBE8VAjkR9sc&em=2" allowfullscreen></iframe>
-      <div class="video-desc">
-        วิดีโอสาธิตการใช้งานอุปกรณ์รุ่น RS ในการสแกนภายในอาคาร เพื่อหลีกเลี่ยงสิ่งรบกวนขณะเคลื่อนที่
-      </div>
-    </div>
-    <div class="video-content">
-      <img src="../../assets/img/se2.png" style="width: 100%; border-radius: 10px;" />
-      <div class="video-desc">
-        แสดงภาพการใช้งานในพื้นที่เปิดโล่งหรืออุโมงค์ที่มีสิ่งกีดขวางน้อย เหมาะกับการเก็บข้อมูลในระยะไกล
-      </div>
-    </div>
-    <div class="video-content">
-      <iframe src="https://onedrive.live.com/embed?cid=4BEFEC23BFBA4A58&resid=4BEFEC23BFBA4A58%211923&authkey=ABCRBE8VAjkR9sc&em=2" allowfullscreen></iframe>
-      <div class="video-desc">
-        ตัวอย่างวิดีโอเพิ่มเติมเกี่ยวกับขั้นตอนการใช้งานอุปกรณ์ในสถานการณ์ต่าง ๆ
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
 function showVideo(index) {
-  const tabs = document.querySelectorAll('.video-tab');
-  const contents = document.querySelectorAll('.video-content');
-
-  tabs.forEach((tab, i) => {
-    tab.classList.toggle('active', i === index);
-    contents[i].classList.toggle('active', i === index);
-  });
+  const blocks = document.querySelectorAll('.video-block');
+  const buttons = document.querySelectorAll('.video-menu button');
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+  buttons.forEach((btn, i) => btn.classList.toggle('active', i === index));
 }
 </script>
 
