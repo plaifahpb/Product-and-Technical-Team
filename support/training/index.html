@@ -1187,8 +1187,15 @@
   .app-subtitle {
     font-size: 1rem;
     font-weight: 300;
-    color: #f57c00;
     margin-bottom: 2rem;
+  }
+
+  html[data-md-color-scheme="default"] .app-subtitle {
+    color: #f57c00;
+  }
+
+  html[data-md-color-scheme="dark"] .app-subtitle {
+    color: #ffa94d;
   }
 
   .app-images {
@@ -1221,8 +1228,8 @@
   <div class="app-subtitle">Support five common scenarios for SLAM Using</div>
 
   <div class="app-images">
-    <img src="assets/img/se1.png" alt="Scene 1" />
-    <img src="assets/img/se2.png" alt="Scene 2" />
+    <img src="../../assets/img/se1.png" alt="Scene 1" />
+    <img src="../../assets/img/se2.png" alt="Scene 2" />
   </div>
 </div>
 
