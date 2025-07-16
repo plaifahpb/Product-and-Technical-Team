@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#faqs" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1119,6 +1124,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1160,124 +1167,115 @@
 
 
 
-  <h1>Explore our FAQs</h1>
-
+<h1 id="faqs">FAQs</h1>
+<!-- Google Font -->
+<p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" /></p>
 <style>
+  :root,
+  html[data-md-color-scheme="default"] {
+    --color-text: #222;
+    --color-bg: #fff;
+    --color-highlight: #fbeecf;
+    --color-border: #f0c36d;
+  }
+
+  html[data-md-color-scheme="dark"] {
+    --color-text: #eee;
+    --color-bg: #1e1e1e;
+    --color-highlight: #4a3b0b;
+    --color-border: #f0c36d;
+  }
+
+  body {
+    font-family: 'Kanit Light', sans-serif;
+  }
+
   .faq-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    font-family: "Kanit Light", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    padding: 2rem 1rem;
+    max-width: 960px;
+    margin: auto;
+    color: var(--color-text);
   }
 
-  .faq-item {
-    border-bottom: 1px solid #ddd;
-    padding: 1.2rem 0;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  .faq-box {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--color-bg);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease;
   }
 
-  .faq-question {
-    font-size: 0.85rem;
+  .faq-box.highlight {
+    background-color: var(--color-highlight);
+    border: 2px solid var(--color-border);
+  }
+
+  .faq-title {
     font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--md-default-fg-color, #333);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
   }
 
-  .faq-question:hover {
-    color: var(--md-accent-fg-color, #f58220);
-  }
-
-  .faq-answer {
-    display: none;
-    margin-top: 0.5rem;
-    font-size: 0.8rem;
+  .faq-content {
     line-height: 1.6;
-    color: var(--md-default-fg-color--light, #444);
+    color: var(--color-text);
   }
 
-  .faq-item.active .faq-answer {
-    display: block;
+  .explore-link {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.6rem 1.2rem;
+    background-color: #f57c00;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
   }
 
-  .faq-icon {
-    font-size: 0.8rem;
-    transform: rotate(0deg);
-    transition: transform 0.3s ease;
-  }
-
-  .faq-item.active .faq-icon {
-    transform: rotate(45deg);
+  .explore-link:hover {
+    background-color: #e96d00;
   }
 </style>
 
+<p><a href="#faq-1" class="explore-link" onclick="highlightFAQ('faq-1')">Explore our FAQs</a></p>
 <div class="faq-container">
 
-<div class="faq-item">
-  <div class="faq-question">
-    1. What are handheld laser scanners used for?
-    <span class="faq-icon">+</span>
+  <div id="faq-1" class="faq-box">
+    <div class="faq-title">Q1: How do I use this product?</div>
+    <div class="faq-content">You can follow the quick start manual provided in the packaging or visit our <a href="/support">support page</a>.</div>
   </div>
-  <div class="faq-answer">
-    Handheld laser scanners are used for capturing detailed 3D measurements and models.
-    The RS10 is widely used in surveying, construction, and engineering, building information modeling (BIM),
-    construction verification, industrial inspection, heritage preservation, forensics, and any task requiring accurate 3D spatial data.
-  </div>
-</div>
 
-<div class="faq-item">
-  <div class="faq-question">
-    2. What factors should be considered when choosing a handheld laser scanner?
-    <span class="faq-icon">+</span>
+  <div id="faq-2" class="faq-box">
+    <div class="faq-title">Q2: Can I export data to CSV or KML?</div>
+    <div class="faq-content">Yes, this product supports export to multiple formats including CSV, KML, and SHP.</div>
   </div>
-  <div class="faq-answer">
-    Consider factors such as measurement accuracy, range, portability, ease of use, data compatibility, and software integration capabilities.
-  </div>
-</div>
 
-<div class="faq-item">
-  <div class="faq-question">
-    3. How do handheld laser scanners integrate with other surveying tools?
-    <span class="faq-icon">+</span>
+  <div id="faq-3" class="faq-box">
+    <div class="faq-title">Q3: How to update firmware?</div>
+    <div class="faq-content">Firmware updates can be downloaded from our official website under the Downloads section.</div>
   </div>
-  <div class="faq-answer">
-    Handheld laser scanners can integrate with GNSS, total stations, and BIM software through standard file formats (e.g., LAS, E57, PLY), enabling seamless data workflows.
-  </div>
-</div>
-
-<div class="faq-item">
-  <div class="faq-question">
-    4. What makes the RS10 ideal for indoor and outdoor surveying?
-    <span class="faq-icon">+</span>
-  </div>
-  <div class="faq-answer">
-    The RS10 offers flexible scanning in various environments with its SLAM technology, IP64 protection, hot-swappable batteries, and multi-sensor capabilities.
-  </div>
-</div>
-
-<div class="faq-item">
-  <div class="faq-question">
-    5. How does the RS10 simplify data collection?
-    <span class="faq-icon">+</span>
-  </div>
-  <div class="faq-answer">
-    With intuitive interface, real-time preview, internal memory, and compatibility with post-processing software, RS10 enables efficient field-to-office workflows.
-  </div>
-</div>
 
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const questions = document.querySelectorAll('.faq-question');
-    questions.forEach(q => {
-      q.addEventListener('click', () => {
-        const item = q.parentElement;
-        item.classList.toggle('active');
-      });
-    });
+  function highlightFAQ(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      // Remove highlight from all
+      document.querySelectorAll('.faq-box').forEach(box => box.classList.remove('highlight'));
+      // Scroll and highlight
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      el.classList.add('highlight');
+    }
+  }
+
+  // Optional: If user navigates via #hash, highlight on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) highlightFAQ(hash);
   });
 </script>
 
