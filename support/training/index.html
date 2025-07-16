@@ -1209,130 +1209,88 @@
   <h1>Overview</h1>
 
 <h2 id="overview">Overview</h2>
-<div class="video-section">
-
-  <!-- ซ้าย: ปุ่มเมนู -->
-  <div class="video-menu">
-    <button onclick="showVideo(0)" class="active">01 Indoor/Outdoor SLAM</button>
-    <button onclick="showVideo(1)">02 Open Area / Tunnel</button>
-    <button onclick="showVideo(2)">03 Video Demo</button>
-  </div>
-
-  <!-- ขวา: แสดงวิดีโอ + คำอธิบาย -->
-  <div class="video-content">
-    <div class="video-block active">
-      <iframe src="https://onedrive.live.com/embed?cid=4BEFEC23BFBA4A58&resid=4BEFEC23BFBA4A58%2117340&authkey=AF5RMeQl6L7B6no&em=2" frameborder="0" allowfullscreen></iframe>
-      <p class="video-description">วิดีโอสาธิตการใช้งานอุปกรณ์รุ่น RS ในการสแกนภายในอาคาร เพื่อหลีกเลี่ยงสิ่งรบกวนขณะเคลื่อนที่</p>
-    </div>
-
-    <div class="video-block">
-      <iframe src="https://onedrive.live.com/embed?cid=xxxx&resid=xxxx&authkey=xxxx&em=2" frameborder="0" allowfullscreen></iframe>
-      <p class="video-description">การใช้งานในพื้นที่เปิดโล่งหรืออุโมงค์ที่ต้องการความแม่นยำสูง ด้วยการผสาน SLAM และ GNSS</p>
-    </div>
-
-    <div class="video-block">
-      <iframe src="https://onedrive.live.com/embed?cid=yyyy&resid=yyyy&authkey=yyyy&em=2" frameborder="0" allowfullscreen></iframe>
-      <p class="video-description">ตัวอย่างวิดีโอเพิ่มเติมเกี่ยวกับขั้นตอนการใช้งานอุปกรณ์ในสถานการณ์ต่าง ๆ</p>
-    </div>
-  </div>
-</div>
-
 <style>
-.video-section {
+.feature-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 2rem;
   margin-top: 2rem;
-  margin-bottom: 3rem;
 }
-
-.video-menu {
-  flex: 1 1 220px;
-  display: flex;
-  flex-direction: column;
+.feature-accordion {
+  flex: 1 1 400px;
+  max-width: 600px;
 }
-
-.video-menu button {
-  background-color: #f5f5f5;
-  border: none;
-  padding: 1rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  font-family: 'Kanit', sans-serif;
-  text-align: left;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
-  color: #212121;
+.feature-item {
+  border-top: 1px solid #ccc;
+  padding: 1rem 0;
 }
-
-.video-menu button:hover,
-.video-menu button.active {
-  background-color: #212121;
-  color: #ffffff;
-}
-
-.video-content {
-  flex: 3 1 600px;
-  min-width: 0;
-}
-
-.video-block {
+.feature-item input {
   display: none;
 }
-
-.video-block.active {
+.feature-item label {
+  font-weight: bold;
+  cursor: pointer;
   display: block;
+  font-size: 1.1rem;
 }
-
-.video-block iframe {
+.feature-desc {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+.feature-item input:checked ~ .feature-desc {
+  max-height: 500px;
+}
+.feature-media {
+  flex: 1 1 400px;
+  max-width: 640px;
+}
+.feature-media iframe, .feature-media video {
   width: 100%;
-  max-width: 100%;
-  height: 360px;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  background-color: #000;
-}
-
-.video-description {
-  font-family: 'Kanit', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #333;
-  margin-top: 1rem;
-}
-
-/* Dark mode support */
-[data-md-color-scheme="dark"] .video-menu button {
-  background-color: #333;
-  color: #eee;
-}
-
-[data-md-color-scheme="dark"] .video-menu button.active {
-  background-color: #f57c00;
-  color: #fff;
-}
-
-[data-md-color-scheme="dark"] .video-description {
-  color: #ccc;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .video-section {
-    flex-direction: column;
-  }
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 </style>
 
-<script>
-function showVideo(index) {
-  const blocks = document.querySelectorAll('.video-block');
-  const buttons = document.querySelectorAll('.video-menu button');
-  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
-  buttons.forEach((btn, i) => btn.classList.toggle('active', i === index));
-}
-</script>
+<div class="feature-container">
+  <!-- Left: Accordion -->
+  <div class="feature-accordion">
+    <div class="feature-item">
+      <input type="checkbox" id="f1" checked>
+      <label for="f1">01 Indoor/Outdoor SLAM</label>
+      <div class="feature-desc">
+        การสแกนพื้นที่ภายในอาคารหรือภายนอกที่มีโครงสร้างซับซ้อน เพื่อเก็บ point cloud ด้วยระบบ SLAM อย่างแม่นยำในทุกมุมมอง
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <input type="checkbox" id="f2">
+      <label for="f2">02 Open Area / Tunnel</label>
+      <div class="feature-desc">
+        การใช้งานในพื้นที่เปิดโล่งหรืออุโมงค์ที่ไม่มีสัญญาณ GNSS โดยใช้เซนเซอร์ LiDAR และ IMU เพื่อความแม่นยำในการจับตำแหน่ง
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <input type="checkbox" id="f3">
+      <label for="f3">03 Video Demo</label>
+      <div class="feature-desc">
+        ตัวอย่างวิดีโอเพิ่มเติมเกี่ยวกับขั้นตอนการใช้งานอุปกรณ์ในสถานการณ์ต่าง ๆ
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Embedded OneDrive Video -->
+  <div class="feature-media">
+    <iframe src="https://1drv.ms/v/c/4befec23bfba4a58/IQTX5scbK3fWSKuKd-WVSvZqATgF8sJIQjU0QYPNmfeZ6N8" 
+      frameborder="0" scrolling="no" allowfullscreen></iframe>
+  </div>
+</div>
 
 
 
