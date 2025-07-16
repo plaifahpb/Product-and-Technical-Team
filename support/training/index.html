@@ -1165,93 +1165,100 @@
   <h1>Overview</h1>
 
 <style>
-/* Section */
-.app-section {
-  text-align: center;
-  margin: 1.5rem auto 3rem auto;
-  max-width: 1100px;
-  padding: 0 1rem;
-}
-
-/* Header */
-.app-section h2 {
-  font-size: 1.6rem;
-  font-family: 'Kanit', sans-serif;
-  margin-bottom: 0.3rem;
-}
-
-/* Subtitle */
-.app-subtitle {
-  font-size: 1rem;
-  color: #f57c00;
-  margin-bottom: 2rem;
-}
-[data-md-color-scheme="dark"] .app-subtitle {
-  color: #ffa726;
-}
-
-/* Accordion buttons */
-.app-tabs {
+.video-section {
   display: flex;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-bottom: 1rem;
 }
-.app-tab {
-  padding: 0.5rem 1rem;
-  background-color: #eee;
+
+[data-md-color-scheme="dark"] .video-section {
+  background: #2a2a2a;
+}
+
+.video-accordion {
+  flex: 1;
+  min-width: 300px;
+  margin-right: 2rem;
+}
+
+.video-accordion button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 600;
+  background: #f3f3f3;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-family: 'Kanit', sans-serif;
-  font-size: 0.9rem;
-  transition: background 0.3s;
-}
-.app-tab:hover {
-  background-color: #ccc;
-}
-[data-md-color-scheme="dark"] .app-tab {
-  background-color: #333;
-}
-[data-md-color-scheme="dark"] .app-tab:hover {
-  background-color: #555;
+  transition: background 0.3s ease;
 }
 
-/* Display area */
-.app-display iframe,
-.app-display img {
+.video-accordion button:hover {
+  background: #e0e0e0;
+}
+
+[data-md-color-scheme="dark"] .video-accordion button {
+  background: #3a3a3a;
+  color: #fff;
+}
+[data-md-color-scheme="dark"] .video-accordion button:hover {
+  background: #555;
+}
+
+.video-display {
+  flex: 2;
+  min-width: 300px;
+}
+
+.video-display iframe,
+.video-display video {
   width: 100%;
-  max-width: 720px;
-  height: auto;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 </style>
 
-<div class="app-section">
-  <h2>Multiple Applications</h2>
-  <div class="app-subtitle">Support five common scenarios for SLAM Using</div>
-
-  <div class="app-tabs">
-    <button class="app-tab" onclick="showContent('img1')">Indoor/Outdoor</button>
-    <button class="app-tab" onclick="showContent('img2')">Open Area/Tunnel</button>
-    <button class="app-tab" onclick="showContent('video')">Video Demo</button>
+<div class="video-section">
+  <div class="video-accordion">
+    <button onclick="showVideo('indoor')">01 Indoor/Outdoor SLAM</button>
+    <button onclick="showVideo('openarea')">02 Open Area / Tunnel</button>
+    <button onclick="showVideo('demo')">03 Video Demo</button>
   </div>
 
-  <div class="app-display" id="appDisplay">
-    <img id="img1" src="../../assets/img/se1.png" style="display:block;" />
-    <img id="img2" src="../../assets/img/se2.png" style="display:none;" />
-    <iframe id="video" src="https://1drv.ms/v/c/4befec23bfba4a58/IQTMU_Bd5qKeRZVfhsGsu3rgAQwyPGykecIqJsXaFspGUMM" frameborder="0" scrolling="no" allowfullscreen style="display:none; aspect-ratio: 16 / 9; width: 100%; max-width: 720px;"></iframe>
+  <div class="video-display" id="videoContainer">
+    <!-- default -->
+    <video controls poster="../../assets/img/indoor_cover.jpg">
+      <source src="../../assets/vdo/TipsonRSseriesHandheldSLAMIndoorScanning.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 </div>
 
 <script>
-function showContent(id) {
-  const items = ['img1', 'img2', 'video'];
-  items.forEach(i => {
-    document.getElementById(i).style.display = (i === id) ? 'block' : 'none';
-  });
+function showVideo(type) {
+  const videoContainer = document.getElementById('videoContainer');
+  if (type === 'indoor') {
+    videoContainer.innerHTML = `
+      <video controls poster="../../assets/img/indoor_cover.jpg">
+        <source src="../../assets/vdo/TipsonRSseriesHandheldSLAMIndoorScanning.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>`;
+  } else if (type === 'openarea') {
+    videoContainer.innerHTML = `
+      <img src="../../assets/img/open_area_tunnel.png" alt="Open Area / Tunnel" style="width:100%; border-radius:12px;">`;
+  } else if (type === 'demo') {
+    videoContainer.innerHTML = `
+      <iframe src="https://1drv.ms/v/c/4befec23bfba4a58/IQTMU_Bd5qKeRZVfhsGsu3rgAQwyPGykecIqJsXaFspGUMM" 
+        width="100%" height="360" frameborder="0" scrolling="no" allowfullscreen></iframe>`;
+  }
 }
 </script>
 
