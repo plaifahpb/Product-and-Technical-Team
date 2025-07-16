@@ -521,7 +521,7 @@
         <li class="md-nav__item">
   <a href="#multiple-applications-support-five-common-scenarios-for-slam-using" class="md-nav__link">
     <span class="md-ellipsis">
-      Multiple Applications - Support Five common scenarios for SLAM Using
+      Multiple Applications – Support Five common scenarios for SLAM Using
     </span>
   </a>
   
@@ -1213,23 +1213,22 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
 
+/* === HEADER STYLES === */
 .custom-slam-header {
   font-family: 'Kanit', sans-serif;
   margin: 2rem 0 0.5rem;
 }
-
 .slam-subtitle {
   font-family: 'Kanit', sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
   color: var(--md-default-fg-color--light);
 }
-
 .slam-highlight {
   color: #ff9800;
 }
 
-/* Accordion Styling */
+/* === ACCORDION STYLES === */
 .video-accordion-container {
   margin: 2rem 0;
 }
@@ -1288,40 +1287,48 @@
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
 }
 
-/* Image preview block */
-.slam-image-preview {
-  width: 100%;
-  max-width: 720px;
-  border-radius: 8px;
-  margin-top: 1.2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+/* === IMAGE GRID WITH SHADOW & HOVER EFFECT === */
+.slam-image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  justify-content: center;
 }
-.slam-image-preview:hover {
-  transform: scale(1.02);
+.slam-image-card {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.slam-image-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 </style>
 
-<!-- HEADER -->
-<h2 id="multiple-applications-support-five-common-scenarios-for-slam-using"><span class="custom-slam-header slam-subtitle">Multiple Applications <span class="slam-highlight"> - Support Five common scenarios for SLAM Using</span></span></h2>
-<!-- IMAGE GRID -->
+<!-- === HEADER === -->
+<h2 id="multiple-applications-support-five-common-scenarios-for-slam-using"><span class="custom-slam-header slam-subtitle">Multiple Applications <span class="slam-highlight">– Support Five common scenarios for SLAM Using</span></span></h2>
+<!-- === IMAGE GRID === -->
 <div class="slam-image-grid">
-  <img src="../../assets/img/se1.png" alt="Scene 1" />
-  <img src="../../assets/img/se2.png" alt="Scene 2" />
+  <a href="assets/img/se1.png" target="_blank">
+    <img class="slam-image-card" src="assets/img/se1.png" alt="SLAM Scenario 1">
+  </a>
+  <a href="assets/img/se2.png" target="_blank">
+    <img class="slam-image-card" src="assets/img/se2.png" alt="SLAM Scenario 2">
+  </a>
 </div>
 
-<!-- ACCORDION BLOCK -->
+<!-- === ACCORDION BLOCK === -->
 <div class="video-accordion-container">
-
   <div class="video-accordion">
     <input type="checkbox" id="video1">
     <label for="video1">01 Tips on RS series Handheld SLAM Indoor Scanning</label>
 
-    <!-- Content shown only when opened -->
     <div class="video-content">
-
       <div class="video-description">ข้อควรปฏิบัติในการสแกนเพื่อผลลัพธ์ที่ดีที่สุด</div>
-
       <div class="video-tips">
         <ul>
           <li><span class="slam-highlight">อย่าวิ่ง ขณะสแกน</span> – ควรรักษาความเร็วให้คงที่ตลอดเวลา</li>
@@ -1334,10 +1341,8 @@
       </div>
 
       <iframe class="video-frame" src="https://1drv.ms/v/c/4befec23bfba4a58/IQTX5scbK3fWSKuKd-WVSvZqATgF8sJIQjU0QYPNmfeZ6N8" allowfullscreen></iframe>
-
     </div>
   </div>
-
 </div>
 
 
