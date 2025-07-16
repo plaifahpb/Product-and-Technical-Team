@@ -1228,7 +1228,33 @@
   color: #ff9800;
 }
 
-/* === ACCORDION STYLES === */
+/* === RESPONSIVE IMAGE GRID === */
+.slam-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  justify-items: center;
+  align-items: stretch;
+}
+
+/* === IMAGE CARD EFFECT === */
+.slam-image-card {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.slam-image-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* === ACCORDION === */
 .video-accordion-container {
   margin: 2rem 0;
 }
@@ -1287,37 +1313,18 @@
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
 }
 
-/* === IMAGE GRID WITH ZOOM EFFECT === */
-.slam-image-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-.slam-image-card {
-  width: 100%;
-  max-width: 720px;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  display: block;
-}
-.slam-image-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
-}
-.slam-image-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
+/* === MOBILE HEADER OPTIMIZATION === */
+@media screen and (max-width: 480px) {
+  .slam-subtitle {
+    font-size: 1rem;
+    text-align: center;
+  }
 }
 </style>
 
 <!-- === HEADER === -->
 <h2 id="multiple-applications-support-five-common-scenarios-for-slam-using"><span class="custom-slam-header slam-subtitle">Multiple Applications <span class="slam-highlight">– Support Five common scenarios for SLAM Using</span></span></h2>
+<!-- === RESPONSIVE IMAGE GRID === -->
 <div class="slam-image-grid">
   <a href="/Product-and-Technical-Team/assets/img/se1.png" target="_blank">
     <img class="slam-image-card" src="/Product-and-Technical-Team/assets/img/se1.png" alt="Scene 1" />
