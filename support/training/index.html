@@ -73,11 +73,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#training-guidance" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -476,8 +471,6 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
-      
-        
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
@@ -1169,8 +1162,69 @@
 
 
 
-<h1 id="training-guidance">Training &amp; Guidance – ภาพรวม</h1>
-<p>ข้อมูลรวมเกี่ยวกับการฝึกอบรมและคู่มือ...</p>
+  <h1>Overview</h1>
+
+<!-- Google Fonts -->
+<p><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet" /></p>
+<style>
+  .kanit-light {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
+  }
+
+  .app-section {
+    margin: 3rem 0;
+    text-align: center;
+  }
+
+  .app-section h2 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--md-typeset-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .app-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--md-typeset-color);
+    margin-bottom: 2rem;
+  }
+
+  .app-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .app-images {
+      flex-direction: row;
+      justify-content: center;
+    }
+    .app-images img {
+      max-width: 45%;
+    }
+  }
+
+  .app-images img {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
+<div class="app-section kanit-light">
+  <h2>Multiple Applications</h2>
+  <div class="app-subtitle">Support five common scenarios for SLAM Using</div>
+
+  <div class="app-images">
+    <img src="/docs/assets/images/7dd36ae1-162b-4ed9-aa28-9f7274b3edc5.png" alt="Indoor Outdoor Scene" />
+    <img src="/docs/assets/images/82c4b034-6d94-4c40-8579-7d93ac7f28ad.png" alt="Open Area and Tunnel" />
+  </div>
+</div>
 
 
 
