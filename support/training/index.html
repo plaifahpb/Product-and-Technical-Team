@@ -1165,7 +1165,7 @@
   <h1>Overview</h1>
 
 <style>
-/* === Section Styling === */
+/* Section */
 .app-section {
   text-align: center;
   margin: 1.5rem auto 3rem auto;
@@ -1173,63 +1173,87 @@
   padding: 0 1rem;
 }
 
-/* === Header === */
+/* Header */
 .app-section h2 {
   font-size: 1.6rem;
-  font-weight: light;
   font-family: 'Kanit', sans-serif;
   margin-bottom: 0.3rem;
-  margin-top: 0; /* ขยับขึ้นชิดบน */
 }
 
-/* === Subtitle Styling === */
+/* Subtitle */
 .app-subtitle {
   font-size: 1rem;
-  font-weight: 400;
-  font-family: 'Kanit', sans-serif;
-  color: #f57c00 !important;
+  color: #f57c00;
   margin-bottom: 2rem;
 }
-
-/* === Subtitle Dark Mode Override === */
 [data-md-color-scheme="dark"] .app-subtitle {
-  color: #ffa726 !important;
+  color: #ffa726;
 }
 
-/* === Images Container === */
-.app-images {
+/* Accordion buttons */
+.app-tabs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.app-tab {
+  padding: 0.5rem 1rem;
+  background-color: #eee;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Kanit', sans-serif;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+.app-tab:hover {
+  background-color: #ccc;
+}
+[data-md-color-scheme="dark"] .app-tab {
+  background-color: #333;
+}
+[data-md-color-scheme="dark"] .app-tab:hover {
+  background-color: #555;
 }
 
-/* === Individual Image === */
-.app-images img {
+/* Display area */
+.app-display iframe,
+.app-display img {
   width: 100%;
-  max-width: 500px;
+  max-width: 720px;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease;
-}
-
-.app-images img:hover {
-  transform: scale(1.03);
 }
 </style>
 
 <div class="app-section">
   <h2>Multiple Applications</h2>
-  <div class="app-subtitle">
-    Support five common scenarios for SLAM Using
+  <div class="app-subtitle">Support five common scenarios for SLAM Using</div>
+
+  <div class="app-tabs">
+    <button class="app-tab" onclick="showContent('img1')">Indoor/Outdoor</button>
+    <button class="app-tab" onclick="showContent('img2')">Open Area/Tunnel</button>
+    <button class="app-tab" onclick="showContent('video')">Video Demo</button>
   </div>
 
-  <div class="app-images">
-    <img src="../../assets/img/se1.png" alt="Indoor and Outdoor" />
-    <img src="../../assets/img/se2.png" alt="Open Area and Tunnel" />
+  <div class="app-display" id="appDisplay">
+    <img id="img1" src="../../assets/img/se1.png" style="display:block;" />
+    <img id="img2" src="../../assets/img/se2.png" style="display:none;" />
+    <iframe id="video" src="https://1drv.ms/v/c/4befec23bfba4a58/IQTMU_Bd5qKeRZVfhsGsu3rgAQwyPGykecIqJsXaFspGUMM" frameborder="0" scrolling="no" allowfullscreen style="display:none; aspect-ratio: 16 / 9; width: 100%; max-width: 720px;"></iframe>
   </div>
 </div>
+
+<script>
+function showContent(id) {
+  const items = ['img1', 'img2', 'video'];
+  items.forEach(i => {
+    document.getElementById(i).style.display = (i === id) ? 'block' : 'none';
+  });
+}
+</script>
 
 
 
