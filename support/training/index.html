@@ -1264,17 +1264,18 @@
   max-height: 1500px;
 }
 .video-description {
-  margin-bottom: 0.8rem;
+  margin: 1.5rem 0 0.5rem 0; /* เพิ่มระยะห่างด้านบน */
   font-size: 0.95rem;
   font-weight: bold;
 }
 .video-tips ul {
-  margin-top: 0.3rem;
-  margin-bottom: 1rem;
-  padding-left: 1.2rem;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 .video-tips li {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
 }
 .video-frame {
   width: 100%;
@@ -1302,22 +1303,23 @@
     <input type="checkbox" id="video1">
     <label for="video1">01 Tips on RS series Handheld SLAM Indoor Scanning</label>
 
-    <!-- Content shown only when opened -->
-    <div class="video-content">
-      <div class="video-description">ข้อควรปฏิบัติในการสแกนเพื่อผลลัพธ์ที่ดีที่สุด</div>
-      <div class="video-tips">
-        <ul>
-          <li>อย่าวิ่ง ขณะสแกน – ควรรักษาความเร็วให้คงที่ตลอดเวลา</li>
-          <li>เว้นระยะห่างจากผนังอย่างน้อย 1 เมตร เพื่อให้ได้คุณภาพการสแกนสูงสุด</li>
-          <li>หลีกเลี่ยงคนเดินผ่าน – หากมีคนใกล้เข้ามา ให้เล็งสแกนเนอร์ไปยังวัตถุคงที่จนกว่าพวกเขาจะเดินผ่าน</li>
-          <li>ขณะขึ้น/ลงบันได ให้เคลื่อนที่ช้า ๆ และถืออุปกรณ์ให้นิ่งที่สุด</li>
-          <li>หากต้องเข้าไปในห้อง ให้หยุดที่หน้าประตู 5 วินาที หรือเดินเข้าแบบเอียงข้าง ทำมุม 90° เพื่อการเชื่อมต่อข้อมูลที่ต่อเนื่อง</li>
-          <li>เมื่อต้องแบ่งสแกนเป็นหลายช่วง ควรถอยกลับ 10 เมตร ท้ายแต่ละช่วง เพื่อให้ Point Cloud เชื่อมต่อกันได้ง่ายขึ้น</li>
-        </ul>
-      </div>
-      <iframe class="video-frame" src="https://1drv.ms/v/c/4befec23bfba4a58/IQTX5scbK3fWSKuKd-WVSvZqATgF8sJIQjU0QYPNmfeZ6N8" allowfullscreen></iframe>
-    </div>
+<!-- Content shown only when opened -->
+<div class="video-content">
+
+  <div class="video-description">ข้อควรปฏิบัติในการสแกนเพื่อผลลัพธ์ที่ดีที่สุด</div>
+
+  <div class="video-tips">
+    <ul>
+      <li><span class="slam-highlight">อย่าวิ่ง ขณะสแกน</span> – ควรรักษาความเร็วให้คงที่ตลอดเวลา</li>
+      <li>เว้นระยะห่างจากผนังอย่างน้อย 1 เมตร เพื่อให้ได้คุณภาพการสแกนสูงสุด</li>
+      <li><span class="slam-highlight">หลีกเลี่ยงคนเดินผ่าน</span> – หากมีคนใกล้เข้ามา ให้เล็งสแกนเนอร์ไปยังวัตถุคงที่จนกว่าพวกเขาจะเดินผ่าน</li>
+      <li>ขณะขึ้น/ลงบันได ให้เคลื่อนที่ช้า ๆ และถืออุปกรณ์ให้นิ่งที่สุด</li>
+      <li><span class="slam-highlight">หากต้องเข้าไปในห้อง</span> ให้หยุดที่หน้าประตู 5 วินาที หรือเดินเข้าแบบเอียงข้าง ทำมุม 90° เพื่อการเชื่อมต่อข้อมูลที่ต่อเนื่อง</li>
+      <li>เมื่อต้องแบ่งสแกนเป็นหลายช่วง ควรถอยกลับ 10 เมตร ท้ายแต่ละช่วง เพื่อให้ Point Cloud เชื่อมต่อกันได้ง่ายขึ้น</li>
+    </ul>
   </div>
+
+  <iframe class="video-frame" src="https://1drv.ms/v/c/4befec23bfba4a58/IQTX5scbK3fWSKuKd-WVSvZqATgF8sJIQjU0QYPNmfeZ6N8" allowfullscreen></iframe>
 
 </div>
 
