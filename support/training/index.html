@@ -1268,11 +1268,14 @@
   display: none;
 }
 .video-accordion label {
-  font-weight: Medium;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 1rem;
   display: flex;
   align-items: center;
-  cursor: pointer;
+  justify-content: space-between;
+  flex-wrap: wrap; /* ช่วยให้บรรทัดไม่เบียดในมือถือ */
+  gap: 0.25rem;     /* ระยะห่างเล็กน้อยระหว่างคำ */
+  line-height: 1.4;
 }
 .video-accordion label::after {
   content: "+";
@@ -1317,9 +1320,14 @@
 
 /* === MOBILE HEADER OPTIMIZATION === */
 @media screen and (max-width: 480px) {
-  .slam-subtitle {
-    font-size: 1rem;
-    text-align: center;
+  .video-accordion label {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .video-accordion label::after {
+    margin-left: auto;
   }
 }
 </style>
@@ -1341,7 +1349,10 @@
   <div class="video-accordion">
     <input type="checkbox" id="video1">
     <label for="video1">
-  01 Tips on RS series Handheld SLAM&nbsp;&nbsp;<span class="slam-highlight">Indoor</span>&nbsp;&nbsp;Scanning</label>
+  01 Tips on RS series Handheld SLAM 
+  <span class="slam-highlight">Indoor</span> 
+  Scanning
+</label>
 
     <div class="video-content">
       <div class="video-description">ข้อควรปฏิบัติในการสแกนเพื่อผลลัพธ์ที่ดีที่สุด</div>
@@ -1365,7 +1376,10 @@
   <div class="video-accordion">
     <input type="checkbox" id="video2">
     <label for="video2">
-  02 Tips on RS series Handheld SLAM&nbsp;&nbsp;<span class="slam-highlight">Facade</span>&nbsp;&nbsp;Scanning</label>
+  02 Tips on RS series Handheld SLAM 
+  <span class="slam-highlight">Facade</span> 
+  Scanning
+</label>
 
     <div class="video-content">
       <div class="video-description">ข้อควรปฏิบัติในการสแกนเพื่อผลลัพธ์ที่ดีที่สุด</div>
@@ -1389,7 +1403,10 @@
   <div class="video-accordion">
     <input type="checkbox" id="video3">
     <label for="video3">
-  03 Tips on RS series Handheld SLAM&nbsp;&nbsp;<span class="slam-highlight">Forestry</span>&nbsp;&nbsp;Scanning</label>
+  03 Tips on RS series Handheld SLAM 
+  <span class="slam-highlight">Forestry</span> 
+  Scanning
+</label>
 
     <div class="video-content">
       <div class="video-description">ข้อควรปฏิบัติในการสแกนเพื่อผลลัพธ์ที่ดีที่สุด</div>
