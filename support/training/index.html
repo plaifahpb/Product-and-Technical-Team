@@ -1164,94 +1164,72 @@
 
   <h1>Overview</h1>
 
+<p>Multiple Applications 
+-Support five common scenarios for SLAM Using</p>
 <style>
-.feature-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 2rem;
+.video-accordion-container {
+  margin: 2rem 0;
 }
-.feature-accordion {
-  flex: 1 1 400px;
-  max-width: 600px;
-}
-.feature-item {
+.video-accordion {
   border-top: 1px solid #ccc;
   padding: 1rem 0;
 }
-.feature-item input {
+.video-accordion input {
   display: none;
 }
-.feature-item label {
+.video-accordion label {
   font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  display: block;
-  font-size: 1.1rem;
 }
-.feature-desc {
+.video-accordion label::after {
+  content: "+";
+  margin-left: auto;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+.video-accordion input:checked + label::after {
+  content: "–";
+  transform: rotate(180deg);
+}
+.video-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
-  font-size: 0.95rem;
-  color: #555;
-  margin-top: 0.5rem;
+  transition: max-height 0.4s ease;
 }
-.feature-item input:checked ~ .feature-desc {
-  max-height: 500px;
+.video-accordion input:checked ~ .video-content {
+  max-height: 1000px;
 }
-.feature-media {
-  flex: 1 1 400px;
-  max-width: 640px;
+.video-description {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1rem;
+  color: #444;
 }
-.feature-media iframe, .feature-media video {
+.video-frame {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 8px;
+  max-width: 720px;
+  aspect-ratio: 16/9;
   border: none;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
 }
 </style>
 
-<div class="feature-container">
-  <!-- Left: Accordion -->
-  <div class="feature-accordion">
-    <div class="feature-item">
-      <input type="checkbox" id="f1" checked>
-      <label for="f1">01 Indoor/Outdoor SLAM</label>
-      <div class="feature-desc">
+<div class="video-accordion-container">
+
+  <div class="video-accordion">
+    <input type="checkbox" id="video1" checked>
+    <label for="video1">01 Indoor/Outdoor SLAM</label>
+    <div class="video-content">
+      <div class="video-description">
         การสแกนพื้นที่ภายในอาคารหรือภายนอกที่มีโครงสร้างซับซ้อน เพื่อเก็บ point cloud ด้วยระบบ SLAM อย่างแม่นยำในทุกมุมมอง
       </div>
-    </div>
-
- <!-- Right: Embedded OneDrive Video -->
-  <div class="feature-media">
-    <iframe src="https://1drv.ms/v/c/4befec23bfba4a58/IQTX5scbK3fWSKuKd-WVSvZqATgF8sJIQjU0QYPNmfeZ6N8" 
-      frameborder="0" scrolling="no" allowfullscreen></iframe>
-  </div>
-</div>
-
-    <div class="feature-item">
-      <input type="checkbox" id="f2">
-      <label for="f2">02 Open Area / Tunnel</label>
-      <div class="feature-desc">
-        การใช้งานในพื้นที่เปิดโล่งหรืออุโมงค์ที่ไม่มีสัญญาณ GNSS โดยใช้เซนเซอร์ LiDAR และ IMU เพื่อความแม่นยำในการจับตำแหน่ง
-      </div>
-    </div>
-
-    <div class="feature-item">
-      <input type="checkbox" id="f3">
-      <label for="f3">03 Video Demo</label>
-      <div class="feature-desc">
-        ตัวอย่างวิดีโอเพิ่มเติมเกี่ยวกับขั้นตอนการใช้งานอุปกรณ์ในสถานการณ์ต่าง ๆ
-      </div>
+      <iframe class="video-frame" src="https://1drv.ms/v/c/4befec23bfba4a58/IQTX5scbK3fWSKuKd-WVSvZqATgF8sJIQjU0QYPNmfeZ6N8" allowfullscreen></iframe>
     </div>
   </div>
 
-<!-- Right: Embedded OneDrive Video -->
-<div class="feature-media">
-    <iframe src="https://1drv.ms/v/c/4befec23bfba4a58/IQTX5scbK3fWSKuKd-WVSvZqATgF8sJIQjU0QYPNmfeZ6N8" 
-      frameborder="0" scrolling="no" allowfullscreen></iframe>
-  </div>
 </div>
 
 
