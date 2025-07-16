@@ -1224,61 +1224,58 @@
 }
 
 .slam-highlight {
-  color: #ff9800; /* Orange for both dark/light */
+  color: #ff9800;
 }
 
+/* Accordion Styling */
 .video-accordion-container {
   margin: 2rem 0;
 }
-
 .video-accordion {
   border-top: 1px solid #ccc;
   padding: 1rem 0;
 }
-
 .video-accordion input {
   display: none;
 }
-
 .video-accordion label {
   font-weight: bold;
   font-size: 1rem;
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-family: 'Kanit', sans-serif;
 }
-
 .video-accordion label::after {
   content: "+";
   margin-left: auto;
   font-weight: bold;
   transition: transform 0.3s ease;
 }
-
 .video-accordion input:checked + label::after {
   content: "–";
   transform: rotate(180deg);
 }
-
 .video-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
 }
-
 .video-accordion input:checked ~ .video-content {
-  max-height: 1000px;
+  max-height: 1500px;
 }
-
 .video-description {
-  margin: 1rem 0 0.5rem 0;
+  margin-bottom: 0.8rem;
   font-size: 0.95rem;
-  color: var(--md-default-fg-color);
-  font-family: 'Kanit', sans-serif;
-  line-height: 1.6;
+  font-weight: bold;
 }
-
+.video-tips ul {
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  padding-left: 1.2rem;
+}
+.video-tips li {
+  margin-bottom: 0.3rem;
+}
 .video-frame {
   width: 100%;
   max-width: 720px;
@@ -1287,40 +1284,44 @@
   border-radius: 8px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
 }
-
-.video-bullets {
-  margin: 1rem 0;
-  padding-left: 1.2rem;
-  font-family: 'Kanit', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--md-default-fg-color);
-}
-.video-bullets li {
-  margin-bottom: 0.3rem;
+.static-image {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 </style>
 
+<!-- HEADER -->
 <h2 id="multiple-applications-support-five-common-scenarios-for-slam-using"><span class="custom-slam-header slam-subtitle">Multiple Applications <span class="slam-highlight">support Five common scenarios for SLAM Using</span></span></h2>
+<!-- ACCORDION BLOCK -->
 <div class="video-accordion-container">
+
   <div class="video-accordion">
-    <input type="checkbox" id="video1" checked>
+    <input type="checkbox" id="video1">
     <label for="video1">01 Tips on RS series Handheld SLAM Indoor Scanning</label>
+
+    <!-- Static Image Shown Always -->
+    <img src="https://1drv.ms/i/s!ApmPyRkYzsY_hcQFYK3ZCqpO_JqHcw?e=EXAMPLE" class="static-image" alt="Indoor SLAM thumbnail">
+
+    <!-- Content shown only when opened -->
     <div class="video-content">
-
-      <div class="video-description"><strong>ข้อควรปฏิบัติในการสแกนเพื่อผลลัพธ์ที่ดีที่สุด</strong></div>
-      <ul class="video-bullets">
-        <li>อย่าวิ่ง ขณะสแกน – ควรรักษาความเร็วให้คงที่ตลอดเวลา</li>
-        <li>เว้นระยะห่างจากผนังอย่างน้อย 1 เมตร เพื่อให้ได้คุณภาพการสแกนสูงสุด</li>
-        <li>หลีกเลี่ยงคนเดินผ่าน – หากมีคนใกล้เข้ามา ให้เล็งสแกนเนอร์ไปยังวัตถุคงที่จนกว่าพวกเขาจะเดินผ่าน</li>
-        <li>ขณะขึ้น/ลงบันได ให้เคลื่อนที่ช้า ๆ และถืออุปกรณ์ให้นิ่งที่สุด</li>
-        <li>หากต้องเข้าไปในห้อง ให้หยุดที่หน้าประตู 5 วินาที หรือเดินเข้าแบบเอียงข้าง ทำมุม 90° เพื่อการเชื่อมต่อข้อมูลที่ต่อเนื่อง</li>
-        <li>เมื่อต้องแบ่งสแกนเป็นหลายช่วง ควรถอยกลับ 10 เมตร ท้ายแต่ละช่วง เพื่อให้ Point Cloud เชื่อมต่อกันได้ง่ายขึ้น</li>
-      </ul>
-
+      <div class="video-description">ข้อควรปฏิบัติในการสแกนเพื่อผลลัพธ์ที่ดีที่สุด</div>
+      <div class="video-tips">
+        <ul>
+          <li>อย่าวิ่ง ขณะสแกน – ควรรักษาความเร็วให้คงที่ตลอดเวลา</li>
+          <li>เว้นระยะห่างจากผนังอย่างน้อย 1 เมตร เพื่อให้ได้คุณภาพการสแกนสูงสุด</li>
+          <li>หลีกเลี่ยงคนเดินผ่าน – หากมีคนใกล้เข้ามา ให้เล็งสแกนเนอร์ไปยังวัตถุคงที่จนกว่าพวกเขาจะเดินผ่าน</li>
+          <li>ขณะขึ้น/ลงบันได ให้เคลื่อนที่ช้า ๆ และถืออุปกรณ์ให้นิ่งที่สุด</li>
+          <li>หากต้องเข้าไปในห้อง ให้หยุดที่หน้าประตู 5 วินาที หรือเดินเข้าแบบเอียงข้าง ทำมุม 90° เพื่อการเชื่อมต่อข้อมูลที่ต่อเนื่อง</li>
+          <li>เมื่อต้องแบ่งสแกนเป็นหลายช่วง ควรถอยกลับ 10 เมตร ท้ายแต่ละช่วง เพื่อให้ Point Cloud เชื่อมต่อกันได้ง่ายขึ้น</li>
+        </ul>
+      </div>
       <iframe class="video-frame" src="https://1drv.ms/v/c/4befec23bfba4a58/IQTX5scbK3fWSKuKd-WVSvZqATgF8sJIQjU0QYPNmfeZ6N8" allowfullscreen></iframe>
     </div>
   </div>
+
 </div>
 
 
