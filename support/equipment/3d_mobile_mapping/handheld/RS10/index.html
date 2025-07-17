@@ -1611,35 +1611,47 @@
   </div>
 </div>
 
-<!-- === RS10 PACKAGE OVERVIEW === -->
 <h2 class="package-header">Standard Package List</h2>
 
 <div class="package-layout">
-  <!-- Left: Table -->
-  <table class="minimal-table">
+  <!-- Left Table -->
+  <table class="minimal-table" id="package-table">
     <tbody>
-      <tr><td>RS10 SLAM unit</td><td>1</td></tr>
-      <tr><td><strong>RS10 battery</strong></td><td><strong>3</strong></td></tr>
-      <tr><td>RS10 battery charger &amp; cable</td><td>1</td></tr>
-      <tr><td>RS10 chest support bracket package</td><td>1</td></tr>
-      <tr><td>LT800 tablet package</td><td>1</td></tr>
-      <tr><td>Transport container</td><td>1</td></tr>
-      <tr><td>Load-bearing pad</td><td>1</td></tr>
-      <tr><td>USB3.0 to TYPE-C cable</td><td>1</td></tr>
-      <tr><td>32GB USB flash disk</td><td>1</td></tr>
-      <tr><td>
-        <span>CoPre standard version package</span><br />
-        <small style="color: red;">(need order separately with RS10)</small>
-      </td><td>1</td></tr>
-      <tr><td><strong>Landstar 8 pre-code</strong></td><td>1</td></tr>
+      <tr data-img="RS10_SLAM.png"><td>RS10 SLAM unit</td><td>1</td></tr>
+      <tr data-img="RS10_battery.png"><td><strong>RS10 battery</strong></td><td><strong>3</strong></td></tr>
+      <tr data-img="RS10_charger.png"><td>RS10 battery charger & cable</td><td>1</td></tr>
+      <tr data-img="RS10_bracket.png"><td>RS10 chest support bracket package</td><td>1</td></tr>
+      <tr data-img="LT800.png"><td>LT800 tablet package</td><td>1</td></tr>
+      <tr data-img="container.png"><td>Transport container</td><td>1</td></tr>
+      <tr data-img="pad.png"><td>Load-bearing pad</td><td>1</td></tr>
+      <tr data-img="usb_cable.png"><td>USB3.0 to TYPE-C cable</td><td>1</td></tr>
+      <tr data-img="usb_flash.png"><td>32GB USB flash disk</td><td>1</td></tr>
+      <tr data-img="copre_package.png">
+        <td>
+          <span>CoPre standard version package</span><br />
+          <small style="color: red;">(need order separately with RS10)</small>
+        </td><td>1</td>
+      </tr>
+      <tr data-img="landstar.png"><td><strong>Landstar 8 pre-code</strong></td><td>1</td></tr>
     </tbody>
   </table>
 
-  <!-- Right: Image -->
-  <div class="image-card">
-    <img src="/Product-and-Technical-Team/assets/img/StandardPackageList.png" alt="RS10 Components Overview" />
+  <!-- Right Image Placeholder -->
+  <div class="image-card" id="package-image">
+    <img src="/Product-and-Technical-Team/assets/img/StandardPackageList.png" alt="RS10 Component" />
   </div>
 </div>
+
+<script>
+  document.querySelectorAll('#package-table tr').forEach(row => {
+    row.addEventListener('click', () => {
+      const imgName = row.getAttribute('data-img');
+      const imgPath = `/Product-and-Technical-Team/assets/img/package_items/${imgName}`;
+      document.getElementById('package-image').innerHTML = `<img src="${imgPath}" alt="${imgName}" />`;
+    });
+  });
+</script>
+
 
 
 
