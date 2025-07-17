@@ -252,26 +252,37 @@ h1, h2, h3 {
   background: none;
   border: none;
   font-size: 1.6rem;
-  color: var(--md-primary-fg-color);
+  padding: 0;
   margin-left: 1rem;
   cursor: pointer;
+  line-height: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  line-height: 1;
   transition: color 0.3s ease;
 }
 
-.sidebar-toggle-icon:hover {
-  color: var(--md-accent-fg-color);
+/* ✅ สีในโหมด Light */
+@media (prefers-color-scheme: light) {
+  .sidebar-toggle-icon {
+    color: #000000;
+  }
 }
 
+/* ✅ สีในโหมด Dark */
+@media (prefers-color-scheme: dark) {
+  .sidebar-toggle-icon {
+    color: #ffffff;
+  }
+}
+
+/* ✅ ซ่อนบน desktop */
 @media (min-width: 1220px) {
   .sidebar-toggle-icon {
     display: none;
   }
 }
+
 
 
 
