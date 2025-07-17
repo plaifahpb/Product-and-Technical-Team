@@ -1,0 +1,14 @@
+window.addEventListener("DOMContentLoaded", () => {
+  const mobileButton = document.createElement("button");
+  mobileButton.innerText = "☰ เปิดเมนู";
+  mobileButton.onclick = () => {
+    const btn = document.querySelector(".md-header__button.md-icon");
+    if (btn) btn.click();
+  };
+  mobileButton.className = "sidebar-toggle-global";
+
+  const main = document.querySelector(".md-main");
+  if (main) {
+    main.insertBefore(mobileButton, main.firstChild);
+  }
+});

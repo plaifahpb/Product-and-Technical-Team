@@ -248,4 +248,23 @@ h1, h2, h3 {
   color: #111111 !important; /* หรือใช้ #000 ก็ได้ */
 }
 
+.sidebar-toggle-global {
+  display: block;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border-radius: 6px;
+  background: #f57c00;
+  color: white;
+  border: none;
+  margin: 1rem auto;
+  width: fit-content;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .sidebar-toggle-global {
+    display: none; /* ซ่อนไว้เมื่อไม่ใช่มือถือ */
+  }
+}
+
 
