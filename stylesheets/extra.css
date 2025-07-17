@@ -259,29 +259,20 @@ h1, h2, h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: white !important;  /* ✅ บังคับให้เป็นสีขาว */
   transition: color 0.3s ease;
 }
 
-/* ✅ สีในโหมด Light */
-@media (prefers-color-scheme: light) {
-  .sidebar-toggle-icon {
-    color: #000000;
-  }
+.sidebar-toggle-icon:hover {
+  opacity: 0.75;
 }
 
-/* ✅ สีในโหมด Dark */
-@media (prefers-color-scheme: dark) {
-  .sidebar-toggle-icon {
-    color: #ffffff;
-  }
-}
-
-/* ✅ ซ่อนบน desktop */
 @media (min-width: 1220px) {
   .sidebar-toggle-icon {
     display: none;
   }
 }
+
 
 
 
