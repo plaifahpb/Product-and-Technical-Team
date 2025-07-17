@@ -250,21 +250,26 @@ h1, h2, h3 {
 
 .sidebar-toggle-global {
   display: block;
-  padding: 8px 16px;
-  font-size: 1rem;
-  border-radius: 6px;
-  background: #f57c00;
-  color: white;
-  border: none;
-  margin: 1rem auto;
-  width: fit-content;
+  font-size: 0.9rem;
+  background: transparent;
+  color: #3f51b5; /* Indigo หรือใช้ var(--md-primary-fg-color) ถ้าอยากกลมกลืน */
+  border: 1px solid #3f51b5;
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin: 1rem auto 0.5rem auto;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+.sidebar-toggle-global:hover {
+  background-color: #3f51b5;
+  color: white;
+}
 @media (min-width: 768px) {
   .sidebar-toggle-global {
-    display: none; /* ซ่อนไว้เมื่อไม่ใช่มือถือ */
+    display: none;
   }
 }
+
 
 

@@ -1,3 +1,4 @@
+// mobile-sidebar-toggle.js
 window.addEventListener("DOMContentLoaded", () => {
   const mobileButton = document.createElement("button");
   mobileButton.innerText = "☰ เปิดเมนู";
