@@ -1697,6 +1697,41 @@
     background-color: #3a2c1a;
     color: #ffa94d;
   }
+
+.navigation-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 3rem auto 4rem auto;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.navigation-links a {
+  text-decoration: none;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s ease;
+}
+
+.navigation-links a:hover {
+  color: #ffa726;
+}
+
+@media (max-width: 768px) {
+  .navigation-links {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
+
+
 </style>
 
 <script>
@@ -1729,24 +1764,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <!-- Navigation Links -->
-<div style="display: flex; justify-content: space-between; margin-top: 2rem; flex-wrap: wrap; gap: 1rem;">
-
-  <!-- Back Link -->
-  <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/"
-     style="display: inline-flex; align-items: center; font-weight: 600;
-            font-size: 1.1rem; text-decoration: none; gap: 0.3rem;
-            color: var(--md-primary-fg-color);">
+<div class="navigation-links">
+  <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/">
     &#x276E; Back to CHCNAV Overview
   </a>
 
-  <!-- Forward Link -->
-  <a href="/Product-and-Technical-Team/support/training/"
-     style="display: inline-flex; align-items: center; font-weight: 600;
-            font-size: 1.1rem; text-decoration: none; gap: 0.3rem;
-            color: var(--md-primary-fg-color);">
+  <a href="/Product-and-Technical-Team/support/training/">
     Go to Training & Guidance &#x276F;
   </a>
-
 </div>
 
 
