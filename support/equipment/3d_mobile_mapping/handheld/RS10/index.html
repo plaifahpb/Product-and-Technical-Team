@@ -1186,8 +1186,43 @@
   }
 
   body {
-  font-family: "Kanit", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Kanit", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    padding-bottom: 6rem; 
+ }
+
+.navigation-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1rem 3rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.navigation-links a {
+  text-decoration: none;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s ease;
+}
+
+.navigation-links a:hover {
+  color: #ffa726;
+}
+
+@media (max-width: 768px) {
+  .navigation-links {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
   }
+}
+
 
   .rs10-container {
     color: var(--color-text);
