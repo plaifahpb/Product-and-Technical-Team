@@ -1601,7 +1601,7 @@
 
 
 <div class="rs10-section" id="vdo">
-  <h2 class="highlight-heading">RS10 – Device Overview, Components & Operation</h2>
+  <h3 class="highlight-heading">RS10 – Device Overview, Components & Operation</h3>
   <div class="video-container">
     <iframe 
       src="https://1drv.ms/v/c/4befec23bfba4a58/IQStkekLE1KIQIuDNEsceBlDAUFlxosOOlQzweF-jXWy000"
@@ -1611,59 +1611,114 @@
   </div>
 </div>
 
-<h2 class="package-header" style="color: var(--color-accent); font-family: 'Kanit', sans-serif;">
-  Standard Package List
-</h2>
+<h3 class="package-header">Standard Package List</h3>
 
-<div class="package-layout" style="display: flex; align-items: flex-start; gap: 2rem; flex-wrap: wrap;">
+<div class="package-layout">
   <!-- Left Table -->
-  <table class="minimal-table" id="package-table" style="font-family: 'Kanit', sans-serif; font-size: 0.95rem;">
+  <table class="minimal-table" id="package-table">
     <tbody>
-      <tr data-img="true"><td>RS10 SLAM unit</td><td>1</td></tr>
-      <tr data-img="true"><td><strong>RS10 battery</strong></td><td><strong>3</strong></td></tr>
-      <tr data-img="true"><td>RS10 battery charger & cable</td><td>1</td></tr>
-      <tr data-img="true"><td>RS10 chest support bracket package</td><td>1</td></tr>
-      <tr data-img="true"><td>LT800 tablet package</td><td>1</td></tr>
-      <tr data-img="true"><td>Transport container</td><td>1</td></tr>
-      <tr data-img="true"><td>Load-bearing pad</td><td>1</td></tr>
-      <tr data-img="true"><td>USB3.0 to TYPE-C cable</td><td>1</td></tr>
-      <tr data-img="true"><td>32GB USB flash disk</td><td>1</td></tr>
-      <tr data-img="true">
+      <tr data-img="StandardPackageList.png"><td>RS10 SLAM unit</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td><strong>RS10 battery</strong></td><td><strong>3</strong></td></tr>
+      <tr data-img="StandardPackageList.png"><td>RS10 battery charger & cable</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>RS10 chest support bracket package</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>LT800 tablet package</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>Transport container</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>Load-bearing pad</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>USB3.0 to TYPE-C cable</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>32GB USB flash disk</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png">
         <td>
           <span>CoPre standard version package</span><br />
           <small style="color: red;">(need order separately with RS10)</small>
         </td>
         <td>1</td>
       </tr>
-      <tr data-img="true"><td><strong>Landstar 8 pre-code</strong></td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td><strong>Landstar 8 pre-code</strong></td><td>1</td></tr>
     </tbody>
   </table>
 
-  <!-- Right Image Placeholder -->
-  <div class="image-card" id="package-image" style="display: none; flex: 1 1 400px; max-width: 600px;">
-    <img src="/Product-and-Technical-Team/assets/img/StandardPackageList.png"
-         alt="RS10 Component"
-         style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+  <!-- Right Image (hidden initially) -->
+  <div class="image-card" id="package-image" style="display: none;">
+    <img src="" alt="RS10 Component" />
   </div>
 </div>
+
+<style>
+  .package-header {
+    color: var(--color-accent);
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.4rem;
+  }
+
+  .package-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+    font-family: 'Kanit', sans-serif;
+  }
+
+  .minimal-table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 360px;
+    font-size: 0.9rem;
+  }
+
+  .minimal-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    cursor: pointer;
+  }
+
+  .minimal-table tr.active {
+    background-color: var(--color-accent-bg, #ffeede);
+    color: var(--color-accent, #f60);
+    font-weight: bold;
+  }
+
+  .image-card {
+    flex-shrink: 0;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .image-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Dark mode support */
+  html[data-theme="dark"] .minimal-table tr.active {
+    background-color: #3a2c1a;
+    color: #ffa94d;
+  }
+</style>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const rows = document.querySelectorAll("#package-table tr");
     const imageCard = document.getElementById("package-image");
+    const image = imageCard.querySelector("img");
 
     rows.forEach(row => {
       row.addEventListener("click", () => {
-        // แสดงภาพเมื่อคลิกครั้งแรกเท่านั้น
-        if (imageCard.style.display === "none") {
+        const filename = row.getAttribute("data-img");
+        if (filename) {
+          image.src = `/Product-and-Technical-Team/assets/img/${filename}`;
+          image.alt = filename;
           imageCard.style.display = "block";
+
+          // Highlight active row
+          rows.forEach(r => r.classList.remove("active"));
+          row.classList.add("active");
         }
       });
     });
   });
 </script>
-
-
 
 
 
