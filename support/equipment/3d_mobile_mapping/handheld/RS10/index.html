@@ -1175,6 +1175,8 @@
     --color-subtext: #555;
     --color-bg: #fff;
     --color-accent: #f57c00;
+    --color-accent-bg: #ffeede;
+    --color-border: #ddd;
   }
 
   html[data-md-color-scheme="slate"],
@@ -1182,6 +1184,8 @@
     --color-text: #f0f0f0;
     --color-subtext: #bbb;
     --color-bg: #1e1e1e;
+    --color-border: #444;
+    --color-accent-bg: #3a2c1a;
   }
 
   body {
@@ -1475,7 +1479,27 @@
     border-radius: 16px;
  }
 
+   .nav-footer-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 
+  .nav-footer-links a {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 300;
+    font-size: 1rem;
+    text-decoration: none;
+    gap: 0.3rem;
+    color: var(--color-accent);
+  }
+
+  .nav-footer-links a:hover {
+    text-decoration: underline;
+  }
 </style>
 
 <!-- Tab Navigation -->
@@ -1726,27 +1750,14 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-
-
-  <!-- Navigation Links -->
-<div style="display: flex; justify-content: space-between; margin-top: 2rem;">
-
-  <!-- Back Link -->
-  <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/"
-     style="display: inline-flex; align-items: center; font-weight: 300;
-            font-size: 1rem; text-decoration: none; gap: 0.3rem;
-            color: var(--color-accent);">
+<!-- Navigation Links -->
+<div class="nav-footer-links">
+  <a href="/Product-and-Technical-Team/support/equipment/CHC_Overview/">
     &#x276E; Back to CHCNAV Overview
   </a>
-
-  <!-- Forward Link -->
-  <a href="/Product-and-Technical-Team/support/training/"
-     style="display: inline-flex; align-items: center; font-weight: 300;
-            font-size: 1rem; text-decoration: none; gap: 0.3rem;
-            color: var(--color-accent);">
+  <a href="/Product-and-Technical-Team/support/training/">
     Go to Training & Guidance &#x276F;
   </a>
-
 </div>
 
 
