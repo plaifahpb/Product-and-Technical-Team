@@ -1179,9 +1179,7 @@
 
   html[data-md-color-scheme="slate"],
   html[data-md-color-scheme="dark"] {
-    --color-text: #f0f0f0;
-    --color-subtext: #bbb;
-    --color-bg: #1e1e1e;
+    --color-accent: #f57c00; /* ใส่ใหม่ให้แน่ใจว่าค่าเดียวกับโหมดปกติ */
   }
 
   body {
@@ -1650,7 +1648,8 @@
     color: var(--color-accent);
     font-family: 'Kanit', sans-serif;
     font-size: 1.4rem;
-  }
+    margin-top: 3rem; /* เพิ่มระยะห่าง */
+ }
 
   .package-layout {
     display: flex;
