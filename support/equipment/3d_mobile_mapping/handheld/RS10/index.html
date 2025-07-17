@@ -1638,20 +1638,17 @@
   </table>
 
   <!-- Right Image (hidden initially) -->
-<div class="image-card" id="package-image" style="display: none;">
-  <a href="" target="_blank" id="image-link">
+  <div class="image-card" id="package-image" style="display: none;">
     <img src="" alt="RS10 Component" />
-  </a>
+  </div>
 </div>
-
 
 <style>
   .package-header {
     color: var(--color-accent);
     font-family: 'Kanit', sans-serif;
     font-size: 1.4rem;
-    margin-top: 3rem; /* เพิ่มระยะห่าง */
- }
+  }
 
   .package-layout {
     display: flex;
@@ -1681,9 +1678,9 @@
   }
 
   .image-card {
-    flex-grow: 1;
+    flex-shrink: 0;
+    max-width: 1000px;
     width: 100%;
-    max-width: none;
   }
 
   .image-card img {
@@ -1701,30 +1698,26 @@
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const rows = document.querySelectorAll("#package-table tr");
-  const imageCard = document.getElementById("package-image");
-  const image = imageCard.querySelector("img");
-  const imageLink = document.getElementById("image-link");
+  document.addEventListener("DOMContentLoaded", function () {
+    const rows = document.querySelectorAll("#package-table tr");
+    const imageCard = document.getElementById("package-image");
+    const image = imageCard.querySelector("img");
 
-  rows.forEach(row => {
-    row.addEventListener("click", () => {
-      const filename = row.getAttribute("data-img");
-      if (filename) {
-        const fullPath = `/Product-and-Technical-Team/assets/img/${filename}`;
-        image.src = fullPath;
-        image.alt = filename;
-        imageLink.href = fullPath;
-        imageCard.style.display = "block";
+    rows.forEach(row => {
+      row.addEventListener("click", () => {
+        const filename = row.getAttribute("data-img");
+        if (filename) {
+          image.src = `/Product-and-Technical-Team/assets/img/${filename}`;
+          image.alt = filename;
+          imageCard.style.display = "block";
 
-        // Highlight active row
-        rows.forEach(r => r.classList.remove("active"));
-        row.classList.add("active");
-      }
+          // Highlight active row
+          rows.forEach(r => r.classList.remove("active"));
+          row.classList.add("active");
+        }
+      });
     });
   });
-});
-
 </script>
 
 
