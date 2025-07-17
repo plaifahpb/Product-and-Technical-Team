@@ -1615,65 +1615,54 @@
   Standard Package List
 </h2>
 
-<div class="package-layout" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+<div class="package-layout" style="display: flex; align-items: flex-start; gap: 2rem; flex-wrap: wrap;">
   <!-- Left Table -->
-  <table class="minimal-table" id="package-table" style="font-family: 'Kanit', sans-serif; font-size: 1rem; flex: 1 1 320px;">
+  <table class="minimal-table" id="package-table" style="font-family: 'Kanit', sans-serif; font-size: 0.95rem;">
     <tbody>
-      <tr data-img="StandardPackageList.png"><td>RS10 SLAM unit</td><td>1</td></tr>
-      <tr data-img="StandardPackageList.png"><td><strong>RS10 battery</strong></td><td><strong>3</strong></td></tr>
-      <tr data-img="StandardPackageList.png"><td>RS10 battery charger & cable</td><td>1</td></tr>
-      <tr data-img="StandardPackageList.png"><td>RS10 chest support bracket package</td><td>1</td></tr>
-      <tr data-img="StandardPackageList.png"><td>LT800 tablet package</td><td>1</td></tr>
-      <tr data-img="StandardPackageList.png"><td>Transport container</td><td>1</td></tr>
-      <tr data-img="StandardPackageList.png"><td>Load-bearing pad</td><td>1</td></tr>
-      <tr data-img="StandardPackageList.png"><td>USB3.0 to TYPE-C cable</td><td>1</td></tr>
-      <tr data-img="StandardPackageList.png"><td>32GB USB flash disk</td><td>1</td></tr>
-      <tr data-img="StandardPackageList.png">
+      <tr data-img="true"><td>RS10 SLAM unit</td><td>1</td></tr>
+      <tr data-img="true"><td><strong>RS10 battery</strong></td><td><strong>3</strong></td></tr>
+      <tr data-img="true"><td>RS10 battery charger & cable</td><td>1</td></tr>
+      <tr data-img="true"><td>RS10 chest support bracket package</td><td>1</td></tr>
+      <tr data-img="true"><td>LT800 tablet package</td><td>1</td></tr>
+      <tr data-img="true"><td>Transport container</td><td>1</td></tr>
+      <tr data-img="true"><td>Load-bearing pad</td><td>1</td></tr>
+      <tr data-img="true"><td>USB3.0 to TYPE-C cable</td><td>1</td></tr>
+      <tr data-img="true"><td>32GB USB flash disk</td><td>1</td></tr>
+      <tr data-img="true">
         <td>
           <span>CoPre standard version package</span><br />
           <small style="color: red;">(need order separately with RS10)</small>
         </td>
         <td>1</td>
       </tr>
-      <tr data-img="StandardPackageList.png"><td><strong>Landstar 8 pre-code</strong></td><td>1</td></tr>
+      <tr data-img="true"><td><strong>Landstar 8 pre-code</strong></td><td>1</td></tr>
     </tbody>
   </table>
 
-  <!-- Right Image Placeholder (Hidden initially) -->
+  <!-- Right Image Placeholder -->
   <div class="image-card" id="package-image" style="display: none; flex: 1 1 400px; max-width: 600px;">
-    <img src="" alt="RS10 Component" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);" />
+    <img src="/Product-and-Technical-Team/assets/img/StandardPackageList.png"
+         alt="RS10 Component"
+         style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
   </div>
 </div>
 
-<!-- Script -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const rows = document.querySelectorAll("#package-table tr");
     const imageCard = document.getElementById("package-image");
-    const image = imageCard.querySelector("img");
-
-    let currentShown = null;
 
     rows.forEach(row => {
       row.addEventListener("click", () => {
-        const filename = row.getAttribute("data-img");
-        const path = `/Product-and-Technical-Team/assets/img/${filename}`;
-
-        // Toggle image
-        if (currentShown === filename && imageCard.style.display === "block") {
-          imageCard.style.display = "none";
-          image.src = "";
-          currentShown = null;
-        } else {
-          image.src = path;
-          image.alt = filename;
+        // แสดงภาพเมื่อคลิกครั้งแรกเท่านั้น
+        if (imageCard.style.display === "none") {
           imageCard.style.display = "block";
-          currentShown = filename;
         }
       });
     });
   });
 </script>
+
 
 
 
