@@ -1617,55 +1617,63 @@
 
 <div class="package-layout">
   <!-- Left Table -->
-  <table class="minimal-table" id="package-table" style="font-family: 'Kanit', sans-serif;">
+  <table class="minimal-table" id="package-table" style="font-family: 'Kanit', sans-serif; font-size: 0.9rem;">
     <tbody>
-      <tr><td data-img="true">RS10 SLAM unit</td><td>1</td></tr>
-      <tr><td data-img="true"><strong>RS10 battery</strong></td><td><strong>3</strong></td></tr>
-      <tr><td data-img="true">RS10 battery charger & cable</td><td>1</td></tr>
-      <tr><td data-img="true">RS10 chest support bracket package</td><td>1</td></tr>
-      <tr><td data-img="true">LT800 tablet package</td><td>1</td></tr>
-      <tr><td data-img="true">Transport container</td><td>1</td></tr>
-      <tr><td data-img="true">Load-bearing pad</td><td>1</td></tr>
-      <tr><td data-img="true">USB3.0 to TYPE-C cable</td><td>1</td></tr>
-      <tr><td data-img="true">32GB USB flash disk</td><td>1</td></tr>
-      <tr data-img="true">
+      <tr data-img="StandardPackageList.png"><td>RS10 SLAM unit</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td><strong>RS10 battery</strong></td><td><strong>3</strong></td></tr>
+      <tr data-img="StandardPackageList.png"><td>RS10 battery charger & cable</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>RS10 chest support bracket package</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>LT800 tablet package</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>Transport container</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>Load-bearing pad</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>USB3.0 to TYPE-C cable</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td>32GB USB flash disk</td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png">
         <td>
           <span>CoPre standard version package</span><br />
           <small style="color: red;">(need order separately with RS10)</small>
         </td>
         <td>1</td>
       </tr>
-      <tr><td data-img="true"><strong>Landstar 8 pre-code</strong></td><td>1</td></tr>
+      <tr data-img="StandardPackageList.png"><td><strong>Landstar 8 pre-code</strong></td><td>1</td></tr>
     </tbody>
   </table>
 
   <!-- Right Image Placeholder (hidden initially) -->
-  <div class="image-card" id="package-image" style="display: none;">
-    <img src="" alt="RS10 Component" />
+  <div class="image-card" id="package-image" style="display: none; max-width: 380px;">
+    <img src="" alt="RS10 Component" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" />
   </div>
 </div>
 
 <!-- Script -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const rows = document.querySelectorAll("#package-table td[data-img]");
+    const rows = document.querySelectorAll("#package-table tr");
     const imageCard = document.getElementById("package-image");
     const image = imageCard.querySelector("img");
 
-    // ซ่อนรูปตอนเริ่ม
-    imageCard.style.display = "none";
+    let currentImage = null;
 
-    rows.forEach(cell => {
-      cell.addEventListener("click", () => {
-        image.src = "/Product-and-Technical-Team/assets/img/StandardPackageList.png";
-        image.alt = "Standard Package List";
-        imageCard.style.display = "block";
+    rows.forEach(row => {
+      row.addEventListener("click", () => {
+        const filename = row.getAttribute("data-img");
+        const newSrc = `/Product-and-Technical-Team/assets/img/${filename}`;
+
+        // Toggle visibility
+        if (image.src.includes(filename) && imageCard.style.display === "block") {
+          imageCard.style.display = "none";
+          image.src = "";
+          currentImage = null;
+        } else {
+          image.src = newSrc;
+          image.alt = filename;
+          imageCard.style.display = "block";
+          currentImage = filename;
+        }
       });
     });
   });
 </script>
-
-
 
 
 
