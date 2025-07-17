@@ -1700,26 +1700,30 @@
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const rows = document.querySelectorAll("#package-table tr");
-    const imageCard = document.getElementById("package-image");
-    const image = imageCard.querySelector("img");
+document.addEventListener("DOMContentLoaded", function () {
+  const rows = document.querySelectorAll("#package-table tr");
+  const imageCard = document.getElementById("package-image");
+  const image = imageCard.querySelector("img");
+  const imageLink = document.getElementById("image-link");
 
-    rows.forEach(row => {
-      row.addEventListener("click", () => {
-        const filename = row.getAttribute("data-img");
-        if (filename) {
-          image.src = `/Product-and-Technical-Team/assets/img/${filename}`;
-          image.alt = filename;
-          imageCard.style.display = "block";
+  rows.forEach(row => {
+    row.addEventListener("click", () => {
+      const filename = row.getAttribute("data-img");
+      if (filename) {
+        const fullPath = `/Product-and-Technical-Team/assets/img/${filename}`;
+        image.src = fullPath;
+        image.alt = filename;
+        imageLink.href = fullPath;
+        imageCard.style.display = "block";
 
-          // Highlight active row
-          rows.forEach(r => r.classList.remove("active"));
-          row.classList.add("active");
-        }
-      });
+        // Highlight active row
+        rows.forEach(r => r.classList.remove("active"));
+        row.classList.add("active");
+      }
     });
   });
+});
+
 </script>
 
 
