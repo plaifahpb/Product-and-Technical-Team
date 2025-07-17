@@ -1,4 +1,3 @@
-// mobile-sidebar-toggle.js
 window.addEventListener("DOMContentLoaded", () => {
   const mobileButton = document.createElement("button");
   mobileButton.innerText = "☰ เปิดเมนู";
@@ -6,10 +5,10 @@ window.addEventListener("DOMContentLoaded", () => {
     const btn = document.querySelector(".md-header__button.md-icon");
     if (btn) btn.click();
   };
-  mobileButton.className = "sidebar-toggle-global";
+  mobileButton.className = "sidebar-toggle-header";
 
-  const main = document.querySelector(".md-main");
-  if (main) {
-    main.insertBefore(mobileButton, main.firstChild);
+  const header = document.querySelector(".md-header__title");
+  if (header) {
+    header.parentNode.insertBefore(mobileButton, header.nextSibling);
   }
 });
