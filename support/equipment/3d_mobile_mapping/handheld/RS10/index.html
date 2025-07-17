@@ -1427,6 +1427,55 @@
     height: 100%;
   }
 
+  .package-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 2rem auto;
+ }
+
+  .minimal-table {
+    width: 100%;
+    max-width: 500px;
+    border-collapse: collapse;
+    background: var(--color-bg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 0.95rem;
+ }
+
+  .minimal-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+    color: var(--color-text);
+ }
+
+  .minimal-table tr:last-child td {
+    border-bottom: none;
+ }
+
+  .minimal-table td:first-child {
+    font-weight: 300;
+ }
+
+  .image-card {
+    flex: 1;
+    max-width: 600px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+ }
+
+  .image-card img {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+ }
+
+
 </style>
 
 <!-- Tab Navigation -->
@@ -1562,15 +1611,36 @@
   </div>
 </div>
 
-<!-- === PRODUCT OVERVIEW LAYOUT === -->
-<div class="rs10-overview-container">
-  <div class="rs10-overview-block">
-    <img src="/Product-and-Technical-Team/assets/img/rs10_left.png" alt="RS10 Components Overview">
-  </div>
-  <div class="rs10-overview-block">
-    <img src="/Product-and-Technical-Team/assets/img/StandardPackageList.png" alt="RS10 Standard Package">
+<!-- === RS10 PACKAGE OVERVIEW === -->
+<h2 class="package-header">Standard Package List</h2>
+
+<div class="package-layout">
+  <!-- Left: Table -->
+  <table class="minimal-table">
+    <tbody>
+      <tr><td>RS10 SLAM unit</td><td>1</td></tr>
+      <tr><td><strong>RS10 battery</strong></td><td><strong>3</strong></td></tr>
+      <tr><td>RS10 battery charger &amp; cable</td><td>1</td></tr>
+      <tr><td>RS10 chest support bracket package</td><td>1</td></tr>
+      <tr><td>LT800 tablet package</td><td>1</td></tr>
+      <tr><td>Transport container</td><td>1</td></tr>
+      <tr><td>Load-bearing pad</td><td>1</td></tr>
+      <tr><td>USB3.0 to TYPE-C cable</td><td>1</td></tr>
+      <tr><td>32GB USB flash disk</td><td>1</td></tr>
+      <tr><td>
+        <span>CoPre standard version package</span><br />
+        <small style="color: red;">(need order separately with RS10)</small>
+      </td><td>1</td></tr>
+      <tr><td><strong>Landstar 8 pre-code</strong></td><td>1</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Right: Image -->
+  <div class="image-card">
+    <img src="/Product-and-Technical-Team/assets/img/StandardPackageList.png" alt="RS10 Components Overview" />
   </div>
 </div>
+
 
 
   <!-- Navigation Links -->
