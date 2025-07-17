@@ -1615,9 +1615,9 @@
   Standard Package List
 </h2>
 
-<div class="package-layout">
+<div class="package-layout" style="display: flex; flex-wrap: wrap; gap: 1rem;">
   <!-- Left Table -->
-  <table class="minimal-table" id="package-table" style="font-family: 'Kanit', sans-serif; font-size: 0.9rem;">
+  <table class="minimal-table" id="package-table" style="font-family: 'Kanit', sans-serif; font-size: 1rem; flex: 1 1 320px;">
     <tbody>
       <tr data-img="StandardPackageList.png"><td>RS10 SLAM unit</td><td>1</td></tr>
       <tr data-img="StandardPackageList.png"><td><strong>RS10 battery</strong></td><td><strong>3</strong></td></tr>
@@ -1639,9 +1639,9 @@
     </tbody>
   </table>
 
-  <!-- Right Image Placeholder (hidden initially) -->
-  <div class="image-card" id="package-image" style="display: none; max-width: 380px;">
-    <img src="" alt="RS10 Component" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" />
+  <!-- Right Image Placeholder (Hidden initially) -->
+  <div class="image-card" id="package-image" style="display: none; flex: 1 1 400px; max-width: 600px;">
+    <img src="" alt="RS10 Component" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);" />
   </div>
 </div>
 
@@ -1652,28 +1652,29 @@
     const imageCard = document.getElementById("package-image");
     const image = imageCard.querySelector("img");
 
-    let currentImage = null;
+    let currentShown = null;
 
     rows.forEach(row => {
       row.addEventListener("click", () => {
         const filename = row.getAttribute("data-img");
-        const newSrc = `/Product-and-Technical-Team/assets/img/${filename}`;
+        const path = `/Product-and-Technical-Team/assets/img/${filename}`;
 
-        // Toggle visibility
-        if (image.src.includes(filename) && imageCard.style.display === "block") {
+        // Toggle image
+        if (currentShown === filename && imageCard.style.display === "block") {
           imageCard.style.display = "none";
           image.src = "";
-          currentImage = null;
+          currentShown = null;
         } else {
-          image.src = newSrc;
+          image.src = path;
           image.alt = filename;
           imageCard.style.display = "block";
-          currentImage = filename;
+          currentShown = filename;
         }
       });
     });
   });
 </script>
+
 
 
 
