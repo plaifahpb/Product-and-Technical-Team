@@ -30,6 +30,153 @@ def db():
     con.row_factory = sqlite3.Row
     return con
 
+
+def ensure_production_database():
+    """Create required production tables/users when /app/data is empty on cloud disk."""
+    os.makedirs(DATA_DIR, exist_ok=True)
+    con = db()
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE,
+            password TEXT,
+            role TEXT,
+            display_name TEXT
+        )
+    """)
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS tasks (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            case_code TEXT,
+            task_description TEXT,
+            category TEXT,
+            owner TEXT,
+            priority TEXT,
+            status TEXT,
+            due_date TEXT,
+            important INTEGER DEFAULT 0,
+            urgent INTEGER DEFAULT 0,
+            note TEXT,
+            sub_product_id TEXT,
+            customer TEXT,
+            open_date TEXT,
+            closed_date TEXT,
+            kpi_result TEXT,
+            ms_team TEXT,
+            day_remaining_auto TEXT,
+            due_bucket TEXT,
+            problem_summary TEXT,
+            root_cause TEXT,
+            troubleshooting_process TEXT,
+            solution_resolution TEXT,
+            preventive_action TEXT,
+            case_classification TEXT,
+            repeated_issue INTEGER DEFAULT 0,
+            knowledge_tags TEXT,
+            evidence_link TEXT
+        )
+    """)
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS audit_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            task_id INTEGER,
+            action TEXT,
+            field_name TEXT,
+            old_value TEXT,
+            new_value TEXT,
+            actor TEXT,
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS product_assets (
+            product_id TEXT PRIMARY KEY,
+            product_name TEXT NOT NULL,
+            product_code TEXT,
+            description TEXT,
+            status TEXT DEFAULT 'Active',
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS product_components (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            product_id TEXT NOT NULL,
+            sub_product_id TEXT NOT NULL,
+            component_name TEXT,
+            part_type TEXT,
+            legacy_equipment_name TEXT,
+            sort_order INTEGER DEFAULT 0,
+            status TEXT DEFAULT 'Active',
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(product_id, sub_product_id)
+        )
+    """)
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS spare_parts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            asset_code TEXT,
+            product_id TEXT,
+            product_name TEXT,
+            component_id INTEGER,
+            sub_product_id TEXT,
+            sn TEXT,
+            image_link TEXT,
+            name_product TEXT,
+            part_type TEXT,
+            equipment_name TEXT,
+            warranty TEXT,
+            purchase_id TEXT,
+            purchase_source TEXT DEFAULT 'Not Specified',
+            supplier_name TEXT,
+            po_number TEXT,
+            country TEXT,
+            warranty_expiry TEXT,
+            qty INTEGER DEFAULT 1,
+            status TEXT DEFAULT 'Active',
+            remark TEXT,
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS task_spare_parts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            task_id INTEGER NOT NULL,
+            spare_part_id INTEGER NOT NULL,
+            qty INTEGER DEFAULT 1,
+            note TEXT,
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS task_images (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            task_id INTEGER NOT NULL,
+            image_path TEXT NOT NULL,
+            caption TEXT,
+            created_by TEXT,
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    # Seed production users if empty
+    count = con.execute("SELECT COUNT(*) AS c FROM users").fetchone()["c"]
+    if count == 0:
+        con.executemany(
+            "INSERT INTO users(username,password,role,display_name) VALUES (?,?,?,?)",
+            [
+                ("SBDTP", make_password_hash("SBDTP"), "Admin", "SBDTP Admin"),
+                ("SBD_Internal", make_password_hash("SBD_Internal"), "Staff", "SBD Internal Team"),
+                ("iNFRA", make_password_hash("iNFRA"), "Viewer", "iNFRA Viewer"),
+            ]
+        )
+    con.commit()
+    con.close()
+
+
+
 def load_master():
     if os.path.exists(MASTER_PATH):
         with open(MASTER_PATH, encoding='utf-8') as f:
@@ -53,6 +200,13 @@ def add_master_value(key, value):
         save_master(master)
         return True
     return False
+
+
+
+def make_password_hash(password):
+    salt = "sbdtp_static_salt_v1"
+    dk = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt.encode('utf-8'), 120000)
+    return "pbkdf2_sha256$" + salt + "$" + binascii.hexlify(dk).decode()
 
 
 def verify_password(stored_password, provided_password):
