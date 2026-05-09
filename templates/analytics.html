@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% block content %}
+<h2 class="fw-bold">Analytics Dashboard</h2>
+<div class="text-muted mb-3">วิเคราะห์แนวโน้มงาน, KPI รายเดือน และ Product ที่มีเคสมากที่สุด</div>
+<div class="card p-3 mb-4">
+  <form class="row g-2 align-items-end" method="get">
+    <div class="col-md-3"><label class="form-label fw-semibold">KPI Month</label><select class="form-select" name="kpi_month" onchange="this.form.submit()">{% for m in kpi.months %}<option value="{{m}}" {{'selected' if kpi.month_key==m}}>{{m}}</option>{% endfor %}</select></div>
+    <div class="col-md-2"><div class="text-muted small">Opened</div><div class="fs-4 fw-bold">{{kpi.opened}}</div></div>
+    <div class="col-md-2"><div class="text-muted small">Closed in-month</div><div class="fs-4 fw-bold">{{kpi.closed_in_month}}</div></div>
+    <div class="col-md-2"><div class="text-muted small">Closure %</div><div class="fs-4 fw-bold {{'text-success' if kpi.result=='PASS' else 'text-danger'}}">{{kpi.rate}}%</div></div>
+    <div class="col-md-2"><div class="text-muted small">Target 95%</div><div class="fs-4 fw-bold {{'text-success' if kpi.result=='PASS' else 'text-danger'}}">{{kpi.result}}</div></div>
+  </form>
+</div>
+<div class="row g-4 mb-4"><div class="col-md-7"><div class="card p-3"><h5>Monthly Due Task Trend</h5><canvas id="monthly"></canvas></div></div><div class="col-md-5"><div class="card p-3"><h5>Product Issue Ranking — {{kpi.year}}</h5><canvas id="productYearChart"></canvas></div></div></div>
+<div class="row g-4"><div class="col-md-7"><div class="card p-3"><h5>Monthly KPI by Product — {{kpi.month_key}}</h5><div class="table-responsive"><table class="table"><thead><tr><th>Product</th><th>Opened</th><th>Closed in-month</th><th>Not closed</th></tr></thead><tbody>{% for r in kpi.product_rows %}<tr><td>{{r.product}}</td><td>{{r.opened}}</td><td>{{r.closed_in_month}}</td><td class="text-danger fw-bold">{{r.not_closed_in_month}}</td></tr>{% endfor %}</tbody></table></div></div></div><div class="col-md-5"><div class="card p-3"><h5>Owner x Status</h5><div class="table-responsive"><table class="table"><thead><tr>{% if owner_status %}{% for k in owner_status[0].keys() %}<th>{{k}}</th>{% endfor %}{% endif %}</tr></thead><tbody>{% for r in owner_status %}<tr>{% for v in r.values() %}<td>{{v}}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div></div></div></div>
+{% endblock %}{% block scripts %}<script>const m={{monthly|tojson}}; new Chart(document.getElementById('monthly'),{type:'line',data:{labels:Object.keys(m),datasets:[{label:'Tasks',data:Object.values(m),tension:.35}]}}); const productYear={{ kpi.product_year|tojson }}; new Chart(document.getElementById('productYearChart'),{type:'bar',data:{labels:productYear.map(x=>x.product),datasets:[{label:'Opened Cases',data:productYear.map(x=>x.opened),borderWidth:1}]},options:{indexAxis:'y',responsive:true}})</script>{% endblock %}

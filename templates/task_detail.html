@@ -1,0 +1,151 @@
+{% extends 'base.html' %}{% block content %}
+<div class="d-flex justify-content-between align-items-start mb-4">
+  <div>
+    <h2 class="fw-bold mb-1">Case Detail {{ item.case_code or ('#' ~ item.id) }}</h2>
+    <div class="text-muted">Troubleshooting record, knowledge base, evidence images and spare parts used</div>
+  </div>
+  <div class="d-flex gap-2">
+    <a class="btn btn-outline-secondary" href="{{ url_for('tasks') }}">Back</a>
+    {% if session.role in ['Admin','Manager','Staff'] %}
+    <a class="btn btn-primary" href="{{ url_for('task_edit', task_id=item.id) }}">Edit Task</a>
+    {% endif %}
+  </div>
+</div>
+
+<div class="row g-4">
+  <div class="col-xl-4">
+    <div class="card p-4 mb-4">
+      <h5 class="fw-bold mb-3"><i class="bi bi-info-circle"></i> Case Overview</h5>
+      <div class="case-info-grid">
+        <div><span>Case ID</span><b class="text-primary">{{ item.case_code or ("TK-2026-%04d"|format(item.id)) }}</b></div>
+        <div><span>Status</span><b><span class="status-pill {{ item.status|replace(' ','') }}">{{ item.status or '-' }}</span></b></div>
+        <div><span>Owner</span><b>{{ item.owner or '-' }}</b></div>
+        <div><span>Priority</span><b>{{ item.priority or '-' }}</b></div>
+        <div><span>Product</span><b>{{ item.sub_product_id or '-' }}</b></div>
+        <div><span>Customer</span><b>{{ item.customer or '-' }}</b></div>
+        <div><span>Open</span><b>{{ item.open_date or '-' }}</b></div>
+        <div><span>Closed</span><b>{{ item.closed_date or '-' }}</b></div>
+        <div><span>Due</span><b>{{ item.due_date or '-' }}</b></div>
+      </div>
+      <hr>
+      <div class="small text-muted">Task Description</div>
+      <div class="fw-semibold">{{ item.task_description }}</div>
+      {% if item.note %}<div class="mt-2 small text-muted">{{ item.note }}</div>{% endif %}
+    </div>
+
+    <div class="card p-4 mb-4">
+      <h5 class="fw-bold mb-3"><i class="bi bi-tools"></i> Spare Parts Used</h5>
+      {% if spare_used %}
+      <div class="list-group mb-3">
+        {% for s in spare_used %}
+        <div class="list-group-item rounded-3 mb-2">
+          <div class="d-flex justify-content-between">
+            <div>
+              <b>{{ s.asset_code or '-' }}</b>
+              <div>{{ s.name_product or '-' }}</div>
+              <div class="small text-muted">{{ s.product_id }} — {{ s.product_name }} / Sub {{ s.sub_product_id }} / SN: {{ s.sn or '-' }}</div>
+              {% if s.note %}<div class="small">{{ s.note }}</div>{% endif %}
+            </div>
+            <div class="text-end">
+              <span class="badge bg-primary">x{{ s.qty }}</span>
+              {% if session.role in ['Admin','Manager'] %}
+              <form method="post" action="{{ url_for('task_spare_used_delete', task_id=item.id, link_id=s.id) }}" onsubmit="return confirm('Remove spare part used?')">
+                <button class="btn btn-sm btn-link text-danger p-0 mt-1">remove</button>
+              </form>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="text-muted mb-3">ยังไม่มีการบันทึกอะไหล่ที่ใช้กับเคสนี้</div>
+      {% endif %}
+
+      {% if session.role in ['Admin','Manager','Staff'] %}
+      <form method="post" action="{{ url_for('task_spare_used_add', task_id=item.id) }}" class="row g-2">
+        <div class="col-12">
+          <select class="form-select" name="spare_part_id">
+            <option value="">Select Spare Part</option>
+            {% for s in spare_options %}
+            <option value="{{s.id}}">{{s.asset_code or s.id}} — {{s.name_product}} — {{s.product_id}}/{{s.sub_product_id}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-3"><input class="form-control" type="number" min="1" name="qty" value="1"></div>
+        <div class="col-9"><input class="form-control" name="note" placeholder="Note"></div>
+        <div class="col-12"><button class="btn btn-outline-primary w-100">Add Spare Used</button></div>
+      </form>
+      {% endif %}
+    </div>
+
+    <div class="card p-4">
+      <h5 class="fw-bold mb-3"><i class="bi bi-images"></i> Case Images / Evidence</h5>
+      {% if task_images %}
+      <div class="row g-2 mb-3">
+        {% for img in task_images %}
+        <div class="col-6">
+          <div class="border rounded-4 p-2 bg-light h-100">
+            <a href="{{ img.image_path }}" target="_blank"><img src="{{ img.image_path }}" class="img-fluid rounded-3" style="height:130px;width:100%;object-fit:cover;"></a>
+            <div class="small mt-1">{{ img.caption or 'Evidence image' }}</div>
+            {% if session.role in ['Admin','Manager'] %}
+            <form method="post" action="{{ url_for('task_image_delete', task_id=item.id, image_id=img.id) }}" onsubmit="return confirm('Delete image?')">
+              <button class="btn btn-sm btn-link text-danger p-0">delete</button>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="text-muted mb-3">ยังไม่มีรูปประกอบเคส</div>
+      {% endif %}
+
+      {% if session.role in ['Admin','Manager','Staff'] %}
+      <form method="post" action="{{ url_for('task_image_upload', task_id=item.id) }}" enctype="multipart/form-data" class="row g-2">
+        <div class="col-12"><input class="form-control" type="file" name="image_file" accept="image/*" required></div>
+        <div class="col-12"><input class="form-control" name="caption" placeholder="คำอธิบายรูป เช่น error screen / wiring / damage point"></div>
+        <div class="col-12"><button class="btn btn-outline-primary w-100">Upload Case Image</button></div>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="col-xl-8">
+    <div class="card p-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+          <h5 class="fw-bold mb-1"><i class="bi bi-journal-text"></i> Case Knowledge Base</h5>
+          <div class="text-muted small">บันทึกองค์ความรู้จากเคสนี้ เพื่อให้ทีมใช้ค้นหาและแก้ปัญหาซ้ำในอนาคต</div>
+        </div>
+        {% if item.repeated_issue %}<span class="badge bg-danger">Repeated / Known Issue</span>{% endif %}
+      </div>
+
+      <form method="post" action="{{ url_for('task_knowledge_update', task_id=item.id) }}" class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Case Classification</label>
+          <select class="form-select" name="case_classification">
+            <option value="">-</option>
+            {% for c in classifications %}
+            <option value="{{c}}" {{'selected' if item.case_classification==c}}>{{c}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-5"><label class="form-label">Knowledge Tags</label><input class="form-control" name="knowledge_tags" value="{{ item.knowledge_tags or '' }}" placeholder="GPS, Encoder, Firmware"></div>
+        <div class="col-md-3 d-flex align-items-end"><div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="repeated_issue" id="repeated_issue" {{'checked' if item.repeated_issue}}><label class="form-check-label" for="repeated_issue">Repeated Issue</label></div></div>
+
+        <div class="col-md-6"><label class="form-label fw-semibold">1. ปัญหาที่เกิด</label><textarea class="form-control kb-textarea" name="problem_summary" rows="6" placeholder="อธิบายอาการที่พบ เช่น ภาพมืด, sensor ไม่ตอบสนอง, software error">{{ item.problem_summary or '' }}</textarea></div>
+        <div class="col-md-6"><label class="form-label fw-semibold">2. สาเหตุ</label><textarea class="form-control kb-textarea" name="root_cause" rows="6" placeholder="Root cause ที่ตรวจพบ เช่น cable หลวม, firmware mismatch">{{ item.root_cause or '' }}</textarea></div>
+        <div class="col-md-6"><label class="form-label fw-semibold">3. ขั้นตอนตรวจสอบ</label><textarea class="form-control kb-textarea" name="troubleshooting_process" rows="6" placeholder="ลำดับการตรวจสอบ 1) ... 2) ... 3) ...">{{ item.troubleshooting_process or '' }}</textarea></div>
+        <div class="col-md-6"><label class="form-label fw-semibold">4. การแก้ไขปัญหา</label><textarea class="form-control kb-textarea" name="solution_resolution" rows="6" placeholder="วิธีแก้ที่ใช้งานได้จริง">{{ item.solution_resolution or '' }}</textarea></div>
+        <div class="col-md-6"><label class="form-label fw-semibold">5. Preventive Action</label><textarea class="form-control kb-textarea" name="preventive_action" rows="4" placeholder="แนวทางป้องกันไม่ให้เกิดซ้ำ">{{ item.preventive_action or '' }}</textarea></div>
+        <div class="col-md-6"><label class="form-label fw-semibold">6. Evidence / Attachment Link</label><input class="form-control" name="evidence_link" value="{{ item.evidence_link or '' }}" placeholder="Drive link / log / report">{% if item.evidence_link %}<a class="small" href="{{ item.evidence_link }}" target="_blank">Open evidence</a>{% endif %}</div>
+
+        {% if session.role in ['Admin','Manager','Staff'] %}
+        <div class="col-12"><button class="btn btn-primary px-4">Save Knowledge</button></div>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

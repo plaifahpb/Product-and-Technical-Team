@@ -1,0 +1,145 @@
+{% extends 'base.html' %}{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h2 class="fw-bold mb-0">Executive Dashboard</h2>
+    <div class="text-muted">Executive monitoring for KPI, product issues, workload and operational performance</div>
+  </div>
+  <div class="d-flex gap-2 align-items-end">
+    <form method="get" class="d-flex gap-2 align-items-end">
+      <div>
+        <label class="form-label small fw-semibold mb-1">KPI Month</label>
+        <select class="form-select form-select-sm" name="kpi_month" onchange="this.form.submit()">
+          {% for m in kpi.months %}<option value="{{m}}" {{'selected' if kpi.month_key==m}}>{{m}}</option>{% endfor %}
+        </select>
+      </div>
+    </form>
+    <a class="btn btn-outline-primary" href="{{ url_for('export_csv') }}"><i class="bi bi-download"></i> Export CSV</a>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  {% for label,key,icon in [('Total Tasks','total','collection'),('Completed','completed','check-circle'),('Outstanding','outstanding','hourglass-split'),('Overdue','overdue','exclamation-octagon'),('Due <7 Days','due7','alarm'),('Completion %','completion_rate','percent')] %}
+  <div class="col-md-2"><div class="card kpi p-3"><div class="text-muted small"><i class="bi bi-{{icon}}"></i> {{label}}</div><div class="num">{{ metrics[key] }}{% if key=='completion_rate' %}%{% endif %}</div></div></div>
+  {% endfor %}
+</div>
+
+<div class="row g-4 mb-4">
+  <div class="col-xl-4">
+    <div class="card p-3 h-100">
+      <h5 class="fw-bold mb-3">1. Monthly KPI Summary</h5>
+      <div class="row g-3">
+        <div class="col-6"><div class="text-muted small">Opened</div><div class="fs-3 fw-bold">{{kpi.opened}}</div></div>
+        <div class="col-6"><div class="text-muted small">Closed in-month</div><div class="fs-3 fw-bold">{{kpi.closed_in_month}}</div></div>
+        <div class="col-6"><div class="text-muted small">Closure %</div><div class="fs-3 fw-bold {{'text-success' if kpi.result=='PASS' else 'text-danger'}}">{{kpi.rate}}%</div></div>
+        <div class="col-6"><div class="text-muted small">Target 95%</div><div class="fs-3 fw-bold {{'text-success' if kpi.result=='PASS' else 'text-danger'}}">{{kpi.result}}</div></div>
+      </div>
+      <div class="small text-muted mt-3">KPI ระดับทีมหลัก ใช้สำหรับติดตาม SLA รายเดือน</div>
+    </div>
+  </div>
+  <div class="col-xl-8">
+    <div class="card p-3 h-100">
+      <h5 class="fw-bold mb-3">2. Monthly KPI by Product — {{kpi.month_key}}</h5>
+      <div class="table-responsive">
+        <table class="table table-sm align-middle">
+          <thead><tr><th>Product</th><th>Opened</th><th>Closed in-month</th><th>Not closed</th><th>Closure %</th><th>Result</th></tr></thead>
+          <tbody>
+            {% for r in kpi.product_rows %}
+            {% set product_rate = (r.closed_in_month / r.opened * 100) if r.opened else 0 %}
+            <tr>
+              <td class="fw-semibold">{{r.product}}</td>
+              <td>{{r.opened}}</td>
+              <td>{{r.closed_in_month}}</td>
+              <td class="text-danger fw-bold">{{r.not_closed_in_month}}</td>
+              <td>{{"%.2f"|format(product_rate)}}%</td>
+              <td><span class="badge {{'bg-success' if product_rate >= 95 else 'bg-danger'}}">{{'PASS' if product_rate >= 95 else 'FAIL'}}</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="small text-muted">สูตร KPI: เคสที่เปิดในเดือนนั้นและปิดภายในเดือนเดียวกัน ÷ เคสที่เปิดในเดือนนั้น ≥ 95%</div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mb-4">
+  <div class="col-xl-7">
+    <div class="card p-3 h-100">
+      <h5 class="fw-bold mb-3">3. Task by Owner</h5>
+      <canvas id="ownerChart"></canvas>
+    </div>
+  </div>
+  <div class="col-xl-5">
+    <div class="card p-3 h-100">
+      <h5 class="fw-bold mb-3">4. Upcoming Tasks</h5>
+      <div class="table-responsive">
+        <table class="table align-middle mb-0">
+          <thead><tr><th>Due</th><th>Task</th><th>Owner</th><th>Status</th></tr></thead>
+          <tbody>
+            {% for r in upcoming %}
+            <tr>
+              <td class="text-nowrap">{{r.due_date}}</td>
+              <td>{{r.task_description}}</td>
+              <td>{{r.owner}}</td>
+              <td><span class="status-pill {{r.status|replace(' ','')}}">{{r.status}}</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mb-4">
+  <div class="col-xl-5">
+    <div class="card p-3 h-100">
+      <h5 class="fw-bold mb-3">5. Status Overview</h5>
+      <canvas id="statusChart"></canvas>
+    </div>
+  </div>
+  <div class="col-xl-7">
+    <div class="card p-3 h-100">
+      <h5 class="fw-bold mb-3">6. Product Issue Ranking — {{kpi.year}}</h5>
+      <canvas id="productYearChart"></canvas>
+      <div class="small text-muted mt-2">ใช้สำหรับสรุปสิ้นปีว่า Product/Device ใดมีจำนวนเคสมากที่สุด</div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4">
+  <div class="col-xl-6">
+    <div class="card p-3">
+      <h5 class="fw-bold mb-3">7. Priority Overview</h5>
+      <canvas id="priorityChart"></canvas>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="card p-3">
+      <h5 class="fw-bold mb-3">8. Customer Workload</h5>
+      <canvas id="customerChart"></canvas>
+    </div>
+  </div>
+</div>
+{% endblock %}{% block scripts %}
+<script>
+const status={{ status|tojson }}, owner={{ owner|tojson }}, priority={{ priority|tojson }}, customer={{ customer|tojson }};
+const productYear={{ kpi.product_year|tojson }};
+const chartColors = ['#3BA0E6','#FB5C87','#FF963A','#F9C14C','#22C55E','#6366F1','#14B8A6'];
+function bar(id,obj,type='bar', options={}) {
+  new Chart(document.getElementById(id), {
+    type:type,
+    data:{labels:Object.keys(obj),datasets:[{label:'Tasks',data:Object.values(obj),borderWidth:1,backgroundColor: chartColors}]},
+    options:{responsive:true,plugins:{legend:{display:type!='bar'}},...options}
+  })
+}
+bar('statusChart',status,'doughnut');
+bar('ownerChart',owner,'bar');
+bar('priorityChart',priority,'bar');
+bar('customerChart',customer,'bar');
+new Chart(document.getElementById('productYearChart'),{
+  type:'bar',
+  data:{labels:productYear.map(x=>x.product),datasets:[{label:'Opened Cases',data:productYear.map(x=>x.opened),borderWidth:1,backgroundColor:'#60A5FA'}]},
+  options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}}}
+})
+</script>{% endblock %}

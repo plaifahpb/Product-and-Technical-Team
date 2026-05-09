@@ -1,0 +1,37 @@
+{% extends 'base.html' %}{% block content %}
+<div class="d-flex justify-content-between align-items-start mb-4">
+  <div>
+    <h2 class="fw-bold mb-0">Knowledge Base</h2>
+    <div class="text-muted">Search previous cases, root causes and solutions</div>
+  </div>
+</div>
+
+<div class="card p-3 mb-4">
+  <form method="get" class="row g-2 align-items-end">
+    <div class="col-md-5"><label class="form-label small fw-semibold">Search</label><input class="form-control" name="q" value="{{request.args.get('q','')}}" placeholder="problem / root cause / solution / tag"></div>
+    <div class="col-md-3"><label class="form-label small fw-semibold">Product</label><select class="form-select" name="product"><option value="">All Product</option>{% for p in master.get('sup_product_id', []) %}<option value="{{p}}" {{'selected' if request.args.get('product')==p}}>{{p}}</option>{% endfor %}</select></div>
+    <div class="col-md-2"><label class="form-label small fw-semibold">Classification</label><select class="form-select" name="classification"><option value="">All</option>{% for c in classifications %}<option value="{{c}}" {{'selected' if request.args.get('classification')==c}}>{{c}}</option>{% endfor %}</select></div>
+    <div class="col-md-2 d-flex gap-2"><button class="btn btn-dark w-100">Search</button><a class="btn btn-outline-secondary" href="{{ url_for('knowledge_base') }}">Reset</a></div>
+  </form>
+</div>
+
+<div class="row g-3">
+  {% for r in rows %}
+  <div class="col-md-6">
+    <div class="card p-4 h-100">
+      <div class="d-flex justify-content-between mb-2">
+        <h5 class="fw-bold mb-0"><a href="{{ url_for('task_detail', task_id=r.id) }}" class="text-decoration-none">{{ r.case_code or ('#' ~ r.id) }} {{r.task_description}}</a></h5>
+        {% if r.repeated_issue %}<span class="badge bg-danger">Repeated</span>{% endif %}
+      </div>
+      <div class="small text-muted mb-3">{{ r.sub_product_id or '-' }} • {{ r.case_classification or 'Unclassified' }} • {{ r.closed_date or r.open_date or '-' }}</div>
+      <div class="mb-2"><b>ปัญหา:</b> {{ r.problem_summary or '-' }}</div>
+      <div class="mb-2"><b>สาเหตุ:</b> {{ r.root_cause or '-' }}</div>
+      <div class="mb-2"><b>วิธีแก้:</b> {{ r.solution_resolution or '-' }}</div>
+      {% if r.knowledge_tags %}<div class="small text-primary">Tags: {{ r.knowledge_tags }}</div>{% endif %}
+    </div>
+  </div>
+  {% else %}
+  <div class="col-12"><div class="card p-5 text-center text-muted">ยังไม่มี Case Knowledge ที่บันทึกไว้</div></div>
+  {% endfor %}
+</div>
+{% endblock %}

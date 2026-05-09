@@ -1,0 +1,68 @@
+{% extends 'base.html' %}{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h2 class="fw-bold mb-0">{{ 'Add Spare Part' if mode=='new' else 'Edit Spare Part' }}</h2>
+    <div class="text-muted">Manage product-based spare part, asset code and procurement information</div>
+  </div>
+  <a class="btn btn-outline-secondary" href="{{ url_for('spare_parts') }}">Back</a>
+</div>
+
+<div class="card p-4">
+  <form method="post" enctype="multipart/form-data" class="row g-3">
+    <div class="col-md-3">
+      <label class="form-label">Asset Code</label>
+      <input class="form-control" name="asset_code" value="{{ item.asset_code or '' }}" placeholder="Auto-generate if blank">
+      <div class="form-text">เช่น LCMS-012-001</div>
+    </div>
+    <div class="col-md-3"><label class="form-label">Product ID</label><input class="form-control" name="product_id" value="{{ item.product_id or '' }}" placeholder="1 = LCMS"></div>
+    <div class="col-md-3"><label class="form-label">Sub Product ID / Component No.</label><input class="form-control" name="sub_product_id" value="{{ item.sub_product_id or '' }}"></div>
+    <div class="col-md-3"><label class="form-label">Serial No.</label><input class="form-control" name="sn" value="{{ item.sn or '' }}"></div>
+
+    <div class="col-md-6"><label class="form-label">Legacy Equipment Name</label><input class="form-control" name="equipment_name" value="{{ item.equipment_name or '' }}" placeholder="เช่น LCMS Main Unit"></div>
+    <div class="col-md-6"><label class="form-label">Part Type</label><input class="form-control" name="part_type" value="{{ item.part_type or '' }}" placeholder="เช่น Hardware - GPS"></div>
+    <div class="col-md-12"><label class="form-label">Part / Spare Name</label><input class="form-control" name="name_product" value="{{ item.name_product or '' }}"></div>
+
+    <div class="col-md-6">
+      <label class="form-label">Upload Image</label>
+      <input class="form-control" type="file" name="image_file" accept="image/*">
+      <div class="form-text">เลือกไฟล์รูปจากเครื่อง ระบบจะบันทึกให้อัตโนมัติ</div>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Image URL / Saved Path</label>
+      <input class="form-control" name="image_link" value="{{ item.image_link or '' }}" placeholder="/static/spare_parts/example.jpg หรือ URL รูปภาพ">
+    </div>
+
+    {% if item.image_link %}
+    <div class="col-md-12">
+      <label class="form-label">Current Image Preview</label>
+      <div class="border rounded-4 p-3 bg-light">
+        <img src="{{ item.image_link }}" class="img-fluid rounded-4" style="max-height:260px; object-fit:contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="text-muted" style="display:none;">ไฟล์นี้ไม่ใช่รูปภาพหรือ path ไม่ถูกต้อง: {{ item.image_link }}</div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="col-md-3">
+      <label class="form-label">Purchase Source</label>
+      <select class="form-select" name="purchase_source">
+        {% for s in purchase_sources %}
+        <option value="{{s}}" {{'selected' if (item.purchase_source or 'Not Specified')==s}}>{{s}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-3"><label class="form-label">Supplier Name</label><input class="form-control" name="supplier_name" value="{{ item.supplier_name or '' }}" placeholder="OEM / Vendor / Local shop"></div>
+    <div class="col-md-3"><label class="form-label">PO / Invoice No.</label><input class="form-control" name="po_number" value="{{ item.po_number or '' }}"></div>
+    <div class="col-md-3"><label class="form-label">Country</label><input class="form-control" name="country" value="{{ item.country or '' }}" placeholder="Thailand / USA / ..."></div>
+
+    <div class="col-md-3"><label class="form-label">Warranty</label><input class="form-control" name="warranty" value="{{ item.warranty or '' }}"></div>
+    <div class="col-md-3"><label class="form-label">Warranty Expiry</label><input class="form-control" type="date" name="warranty_expiry" value="{{ item.warranty_expiry or '' }}"></div>
+    <div class="col-md-3"><label class="form-label">Purchase Ref / Legacy ID</label><input class="form-control" name="purchase_id" value="{{ item.purchase_id or '' }}"></div>
+    <div class="col-md-3"><label class="form-label">Quantity</label><input class="form-control" type="number" min="1" name="qty" value="{{ item.qty or 1 }}"></div>
+
+    <div class="col-md-4"><label class="form-label">Status</label><select class="form-select" name="status">{% for s in ['Active','In Stock','In Use','Repair','Retired'] %}<option {{'selected' if (item.status or 'Active')==s}}>{{s}}</option>{% endfor %}</select></div>
+    <div class="col-md-8"><label class="form-label">Remark</label><input class="form-control" name="remark" value="{{ item.remark or '' }}"></div>
+
+    <div class="col-md-12"><button class="btn btn-primary">Save</button></div>
+  </form>
+</div>
+{% endblock %}
