@@ -1,0 +1,61 @@
+{% extends 'base.html' %}{% block content %}
+<div class="d-flex justify-content-between align-items-start mb-4">
+  <div>
+    <h2 class="fw-bold mb-0">Product Structure</h2>
+    <div class="text-muted">Master structure: Product ID → Sub Product ID / Component</div>
+  </div>
+  <a class="btn btn-outline-primary" href="{{ url_for('spare_parts') }}"><i class="bi bi-tools"></i> Spare Parts</a>
+</div>
+
+<div class="row g-4">
+  <div class="col-xl-4">
+    <div class="card p-3">
+      <h5 class="fw-bold mb-3">Product Master</h5>
+      <div class="list-group">
+        {% for p in products %}
+        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center {{'active' if selected==p.product_id}}"
+           href="{{ url_for('product_structure', product_id=p.product_id) }}">
+          <span><b>{{p.product_id}}</b> — {{p.product_name}}</span>
+          <span class="badge bg-light text-dark">{{p.component_count}} parts</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-8">
+    <div class="card p-3">
+      <h5 class="fw-bold mb-3">Sub Product / Component List</h5>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Sub Product ID</th>
+              <th>Component / Spare Name</th>
+              <th>Part Type</th>
+              <th>Legacy Equipment</th>
+              <th>Spare Count</th>
+              <th>SN Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for c in components %}
+            <tr>
+              <td class="fw-bold">{{c.product_id}}</td>
+              <td>{{c.sub_product_id}}</td>
+              <td class="fw-semibold">{{c.component_name or '-'}}</td>
+              <td>{{c.part_type or '-'}}</td>
+              <td>{{c.legacy_equipment_name or '-'}}</td>
+              <td>{{c.spare_count}}</td>
+              <td>{{c.serial_count}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="small text-muted">ตัวอย่าง: Product ID 1 = LCMS, Sub Product ID 1/2/3... คือรายการอุปกรณ์ย่อยของ LCMS</div>
+    </div>
+  </div>
+</div>
+{% endblock %}

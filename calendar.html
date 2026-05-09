@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% block content %}
+<link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css' rel='stylesheet' />
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+<h2 class="fw-bold">Calendar View</h2><div class="card p-3"><div id='calendar'></div></div>
+{% endblock %}{% block scripts %}<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {initialView:'dayGridMonth', height:760, events:{{events|safe}}, eventClick:function(info){ window.location='/tasks/'+info.event.id+'/edit'; }});
+  calendar.render();
+});</script>{% endblock %}

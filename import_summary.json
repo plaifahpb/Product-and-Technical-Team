@@ -1,0 +1,24 @@
+{
+  "source": "TASK TRACKER INTERNAL_2026.xlsx",
+  "rows_imported": 87,
+  "columns": [
+    "id",
+    "task_description",
+    "category",
+    "owner",
+    "priority",
+    "status",
+    "due_date",
+    "important",
+    "urgent",
+    "note",
+    "day_remaining_auto",
+    "sub_product_id",
+    "customer",
+    "open_date",
+    "closed_date",
+    "kpi_result",
+    "ms_team",
+    "due_bucket"
+  ]
+}

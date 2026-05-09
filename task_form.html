@@ -1,0 +1,20 @@
+{% extends 'base.html' %}{% block content %}
+<h2 class="fw-bold">{{ 'Add Task' if mode=='new' else 'Edit Task #' ~ item.id }}</h2>
+<div class="card p-4"><form method="post" class="row g-3">
+  <div class="col-md-3"><label class="form-label">Case ID</label><input class="form-control" name="case_code" value="{{ item.case_code or '' }}" placeholder="Auto-generate if blank"></div>
+  <div class="col-md-9"><label class="form-label">Task Description</label><input required class="form-control" name="task_description" value="{{item.task_description or ''}}"></div>
+  <div class="col-md-3"><label class="form-label">Category</label><select class="form-select" name="category">{% for v in categories %}<option {{'selected' if item.category==v}}>{{v}}</option>{% endfor %}</select></div>
+  <div class="col-md-3"><label class="form-label">Owner</label><input list="owners" class="form-control" name="owner" value="{{item.owner or ''}}"><datalist id="owners">{% for v in master.get('owner',[]) %}<option value="{{v}}">{% endfor %}</datalist></div>
+  <div class="col-md-2"><label class="form-label">Priority</label><select class="form-select" name="priority">{% for v in priorities %}<option {{'selected' if item.priority==v}}>{{v}}</option>{% endfor %}</select></div>
+  <div class="col-md-2"><label class="form-label">Status</label><select class="form-select" name="status">{% for v in statuses %}<option {{'selected' if item.status==v}}>{{v}}</option>{% endfor %}</select></div>
+  <div class="col-md-2"><label class="form-label">Due Date</label><input type="date" class="form-control" name="due_date" value="{{item.due_date or ''}}"></div>
+  <div class="col-md-3"><label class="form-label">Sub Product ID</label><input list="products" class="form-control" name="sub_product_id" value="{{item.sub_product_id or ''}}"><datalist id="products">{% for v in master.get('sup_product_id',[]) %}<option value="{{v}}">{% endfor %}</datalist></div>
+  <div class="col-md-3"><label class="form-label">Customer</label><input list="customers" class="form-control" name="customer" value="{{item.customer or ''}}"><datalist id="customers">{% for v in master.get('customer',[]) %}<option value="{{v}}">{% endfor %}</datalist></div>
+  <div class="col-md-2"><label class="form-label">Open Date</label><input type="date" class="form-control" name="open_date" value="{{item.open_date or ''}}"></div>
+  <div class="col-md-2"><label class="form-label">Closed Date</label><input type="date" class="form-control" name="closed_date" value="{{item.closed_date or ''}}"></div>
+  <div class="col-md-2 d-flex align-items-end gap-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="important" {{'checked' if item.important}}><label class="form-check-label">Important</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="urgent" {{'checked' if item.urgent}}><label class="form-check-label">Urgent</label></div></div>
+  <div class="col-md-12"><label class="form-label">Note</label><textarea class="form-control" name="note" rows="4">{{item.note or ''}}</textarea></div>
+  <div class="col-md-12"><label class="form-label">MS Team / Link</label><input class="form-control" name="ms_team" value="{{item.ms_team or ''}}"></div>
+  <div class="col-md-12"><button class="btn btn-primary">Save</button> <a class="btn btn-outline-secondary" href="{{ url_for('tasks') }}">Cancel</a></div>
+</form></div>
+{% endblock %}
