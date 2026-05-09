@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: task-tracker-sbd
+    env: docker
+    plan: starter
+    autoDeploy: false
+    disk:
+      name: task-tracker-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PORT
+        value: 5000

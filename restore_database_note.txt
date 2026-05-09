@@ -1,0 +1,4 @@
+To restore:
+1. Stop the server.
+2. Copy backup file to data/task_tracker.db
+3. Start the server again.

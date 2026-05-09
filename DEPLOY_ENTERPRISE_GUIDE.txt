@@ -1,0 +1,42 @@
+TASK TRACKER 2026 - PRODUCTION ENTERPRISE WEB APPLICATION
+
+Recommended deployment options:
+
+OPTION A - Internal Server / Windows PC / NAS
+1. Extract ZIP on the central server.
+2. Double click: run_production_server.bat
+3. Open on server: http://127.0.0.1:5000
+4. Team URL: http://<SERVER_IP>:5000
+5. Allow Windows Firewall for Python / port 5000.
+6. Keep server powered on and disable Sleep mode.
+
+OPTION B - Cloud Web Application using Docker
+1. Push this folder to a private Git repository.
+2. Deploy using Dockerfile on Render / Railway / Azure / AWS.
+3. Set environment variable SECRET_KEY.
+4. Configure persistent storage for:
+   - data/task_tracker.db
+   - static/spare_parts
+   - static/task_images
+5. Use HTTPS and restrict access if needed.
+
+LOGIN ACCOUNTS
+
+Admin - full access:
+  user: SBDTP
+  password: SBDTP
+
+Internal team - edit operational data:
+  user: SBD_Internal
+  password: SBD_Internal
+
+External / other teams - viewer only:
+  user: iNFRA
+  password: iNFRA
+
+PRODUCTION NOTES
+- This package uses Waitress instead of Flask development server.
+- Passwords are stored hashed in the database.
+- Uploaded images are stored in static/spare_parts and static/task_images.
+- SQLite is included for simple deployment. For larger enterprise scale, migrate to PostgreSQL.
+- Schedule daily backup of data/task_tracker.db.
