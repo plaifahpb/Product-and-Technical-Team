@@ -93,7 +93,17 @@
           </td>
           <td>{{ r['owner'] or '-' }}</td>
           <td><span class="fw-semibold">{{ r['priority'] or '-' }}</span></td>
-          <td><span class="status-pill">{{ r['status'] or '-' }}</span></td>
+<td>
+<span class="status-pill
+{% if r['status'] == 'Completed' %} status-completed
+{% elif r['status'] == 'In Progress' %} status-progress
+{% elif r['status'] == 'Not Started' %} status-pending
+{% elif r['status'] == 'Overdue' %} status-overdue
+{% endif %}
+">
+{{ r['status'] or '-' }}
+</span>
+</td>
           <td>{{ r['open_date'] or '-' }}</td>
           <td>{{ r['closed_date'] or '-' }}</td>
           <td>{{ r['due_date'] or '-' }}</td>
