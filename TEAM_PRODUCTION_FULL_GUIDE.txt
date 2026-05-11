@@ -1,0 +1,29 @@
+TASK TRACKER 2026 - FULL TEAM READY VERSION
+
+This package is prepared for team usage on one shared web URL.
+
+What changed:
+- Automatic database/table initialization on Render.
+- Production user seed:
+  SBDTP / SBDTP = Admin
+  SBD_Internal / SBD_Internal = Staff
+  iNFRA / iNFRA = Viewer
+- SQLite WAL mode enabled for team concurrency:
+  multiple users can view/read together, and short writes will wait instead of immediately failing.
+- Waitress production server included.
+- Health check: /healthz
+
+IMPORTANT FOR DATA PERSISTENCE ON RENDER
+Render's normal filesystem can reset during redeploy. For real team usage, add a Render Disk:
+
+Disk name: task-data
+Mount path: /app/data
+Size: 1 GB
+
+Then upload your existing local database to GitHub at:
+data/task_tracker.db
+
+After first successful deploy, all team edits will be saved in the shared database at /app/data/task_tracker.db.
+
+RECOMMENDED LONG-TERM ENTERPRISE STEP
+For high-volume concurrent editing, migrate to PostgreSQL. SQLite WAL is acceptable for a small internal team, but PostgreSQL is the enterprise-grade database for many simultaneous users.

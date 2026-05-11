@@ -27,8 +27,18 @@ CATEGORY_LIST = ['01_Equipment Setup','02_Training & Guidance','03_Software Supp
 PURCHASE_SOURCE_LIST = ['OEM Direct', 'Local Supplier', 'Distributor', 'Internal Fabrication', 'RMA Replacement', 'Not Specified']
 
 def db():
-    con = sqlite3.connect(DB_PATH)
+    # One shared SQLite database file. WAL + busy_timeout allows multiple team members
+    # to read while another user is writing, and waits instead of failing on short locks.
+    os.makedirs(DATA_DIR, exist_ok=True)
+    con = sqlite3.connect(DB_PATH, timeout=30)
     con.row_factory = sqlite3.Row
+    try:
+        con.execute('PRAGMA journal_mode=WAL')
+        con.execute('PRAGMA synchronous=NORMAL')
+        con.execute('PRAGMA busy_timeout=30000')
+        con.execute('PRAGMA foreign_keys=ON')
+    except Exception:
+        pass
     return con
 
 
@@ -949,7 +959,7 @@ def export_csv():
 
 @app.route('/healthz')
 def healthz():
-    return jsonify({'status':'ok'})
+    return jsonify({'status':'ok', 'database':'sqlite-wal', 'db_path': DB_PATH})
 
 @app.route('/api/summary')
 @login_required
