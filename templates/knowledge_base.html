@@ -1,37 +1,87 @@
 {% extends 'base.html' %}{% block content %}
 <div class="d-flex justify-content-between align-items-start mb-4">
   <div>
-    <h2 class="fw-bold mb-0">Knowledge Base</h2>
+    <h2 class="fw-bold mb-1">Knowledge Base</h2>
     <div class="text-muted">Search previous cases, root causes and solutions</div>
+  </div>
+  <div class="d-flex gap-2">
+    <a class="btn btn-outline-primary" href="{{ url_for('export_knowledge_base_csv', q=request.args.get('q',''), product=request.args.get('product',''), classification=request.args.get('classification','')) }}">
+      <i class="bi bi-download"></i> Export CSV
+    </a>
+    <a class="btn btn-outline-danger" href="{{ url_for('export_knowledge_base_pdf', q=request.args.get('q',''), product=request.args.get('product',''), classification=request.args.get('classification','')) }}">
+      <i class="bi bi-file-earmark-pdf"></i> Export PDF
+    </a>
   </div>
 </div>
 
 <div class="card p-3 mb-4">
-  <form method="get" class="row g-2 align-items-end">
-    <div class="col-md-5"><label class="form-label small fw-semibold">Search</label><input class="form-control" name="q" value="{{request.args.get('q','')}}" placeholder="problem / root cause / solution / tag"></div>
-    <div class="col-md-3"><label class="form-label small fw-semibold">Product</label><select class="form-select" name="product"><option value="">All Product</option>{% for p in master.get('sup_product_id', []) %}<option value="{{p}}" {{'selected' if request.args.get('product')==p}}>{{p}}</option>{% endfor %}</select></div>
-    <div class="col-md-2"><label class="form-label small fw-semibold">Classification</label><select class="form-select" name="classification"><option value="">All</option>{% for c in classifications %}<option value="{{c}}" {{'selected' if request.args.get('classification')==c}}>{{c}}</option>{% endfor %}</select></div>
-    <div class="col-md-2 d-flex gap-2"><button class="btn btn-dark w-100">Search</button><a class="btn btn-outline-secondary" href="{{ url_for('knowledge_base') }}">Reset</a></div>
+  <form method="get" class="row g-3 align-items-end">
+    <div class="col-md-5">
+      <label class="form-label fw-semibold">Search</label>
+      <input class="form-control" name="q" value="{{ request.args.get('q','') }}" placeholder="problem / root cause / solution / tag">
+    </div>
+    <div class="col-md-3">
+      <label class="form-label fw-semibold">Product</label>
+      <select class="form-select" name="product">
+        <option value="">All Product</option>
+        {% for p in master.get('sup_product_id', []) %}
+        <option value="{{p}}" {{'selected' if request.args.get('product')==p}}>{{p}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label fw-semibold">Classification</label>
+      <select class="form-select" name="classification">
+        <option value="">All</option>
+        {% for c in classifications %}
+        <option value="{{c}}" {{'selected' if request.args.get('classification')==c}}>{{c}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-1 d-grid">
+      <button class="btn btn-dark">Search</button>
+    </div>
+    <div class="col-md-1 d-grid">
+      <a href="{{ url_for('knowledge_base') }}" class="btn btn-outline-secondary">Reset</a>
+    </div>
   </form>
 </div>
 
-<div class="row g-3">
-  {% for r in rows %}
-  <div class="col-md-6">
-    <div class="card p-4 h-100">
-      <div class="d-flex justify-content-between mb-2">
-        <h5 class="fw-bold mb-0"><a href="{{ url_for('task_detail', task_id=r.id) }}" class="text-decoration-none">{{ r.case_code or ('#' ~ r.id) }} {{r.task_description}}</a></h5>
-        {% if r.repeated_issue %}<span class="badge bg-danger">Repeated</span>{% endif %}
-      </div>
-      <div class="small text-muted mb-3">{{ r.sub_product_id or '-' }} • {{ r.case_classification or 'Unclassified' }} • {{ r.closed_date or r.open_date or '-' }}</div>
-      <div class="mb-2"><b>ปัญหา:</b> {{ r.problem_summary or '-' }}</div>
-      <div class="mb-2"><b>สาเหตุ:</b> {{ r.root_cause or '-' }}</div>
-      <div class="mb-2"><b>วิธีแก้:</b> {{ r.solution_resolution or '-' }}</div>
-      {% if r.knowledge_tags %}<div class="small text-primary">Tags: {{ r.knowledge_tags }}</div>{% endif %}
+<div class="card p-3">
+  {% if rows %}
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr>
+            <th>Case ID</th>
+            <th>Task</th>
+            <th>Product</th>
+            <th>Problem</th>
+            <th>Root Cause</th>
+            <th>Solution</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in rows %}
+          <tr>
+            <td class="fw-bold text-primary">{{ r.case_code or ('TK-' ~ r.id) }}</td>
+            <td>
+              <div class="fw-semibold">{{ r.task_description }}</div>
+              <div class="small text-muted">{{ r.customer or '-' }} / {{ r.owner or '-' }}</div>
+            </td>
+            <td>{{ r.sub_product_id or '-' }}</td>
+            <td class="small">{{ (r.problem_summary or '-')[:120] }}</td>
+            <td class="small">{{ (r.root_cause or '-')[:120] }}</td>
+            <td class="small">{{ (r.solution_resolution or '-')[:120] }}</td>
+            <td><a class="btn btn-sm btn-outline-primary" href="{{ url_for('task_detail', task_id=r.id) }}">View</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
-  </div>
   {% else %}
-  <div class="col-12"><div class="card p-5 text-center text-muted">ยังไม่มี Case Knowledge ที่บันทึกไว้</div></div>
-  {% endfor %}
+    <div class="text-center text-muted py-5">ยังไม่มี Case Knowledge ที่บันทึกไว้</div>
+  {% endif %}
 </div>
 {% endblock %}
