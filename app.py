@@ -1,8 +1,12 @@
 
-import os, sqlite3, json, uuid, hashlib, binascii
+import os, sqlite3, json, uuid, hashlib, binascii, io, csv
 from datetime import datetime, date
+from reportlab.lib.pagesizes import A4
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
 from functools import wraps
-from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify, Response
+from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify, Response, send_file
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(APP_DIR, 'data')
@@ -27,18 +31,8 @@ CATEGORY_LIST = ['01_Equipment Setup','02_Training & Guidance','03_Software Supp
 PURCHASE_SOURCE_LIST = ['OEM Direct', 'Local Supplier', 'Distributor', 'Internal Fabrication', 'RMA Replacement', 'Not Specified']
 
 def db():
-    # One shared SQLite database file. WAL + busy_timeout allows multiple team members
-    # to read while another user is writing, and waits instead of failing on short locks.
-    os.makedirs(DATA_DIR, exist_ok=True)
-    con = sqlite3.connect(DB_PATH, timeout=30)
+    con = sqlite3.connect(DB_PATH)
     con.row_factory = sqlite3.Row
-    try:
-        con.execute('PRAGMA journal_mode=WAL')
-        con.execute('PRAGMA synchronous=NORMAL')
-        con.execute('PRAGMA busy_timeout=30000')
-        con.execute('PRAGMA foreign_keys=ON')
-    except Exception:
-        pass
     return con
 
 
@@ -957,9 +951,105 @@ def export_csv():
         headers={'Content-Disposition':'attachment; filename=task_export.csv'}
     )
 
+
+@app.route('/export/knowledge_base.csv')
+@login_required
+def export_knowledge_base_csv():
+    q=request.args.get('q','').strip()
+    product=request.args.get('product','').strip()
+    classification=request.args.get('classification','').strip()
+    where=["(problem_summary IS NOT NULL OR root_cause IS NOT NULL OR solution_resolution IS NOT NULL)"]
+    params=[]
+    if q:
+        where.append("""(task_description LIKE ? OR problem_summary LIKE ? OR root_cause LIKE ? OR troubleshooting_process LIKE ? OR solution_resolution LIKE ? OR preventive_action LIKE ? OR knowledge_tags LIKE ?)""")
+        params += [f'%{q}%']*7
+    if product:
+        where.append("sub_product_id=?"); params.append(product)
+    if classification:
+        where.append("case_classification=?"); params.append(classification)
+    sql='SELECT case_code, task_description, owner, status, priority, customer, sub_product_id, open_date, closed_date, case_classification, knowledge_tags, problem_summary, root_cause, troubleshooting_process, solution_resolution, preventive_action, evidence_link FROM tasks WHERE ' + ' AND '.join(where) + ' ORDER BY closed_date DESC, open_date DESC, id DESC'
+    con=db()
+    rows=con.execute(sql,params).fetchall()
+    con.close()
+
+    output=io.StringIO()
+    fieldnames=['case_code','task_description','owner','status','priority','customer','sub_product_id','open_date','closed_date','case_classification','knowledge_tags','problem_summary','root_cause','troubleshooting_process','solution_resolution','preventive_action','evidence_link']
+    writer=csv.DictWriter(output, fieldnames=fieldnames)
+    writer.writeheader()
+    for r in rows:
+        writer.writerow({k: dict(r).get(k,'') for k in fieldnames})
+    csv_data='﻿' + output.getvalue()
+    return Response(csv_data, mimetype='text/csv; charset=utf-8-sig', headers={'Content-Disposition':'attachment; filename=knowledge_base_export.csv'})
+
+
+@app.route('/export/knowledge_base.pdf')
+@login_required
+def export_knowledge_base_pdf():
+    q=request.args.get('q','').strip()
+    product=request.args.get('product','').strip()
+    classification=request.args.get('classification','').strip()
+    where=["(problem_summary IS NOT NULL OR root_cause IS NOT NULL OR solution_resolution IS NOT NULL)"]
+    params=[]
+    if q:
+        where.append("""(task_description LIKE ? OR problem_summary LIKE ? OR root_cause LIKE ? OR troubleshooting_process LIKE ? OR solution_resolution LIKE ? OR preventive_action LIKE ? OR knowledge_tags LIKE ?)""")
+        params += [f'%{q}%']*7
+    if product:
+        where.append("sub_product_id=?"); params.append(product)
+    if classification:
+        where.append("case_classification=?"); params.append(classification)
+    sql='SELECT * FROM tasks WHERE ' + ' AND '.join(where) + ' ORDER BY closed_date DESC, open_date DESC, id DESC LIMIT 200'
+    con=db()
+    rows=[row_to_dict(r) for r in con.execute(sql,params).fetchall()]
+    con.close()
+
+    buffer=io.BytesIO()
+    doc=SimpleDocTemplate(buffer, pagesize=A4, rightMargin=32, leftMargin=32, topMargin=32, bottomMargin=32)
+    styles=getSampleStyleSheet()
+    story=[]
+    story.append(Paragraph('Task Tracker 2026 - Knowledge Base Report', styles['Title']))
+    story.append(Paragraph(f'Generated: {datetime.now().strftime("%Y-%m-%d %H:%M")}', styles['Normal']))
+    story.append(Paragraph(f'Total Knowledge Cases: {len(rows)}', styles['Normal']))
+    story.append(Spacer(1, 12))
+
+    if not rows:
+        story.append(Paragraph('No knowledge base records found.', styles['Normal']))
+    else:
+        for item in rows:
+            case_code = item.get('case_code') or f"TK-{(item.get('open_date') or datetime.now().strftime('%Y'))[:4]}-{item.get('id'):04d}"
+            title = item.get('task_description') or '-'
+            story.append(Paragraph(f'{case_code}: {title}', styles['Heading2']))
+            meta = f"Product: {item.get('sub_product_id') or '-'} | Customer: {item.get('customer') or '-'} | Owner: {item.get('owner') or '-'} | Status: {item.get('status') or '-'}"
+            story.append(Paragraph(meta, styles['Normal']))
+            data=[
+                ['Problem', item.get('problem_summary') or '-'],
+                ['Root Cause', item.get('root_cause') or '-'],
+                ['Troubleshooting', item.get('troubleshooting_process') or '-'],
+                ['Solution', item.get('solution_resolution') or '-'],
+                ['Preventive Action', item.get('preventive_action') or '-'],
+            ]
+            table=Table(data, colWidths=[110, 380])
+            table.setStyle(TableStyle([
+                ('BACKGROUND',(0,0),(0,-1),colors.HexColor('#eef2ff')),
+                ('TEXTCOLOR',(0,0),(0,-1),colors.HexColor('#111827')),
+                ('GRID',(0,0),(-1,-1),0.25,colors.HexColor('#d1d5db')),
+                ('VALIGN',(0,0),(-1,-1),'TOP'),
+                ('FONTNAME',(0,0),(-1,-1),'Helvetica'),
+                ('FONTSIZE',(0,0),(-1,-1),8),
+                ('LEFTPADDING',(0,0),(-1,-1),6),
+                ('RIGHTPADDING',(0,0),(-1,-1),6),
+                ('TOPPADDING',(0,0),(-1,-1),6),
+                ('BOTTOMPADDING',(0,0),(-1,-1),6),
+            ]))
+            story.append(table)
+            story.append(Spacer(1, 14))
+
+    doc.build(story)
+    buffer.seek(0)
+    return send_file(buffer, as_attachment=True, download_name='knowledge_base_report.pdf', mimetype='application/pdf')
+
 @app.route('/healthz')
 def healthz():
-    return jsonify({'status':'ok', 'database':'sqlite-wal', 'db_path': DB_PATH})
+    return jsonify({'status':'ok'})
 
 @app.route('/api/summary')
 @login_required
